@@ -5,3 +5,6 @@ We are using Firefox as our default browser because Firefox is a popular browser
 
 # How to enable autoplay in Firefox?
 https://support.mozilla.org/en-US/kb/block-autoplay
+
+# How to play?
+In order to start the game, press F11 key to enable fullscreen.
