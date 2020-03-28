@@ -1,0 +1,134 @@
+// Start sequence
+S1: "After a long week of work, you decide a weekend camping at the mountains alone would be a good activity."
+S1_2: "Suddenly, your car stops."
+S1_3: "Oh great, not again. Your car has broken down for the third time this month."
+S1_4: "It’s getting late. In the distance, you see an old mansion."
+S1_5: "What do you do? Visit the house. Call Triple A. Hitch a ride."
+S2: "You walk towards the house and knock on the large wooden door."  
+S2_1: "There is no response. You push the door open and to your surprise, it is unlocked. You enter the lobby of the house."
+S3: "Looks like there is no service."
+S4: "You wait for a while but no one passes by."
+S4_2: "What do you do? Visit the house. Call Triple A. Keep waiting."
+S5: "You wait some more, but no one is here."
+S5_2: "What do you do? Visit the house. Keep waiting."
+S5_3: "Still no one, it’s getting late."
+S5_4: "What do you do? Visit the house. Keep waiting."
+S5_5: "Finally, you see a car in the distance."
+S5_6: "You wave at it but it doesn’t stop."
+S5_7: "What do you do? Visit the house. Keep waiting."
+S5_8: "It’s now nighttime, it’s unlikely that any cars will pass at this point."
+S5_7: "What do you do? Visit the house. Keep waiting."
+S5_8: "You wait, wait, wait and wait some more, and finally, someone drives by and picks you up, taking you home. 
+By sheer willpower and determination, you somehow find yourself out of this problem.
+The next day, you get your car towed. Your weekend is ruined but at least you are safe."
+
+// Lobby
+L1: "You enter the lobby of the house. It is darkly lit and dusty, and full of old paintings on the walls. 
+You notice three different rooms. The bedroom, the bathroom and the kitchen."
+L1_2: "What do you do? Enter the bedroom. Enter the bathroom. Enter the kitchen. Leave the house."
+
+// Leave the house
+LV: "You try to leave the house. To your dismay, the door is shut and locked behind you!"
+LV_2: "The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave."
+LV2: "With the key in your hand you open the large wooden doors. You push hard and the doors creak to an open. Finally, you've escaped!"
+
+// Bedroom
+B1: "You enter the bedroom."
+B1_2: "Suddenly, the television turns on."
+B1_3: "What do you do? Turn the television off. Watch the television."
+B2: "You turn the television off."
+B2_2: "To your surprise, it comes back on!"
+// reuse B2_2 / B1_3 for looping
+B3: "You grip your hammer with your right hand."
+B3_2: "What do you do? Smash the TV. Do nothing."
+B4: "You smash the TV with all your strength. It shatters and everything becomes quiet."
+B4_2: "What do you do next? Search the drawers. Look under the bed."
+// look under bed refer B7-B9
+B5: "You find a note. It tells you to look under the right side of the bed."
+B6: "You choose to watch the television."
+B7: "Which side do you look under? Left side. Right side."
+B8: "You check the left side of the bed."
+B9: "You check the right side of the bed."
+B9_2: "You find a golden key! it must open a secret room somewhere."
+
+// Basement
+BS1: "You faint."
+BS1_2: "You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you."
+BS1_3: "What do you do? Leave through the door. Crawl through the floor. Walk by using the walls as a guide."
+BS2: "The door is locked. It seems like you need a key to open it."
+BS3: "You crawl around the room until you find a desk with two drawers."
+// move to BS5_2
+BS4: "You decided to use the walls as guidance to walk around the room."
+// BAD ENDING
+BS5: "You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with 2 drawers. "
+BS5_2: "Which do you open? Open the left drawer. Open the right drawer."
+BS6: "You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby."
+// BS7 left drawer jumpscare, then move to right drawer
+BS7: "You decide to check the right drawer."
+
+// Kitchen
+K1: "You enter the kitchen. There’s a large fridge to your left, and a kitchen counter next to it. You hear a peculiar sound coming from the counter."
+K1_2: "What do you do? Investigate the noise. Hide."
+K2: "You follow the source of the noise but you don’t find anything. There’s a fridge and an oven in the kitchen."
+K2_2: "What do you do? Search the fridge. Search the oven."
+K3: "You find two apples inside the fridge. A red apple and a green apple."
+K3_2: "What do you do? Pick up the red apple. Pick up the green apple."
+K4: "You pick up and eat the red apple. You faint."
+// Basement sequence
+K5: "You reach for the green apple. When you pull it out from the fridge, your hand slips and the apple falls to the kitchen floor."
+K5_2: "What do you do? Pick up the apple. Ignore the apple."
+K6: "You reach downwards to pick up the apple. In the gap between the fridge and the floor, you find a remote with a single red button."
+K6_2: "What do you do? Press the button. Put the remote back."
+K7: "The noise in the kitchen stops. Looks like it was from a remote-controlled speaker."
+K8: "You put the remote back where you found it."
+K8_2: "What do you do next? Check the oven. Pick up the red apple."
+K9: "You smell something burnt. You peer inside and find a charred object."
+K9_2: "What do you do? Clean the object. Leave the object."
+K10: "You clean the object. It’s a radio. The noises you heard seem to have come from the radio."
+K10_2: "What do you do? Turn off the radio. Change the frequency."
+K11: "You turn off the radio."
+// K12 in a radio/static voice, may need mp3
+K12: "Look under the mat."
+K13: "What do you do? Look under the mat. Ignore the instruction."
+K14: "You look under the mat by the kitchen sink. You find a silver key with a snake pattern."
+K15: "You close the oven door and look around the kitchen. Suddenly, you feel a shadow flash behind you."
+K15_2: "What do you do? Keep searching. Hide."
+K16: "After searching for a while, you notice a door hidden behind the fridge."
+K16_2: "What do you do? Investigate the door. Leave the kitchen."
+K17: "You pull on the fridge with all your strength. You turn the knob on the door and push. Behind the door you see a woman clad in white, back facing you. Her right hand is moving, chopping down on something in front of her. Suddenly, she stops."
+K17_2: "She turns towards you with a smile, staring you in the eye." 
+// Bad ending
+K18: "You return to the lobby."
+K19: You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight."
+K19_2: "After some time, the noises stop, you leave the kitchen and go back to the lobby."
+
+// Bathroom
+BR: "You enter the bathroom. The sink is on."
+BR_2: "What do you do? Turn off the sink. Open toilet seat."
+BR2 : "You hear footsteps running towards you."
+BR2_2: "What do you do? Lock the door. Hide in the cupboard."
+BR3: "The footsteps come closer until it stops."
+BR3_2: "Someone tries to open the door, but it is locked. Suddenly they start banging on the door."
+BR3_3: "What do you do? Hide in the cupboard. Hide in a vent."
+BR4: "You find a cupboard below the sink, and hide inside. Suddenly, the door is forced open."
+BR4_2: "You hear footsteps nearing the cupboard, then a laugh."
+BR4_3: "After some time, you hear footsteps walking out. What do you do? Leave the cupboard."
+BR5: "You attempt to leave the cupboard. In your despair, you find out it is locked!"
+BR5_2: "What do you do? Bang on the cupboard."
+BR5_3: "It’s useless! You can’t get out! What do you do? Bang even more."
+BR5_4: "Didn’t I tell you it’s useless? You are now stuck in the cupboard of someone’s abandoned  house. 
+Nobody will find you here for a while. What terrible life decisions you’ve made to make it to this point is unclear, but you have a long, long time to think about it."
+BR6: "Above the toilet, you find a loose vent shaft. You pop it open and crawl inside, putting back the cover behind you. You crawl through the vents and reach another room."
+BR7: "You try to leave but the door is stuck."
+BR7_2: "What do you do? Search the cupboard. Open the toilet seat."
+BR8: "In the cupboard, you find a hammer."
+BR9: "What do you do? Break down the door with the hammer. Hide in the cupboard."
+BR10: "You hold your hammer with both hands, then swing down."
+BR10_2: "After a couple of tries, the door breaks! You enter the lobby with your trusty new hammer."
+BR11: "You open the toilet seat. To your surprise, it’s full of bugs! "
+BR11_2: "What do you do? Close the toilet seat. Leave the bathroom."
+BR12: "There is a cupboard below the sink. You decide to search it."
+// BR8
+BR13: "You leave the bathroom into the lobby."
+
+// secret room is incomplete
