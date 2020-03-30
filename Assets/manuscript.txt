@@ -1,3 +1,4 @@
+// FOR REFERENCE PURPOSES ONLY
 // Start sequence
 S1: "After a long week of work, you decide a weekend camping at the mountains alone would be a good activity."
 S1_2: "Suddenly, your car stops."
