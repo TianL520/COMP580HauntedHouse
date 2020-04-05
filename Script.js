@@ -211,12 +211,15 @@ const kt = function () {
     play('K1_2')
 }
 
+//add wait function later and flashlight == true
 const hideInKitchen = function () {
     play('K19')
     play('K19_2')
     return $(`
         <div class="hide">
-            <div id="buttons"><button class="option" id="back"> Back to Lobby </button></div>
+            <div id="buttons">
+            <button class="option" id="back"> Back to Lobby </button>
+            </div>
             <p id="paragraphs">You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight. After some time, the noises stop. You leave the kitchen and go back to the lobby. </p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorSE.mp3" type='audio/mp3'></audio>
         </div>
@@ -249,7 +252,7 @@ function back() {
     $("#back").click(function () {
         stop_speech();
         event.preventDefault();
-        event.target.parentNode.remove();
+        event.target.parentNode.parentNode.remove();
         $('#root').append(VH);
         bath()
     })
@@ -618,30 +621,237 @@ function badEndInKit1() {
 }
 
 
-
-
-
-
-
-
 //bathroom
 const bt = function () {
     return $(`
         <div class="bathroom">
             <div id="buttons">
                 <button class="option" id="turnOffSink"> turn off sink </button>
-                <button class="option" id="LockTheDoor"> Lock the door </button>
+                <button class="option" id="exitbathroom"> Exit Bathroom </button>
             </div>
             <p id="paragraphs"> You enter the bathroom. The sink is on. What do you do? </p>  
         </div>    
     `);
 }
 
+
 function bath() {
     $("#bathroom").click(function () {
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(bt);
+        turnoffsink1();
+        exitbath1();
+    })
+}
+
+
+//turn off sink
+const turnoffsink = function () {
+    return $(`
+        <div class="offsink">
+            <div id="buttons">
+                <button class="option" id="Hideincupboard"> Hide in the cupboard </button>
+                <button class="option" id="LockTheDoor"> Lock the door </button>
+            </div>
+            <p id="paragraphs"> You hear footsteps running towards you. What do you do?</p>  
+        </div>    
+    `);
+}
+
+function turnoffsink1() {
+    $("#turnOffSink").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(turnoffsink);
+        lockdoor1();
+        hideincupboard1();
+    })
+}
+
+//lock the door
+const lockdoor = function () {
+    return $(`
+        <div class="lockdoor">
+            <div id="buttons">
+                <button class="option" id="Hideincupboard"> Hide in the cupboard </button>
+                <button class="option" id="Hideinvent"> Hide in a vent </button>
+            </div>
+            <p id="paragraphs"> The footsteps come closer until it stops. Someone tries to open the door, but it is locked. Suddenly they start banging on the door</p>  
+        </div>    
+    `);
+}
+
+function lockdoor1() {
+    $("#LockTheDoor").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(lockdoor);
+        hideincupboard1();
+        climbvent1();
+    })
+}
+
+//hide in cupboard
+const hideincupboard = function () {
+    return $(`
+        <div class="hidecupboard">
+            <div id="buttons">
+                <button class="option" id="Leavecupboard"> Leave the cupboard</button>
+            </div>
+            <p id="paragraphs"> You find a cupboard below the sink, and hide inside. Suddenly, the door is forced open. You hear footsteps nearing the cupboard, then a laugh. After some time, you hear footsteps walking out. What do you do?</p>  
+        </div>    
+    `);
+}
+
+function hideincupboard1() {
+    $("#Hideincupboard").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(hideincupboard);
+        leavecup1();
+    })
+}
+
+//leave cupboard
+const leavecup = function () {
+    return $(`
+        <div class="leavecup">
+            <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do? Bang on the cupboard. It’s useless! You can’t get out! What do you do? Bang even more. Didn’t I tell you it’s useless? You are now stuck in the cupboard of someone’s house. Nobody will find you here for a while. What terrible life decisions you’ve made to make it to this point is unclear, but you have a long, long time to think about it.</p>  
+        </div>    
+    `);
+}
+
+function leavecup1() {
+    $("#Leavecupboard").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(leavecup);
+    })
+}
+
+//Climb into the vent
+const climbvent = function () {
+    return $(`
+        <div class="climbvent">
+            <p id="paragraphs"> Above the toilet, you find a loose vent shaft. You pop it open and crawl inside, putting back the cover behind you. You crawl through the vents and reach another room. </p>  
+        </div>    
+    `);
+}
+//add wait function later to basement
+function climbvent1() {
+    $("#Hideinvent").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(climbvent);
+    })
+}
+
+const exitbath = function () {
+    return $(`
+        <div class="exitbath">
+            <div id="buttons">
+                <button class="option" id="searchcup"> Search the cupboard </button>
+                <button class="option" id="openseat"> Open the toilet seat </button>
+            </div>
+            <p id="paragraphs"> You try to leave but the door is stuck. What do you do?</p>  
+        </div>    
+    `);
+}
+
+function exitbath1() {
+    $("#exitbathroom").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(exitbath);
+        searchcupboard1();
+        toiletseat1();
+    })
+}
+
+const searchcupboard = function () {
+    return $(`
+        <div class="searchcupboard">
+            <div id="buttons">
+                <button class="option" id="breakdoor"> Break down the door with the hammer </button>
+                <button class="option" id="Hideincupboard"> Hide in the cupboard </button>
+            </div>
+            <p id="paragraphs"> In the cupboard, you find a hammer. What do you do?</p>  
+        </div>    
+    `);
+}
+
+function searchcupboard1() {
+    $("#searchcup").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(searchcupboard);
+        hideincupboard1();
+        breakdowndoor1();
+    })
+}
+
+const breakdowndoor = function () {
+    return $(`
+        <div class="breakdowndoor">
+        <div id="buttons">
+        <button class="option" id="back"> Back to Lobby </button>
+        </div>
+            <p id="paragraphs"> You hold your hammer with both hands, then swing down. After a couple of tries, the door breaks! You enter the lobby with your trusty new hammer</p>  
+        </div>    
+    `);
+}
+
+//add wait function back to lobby with hammer
+function breakdowndoor1() {
+    $("#breakdoor").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(breakdowndoor);
+        hideincupboard1();
+        back();
+    })
+}
+
+const toiletseat = function () {
+    return $(`
+        <div class="toiletseat">
+        <div id="buttons">
+        <button class="option" id="Closetoiletseat"> Close the toilet seat</button>
+        <button class="option" id="back"> Leave the bathroom </button>
+        </div>
+        <p id="paragraphs"> You open the toilet seat. To your surprise, it’s full of bugs! What do you do? </p>  
+        </div>    
+    `);
+}
+
+function toiletseat1() {
+    $("#openseat").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(toiletseat);
+        back();
+        closetoiletseat1();
+    })
+}
+
+const closetoiletseat = function () {
+    return $(`
+        <div class="closeseat">
+        <div id="buttons">
+        <button class="option" id="searchcup"> Search the cupboard </button>
+        </div>
+        <p id="paragraphs"> There is a cupboard below the sink. You decide to search it</p>  
+        </div>    
+    `);
+}
+
+function closetoiletseat1() {
+    $("#Closetoiletseat").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(closetoiletseat);
+        searchcupboard1();
     })
 }
 
