@@ -1,5 +1,4 @@
 var speech_inst = window.speechSynthesis
-Replay();
 
 ///////////////////////////////////////////////////////Scene setup functions///////////////////////////////////////////////////////
 // Start scene 
@@ -1133,7 +1132,7 @@ var dict = {
     "bathroomS": BT
 };
 
-// Visit house scene
+// Replay narration click function
 const Replay = function () {
     $(".Replay").on('click', function(event){
         stop_speech();
@@ -1141,3 +1140,4 @@ const Replay = function () {
     });
 }
 
+Replay();
