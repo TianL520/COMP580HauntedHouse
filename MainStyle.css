@@ -33,31 +33,35 @@ body {
 }
 
 /* Pages */
-#start, .house, .tripleA, .ride, .keepWait, .kitchen, .hide {
+#startS, #houseS, #tripleAS, #rideS, #keepwaitingS, #kitchenS, #hideS, #bathroomS {
     background-image: url(./Assets/oldMansion.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
 }
 
-.house {
+#houseS {
     background-image: url(./Assets/lobby.png);
 }
 
-.tripleA {
+#tripleAS {
     background-image: url(./Assets/call.png);
 }
 
-.ride {
+#rideS, #keepwaitingS {
     background-image: url(./Assets/hitchRide.png);
 }
 
-.kitchen {
+#kitchenS {
     background-image: url(./Assets/kitchen.png);
 }
 
-.hide {
+#hideS {
     background-image: url(./Assets/closet.png);
+}
+
+#bathroomS {
+    background-image: url(./Assets/bathroom.png);
 }
 
 /* Option and narration designs  */
