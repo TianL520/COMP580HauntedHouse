@@ -4,19 +4,19 @@ Replay();
 ///////////////////////////////////////////////////////Scene setup functions///////////////////////////////////////////////////////
 // Start scene 
 const SS = function () {
-    play('S1')
-    play('S1_2')
-    play('S1_3')
-    play('S1_4')
-    play('S1_5')
+    play('S1');
+    play('S1_2');
+    play('S1_3');
+    play('S1_4');
+    play('S1_5');
 }
 
 // Visit house scene
 const VH = function () {
-    play('S2')
-    play('S2_1')
-    play('L1')
-    play('L1_2')
+    play('S2');
+    play('S2_1');
+    play('L1');
+    play('L1_2');
     return $(`
         <div id="houseS">
             <div id="buttons">
@@ -35,8 +35,8 @@ const VH = function () {
 
 // Call triple a scene
 const CTA = function () {
-    play('S3')
-    play('SE_1')
+    play('S3');
+    play('SE_1');
     return $(`
         <div id="tripleAS">
             <div id="buttons">
@@ -52,8 +52,8 @@ const CTA = function () {
 
 // Hitch a ride scene
 const HR = function () {
-    play('S4')
-    play('S1_5')
+    play('S4');
+    play('S1_5');
     return $(`
         <div class="rideS">
             <div id="buttons">
@@ -69,8 +69,8 @@ const HR = function () {
 
 // Keep waiting scene
 const KW = function () {
-    play('S5')
-    play('S5_2')
+    play('S5');
+    play('S5_2');
     return $(` 
         <div id="keepwaitingS">
             <div id="buttons">
@@ -78,15 +78,15 @@ const KW = function () {
                 <button class="option" id="wait">Keep waiting</button>
                 <button class="option" id="Replay">Replay narration</button>
             </div>
-            <p id="paragraphs"> You wait some more, but no one is here. </p> 
+            <p id="paragraphs">You wait some more, but no one is here.</p> 
         </div>
     `);
 }
 
 // Kitchen scene
 const KT = function () {
-    play('K1')
-    play('K1_2')
+    play('K1');
+    play('K1_2');
     return $(`
         <div id="kitchenS">
             <div id="buttons">
@@ -94,7 +94,7 @@ const KT = function () {
                 <button class="option" id="hide">Hide</button>
                 <button class="option" id="Replay">Replay narration</button>
             </div>
-            <p id="paragraphs"> You enter the kitchen. There’s a large fridge to your left, and a kitchen counter next to it. You hear a peculiar sound coming from the counter.  What do you do?</p>  
+            <p id="paragraphs">You enter the kitchen. There’s a large fridge to your left, and a kitchen counter next to it. You hear a peculiar sound coming from the counter. What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/ChopSE.mp3" type='audio/mp3'></audio>
         </div>    
     `);
@@ -104,8 +104,8 @@ const KT = function () {
 //add wait function later and flashlight == true
 // Hide in kitchen scene
 const HIK = function () {
-    play('K19')
-    play('K19_2')
+    play('K19');
+    play('K19_2');
     return $(`
         <div id="hideS">
             <div id="buttons">
@@ -120,6 +120,8 @@ const HIK = function () {
 
 // Investigate noise scene
 const IIK = function () {
+    play('K2');
+    play('K2_2');
     return $(`
         <div class="investigate">
             <div id="buttons">
@@ -134,6 +136,8 @@ const IIK = function () {
 
 // Search fridge scene
 const SF = function () {
+    play('K3');
+    play('K3_2');
     return $(`
         <div class="infridge">
             <div id="buttons">
@@ -148,6 +152,8 @@ const SF = function () {
 
 // Search oven scene
 const SO = function () {
+    play('K9');
+    play('K9_2');
     return $(`
         <div class="oven">
             <div id="buttons">
@@ -162,6 +168,8 @@ const SO = function () {
 
 // Clean oven scene
 const CO = function () {
+    play('K10');
+    play('K10_2');
     return $(`
         <div class="oven">
             <div id="buttons">
@@ -177,6 +185,7 @@ const CO = function () {
 
 // Red apple scene
 const RA = function () {
+    play('K4');
     return $(`
         <div class="redapple">          
             <p id="paragraphs">You pick up and eat the red apple. You faint </p>
@@ -186,6 +195,8 @@ const RA = function () {
 
 // Green apple scene
 const GA = function () {
+    play('K5');
+    play('K5_2');
     return $(`
         <div class="greenapple">
             <div id="buttons">
@@ -200,6 +211,8 @@ const GA = function () {
 
 // Pick green apple scene
 const PGA = function () {
+    play('K5');
+    play('K5_2');
     return $(`
         <div class="pickgreen">
             <div id="buttons">
@@ -214,6 +227,7 @@ const PGA = function () {
 
 // Press remote scene
 const PR = function () {
+    play('K7');   
     return $(`
         <div class="pressbtn">
             <div id="buttons">
@@ -227,6 +241,8 @@ const PR = function () {
 
 // Put remote back scene
 const PRB = function () {
+    play('K8');
+    play('K8_2');
     return $(`
         <div class="putback">
             <div id="buttons">
@@ -234,26 +250,28 @@ const PRB = function () {
                 <button class="option" id="searchOven">Search oven</button>
                 <button class="option" id="Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You put the remote back where you found it. What do you do next? </p>
+            <p id="paragraphs">You put the remote back where you found it. What do you do next?</p>
         </div>  
     `);
 }
 
 // Turn off radio scene
 const OR = function () {
+    play('K11');
     return $(`
         <div class="offradio">
             <div id="buttons">
                 <button class="option" id="leave">Leave the object</button>
                 <button class="option" id="Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You turn off the radio.  </p>
+            <p id="paragraphs">You turn off the radio.</p>
         </div>  
     `);
 }
 
 // Change frequency scene
 const CF = function () {
+    play('K11');
     return $(`
         <div class="changefreq">
             <div id="buttons">
@@ -261,13 +279,14 @@ const CF = function () {
                 <button class="option" id="ignoreinstruction">Ignore the instruction</button>    
                 <button class="option" id="Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You turn off the radio.  </p>
+            <p id="paragraphs">You turn off the radio.</p>
         </div>  
     `);
 }
 
 // Find key in kitchen scene
 const FKIK = function () {
+    play('K14');
     return $(`
         <div class="findkey">
             <div id="buttons">
@@ -275,7 +294,7 @@ const FKIK = function () {
                 <button class="option" id="back">Back to Lobby</button>
                 <button class="option" id="Replay">Replay narration</button>
             </div>
-            <p id="paragraphs">You look under the mat by the kitchen sink. You find a key</p>
+            <p id="paragraphs">You look under the mat by the kitchen sink. You find a key.</p>
         </div>  
     `);
 }
@@ -284,13 +303,15 @@ const FKIK = function () {
 const LH = function () {
     return $(`
         <div class="goodending1">
-            <p id="paragraphs">You leave the house</p>
+            <p id="paragraphs">You leave the house.</p>
         </div>  
     `);
 }
 
 // Leave object scene
 const LO = function () {
+    play('K15');
+    play('K15_2');
     return $(`
         <div class="leaveobject">
             <div id="buttons">
@@ -305,6 +326,8 @@ const LO = function () {
 
 // Keep searching scene
 const KS = function () {
+    play('K16');
+    play('K16_2');
     return $(`
         <div class="keep">
             <div id="buttons">
@@ -319,6 +342,8 @@ const KS = function () {
 
 // Kitchen fridge scene - BAD ENDING
 const BEIK = function () {
+    play('K17');
+    play('K17_2');
     return $(`
         <div class="kitchenbe">
             <p id="paragraphs">You pull on the fridge with all your strength. You turn the knob on the door and push. Behind the door you see a woman clad in white, back facing you. Her right hand is moving, chopping down on something in front of her. Suddenly, she stops and turns to you. She smiles and stares you in the eye.</p>
@@ -328,6 +353,7 @@ const BEIK = function () {
 
 // Bathroom scene
 const BT = function () {
+    play('BR_2');
     return $(`
         <div id="bathroomS">
             <div id="buttons">
@@ -342,6 +368,8 @@ const BT = function () {
 
 // Turn off sink scene
 const TOS = function () {
+    play('BR2');
+    play('BR2_2');
     return $(`
         <div class="offsink">
             <div id="buttons">
@@ -356,6 +384,8 @@ const TOS = function () {
 
 // Lock the door scene
 const LD = function () {
+    play('BR3');
+    play('BR3_2');
     return $(`
         <div class="lockdoor">
             <div id="buttons">
@@ -370,6 +400,9 @@ const LD = function () {
 
 // Hide in cupboard scene
 const HIC = function () {
+    play('BR4');
+    play('BR4_2');
+    play('BR4_3');
     return $(`
         <div class="hidecupboard">
             <div id="buttons">
@@ -383,6 +416,8 @@ const HIC = function () {
 
 // Leave cupboard scene
 const LC = function () {
+    play('BR5');
+    play('BR5_2');
     return $(`
         <div class="leavecup">
             <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do? Bang on the cupboard. It’s useless! You can’t get out! What do you do? Bang even more. Didn’t I tell you it’s useless? You are now stuck in the cupboard of someone’s house. Nobody will find you here for a while. What terrible life decisions you’ve made to make it to this point is unclear, but you have a long, long time to think about it.</p>  
@@ -392,6 +427,7 @@ const LC = function () {
 
 // Climb into the vent scene
 const CV = function () {
+    play('BR6');
     return $(`
         <div class="climbvent">
             <p id="paragraphs"> Above the toilet, you find a loose vent shaft. You pop it open and crawl inside, putting back the cover behind you. You crawl through the vents and reach another room. </p>  
@@ -401,6 +437,8 @@ const CV = function () {
 
 // Exit bathroom scene
 const EB = function () {
+    play('BR7');
+    play('BR7_2');
     return $(`
         <div class="exitbath">
             <div id="buttons">
@@ -414,6 +452,8 @@ const EB = function () {
 }
 
 const SCB = function () {
+    play('BR8');
+    play('BR9');
     return $(`
         <div class="searchcupboard">
             <div id="buttons">
@@ -427,6 +467,8 @@ const SCB = function () {
 }
 
 const BD = function () {
+    play('BR10');
+    play('BR10_2');
     return $(`
         <div class="breakdowndoor">
             <div id="buttons">
@@ -439,6 +481,8 @@ const BD = function () {
 
 // Toilet seat scene
 const TS = function () {
+    play('BR11');
+    play('BR11_2');
     return $(`
         <div class="toiletseat">
             <div id="buttons">
@@ -453,6 +497,7 @@ const TS = function () {
 
 // Close toilet seat scene
 const CTS = function () {
+    play('BR12');
     return $(`
         <div class="closeseat">
             <div id="buttons">
@@ -619,6 +664,7 @@ function back() {
 // Investigate the kitchen
 function investigatekit() {
     $("#investigate").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(IIK);
@@ -630,6 +676,7 @@ function investigatekit() {
 // Search fridge
 function searchFri() {
     $("#searchFridge").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(SF);
@@ -642,6 +689,7 @@ function searchFri() {
 // Red apple
 function frired() {
     $("#red").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(RA);
@@ -651,6 +699,7 @@ function frired() {
 // Green apple
 function frigreen() {
     $("#green").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(GA);
@@ -662,6 +711,7 @@ function frigreen() {
 // Pick green apple
 function pickgreen() {
     $("#pickup").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(PGA);
@@ -672,10 +722,12 @@ function pickgreen() {
 
 // Ignore green apple
 function ignoregreenapple() {
+    play('K20');
     $("#ignore").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
-        $('#root').append('<p id="paragraphs">You ignore green apple, check oven</p>');
+        $('#root').append('<p id="paragraphs">You ignore green apple and check the oven instead</p>');
         $('#root').append(SO);
         searchOven();
     })
@@ -684,6 +736,7 @@ function ignoregreenapple() {
 // Press button
 function pressbutton() {
     $("#press").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(PR);
@@ -694,6 +747,7 @@ function pressbutton() {
 // Put remote
 function putremote() {
     $("#putback").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(PRB);
@@ -705,6 +759,7 @@ function putremote() {
 // Search oven
 function searchOven() {
     $("#searchOven").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(SO);
@@ -716,6 +771,7 @@ function searchOven() {
 // Clean
 function clean() {
     $("#clean").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(CO);
@@ -727,6 +783,7 @@ function clean() {
 // Turn off the radio
 function offradio() {
     $("#turnOffRadio").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(OR);
@@ -737,6 +794,7 @@ function offradio() {
 // Change the radio frequency
 function change() {
     $("#changeFrequency").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(CF);
@@ -748,6 +806,7 @@ function change() {
 // Find key
 function findkey() {
     $("#lookundermat").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(FKIK);
@@ -759,6 +818,7 @@ function findkey() {
 // Ignore instruction
 function ignoreinstruction() {
     $("#ignoreinstruction").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(LO);
@@ -769,6 +829,7 @@ function ignoreinstruction() {
 // Leave the house
 function leavehouse() {
     $("#leavehouse").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(LH);
@@ -778,6 +839,7 @@ function leavehouse() {
 // Leave object
 function leaveobject1() {
     $("#leave").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(LO);
@@ -789,6 +851,7 @@ function leaveobject1() {
 // Keep searching
 function keepsearch() {
     $("#keepsearch").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(KS);
@@ -800,6 +863,7 @@ function keepsearch() {
 // Bad ending in kitchen
 function badEndInKit() {
     $("#lookdoor").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(BEIK);
@@ -809,6 +873,7 @@ function badEndInKit() {
 // Bathroom
 function bath() {
     $("#bathroom").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(BT);
@@ -820,6 +885,7 @@ function bath() {
 // Turn off the sink
 function turnoffsink() {
     $("#turnOffSink").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(TOS);
@@ -831,6 +897,7 @@ function turnoffsink() {
 // Lock the door
 function lockdoor() {
     $("#LockTheDoor").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(LD);
@@ -842,6 +909,7 @@ function lockdoor() {
 // Hide in cupboard
 function hideincupboard() {
     $("#Hideincupboard").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(HIC);
@@ -852,6 +920,7 @@ function hideincupboard() {
 // Leave cupboard
 function leavecup() {
     $("#Leavecupboard").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(LC);
@@ -862,6 +931,7 @@ function leavecup() {
 // Climb the vent
 function climbvent() {
     $("#Hideinvent").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(CV);
@@ -871,6 +941,7 @@ function climbvent() {
 // Exit bathroom
 function exitbath() {
     $("#exitbathroom").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(EB);
@@ -882,6 +953,7 @@ function exitbath() {
 // Search cupboard
 function searchcupboard() {
     $("#searchcup").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(SCB);
@@ -894,6 +966,7 @@ function searchcupboard() {
 // Break door
 function breakdowndoor() {
     $("#breakdoor").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(BD);
@@ -905,6 +978,7 @@ function breakdowndoor() {
 // Toilet seat
 function toiletseat() {
     $("#openseat").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(TS);
@@ -916,6 +990,7 @@ function toiletseat() {
 // Close toilet seat
 function closetoiletseat() {
     $("#Closetoiletseat").click(function () {
+        stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(CTS);
@@ -1007,6 +1082,7 @@ manuscript.set('K17_2', "She turns towards you with a smile, staring you in the 
 manuscript.set('K18', "You return to the lobby.")
 manuscript.set('K19', "You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It's a flashlight.")
 manuscript.set('K19_2', "After some time, the noises stop, you leave the kitchen and go back to the lobby.")
+manuscript.set('K20', "You ignore green apple and check the oven instead.")
 manuscript.set('BR', "You enter the bathroom. The sink is on.")
 manuscript.set('BR_2', "What do you do? Turn off the sink. Open toilet seat. Replay narration.")
 manuscript.set('BR2 ', "You hear footsteps running towards you.")
