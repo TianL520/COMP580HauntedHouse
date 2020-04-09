@@ -35,7 +35,9 @@ body {
 /* Pages */
 #startS, #houseS, #tripleAS, #rideS, #keepwaitingS, #keepwaitingBES, #kitchenS, #investigateS,
 #infridgeS, #ovenS, #cleanOvenS, #redappleS, #greenappleS, #pickgreenS, #ignoreGreenS, #hideS, 
-#offradioS, #bathroomS, #BadEndingS, #trytoleavehouseS {
+#offradioS, #pressbtnS, #bathroomS, #BadEndingS, #trytoleavehouseS, #leaveobjectS, #keepS,
+#putbackS, #kitchenbeS, #changefreqS, #findkeyS, #goodending1S, #GoodEndingS, #GoodEndingS,
+#offsinkS, #lockdoorS, #hidecupboardS, #leavecupS {
     background-image: url(./Assets/oldMansion.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,7 +60,7 @@ body {
     background-image: url(./Assets/WaitHorror.jpg);
 }
 
-#kitchenS {
+#kitchenS, #pressbtnS {
     background-image: url(./Assets/kitchen.png);
 }
 
@@ -78,7 +80,7 @@ body {
     background-image: url(./Assets/Remote.jpg);
 }
 
-#infridgeS {
+#infridgeS, #putbackS {
     background-image: url(./Assets/OpenFridge.jpg);
 }
 
@@ -86,7 +88,7 @@ body {
     background-image: url(./Assets/OpenOven.jpg);
 }
 
-#cleanOvenS, #offradioS {
+#cleanOvenS, #offradioS, #changefreqS {
     background-image: url(./Assets/Radio.jpg);
 }
 
@@ -104,6 +106,42 @@ body {
 
 #BadEndingS {
     background-image: url(./Assets/GameOver.png);
+}
+
+#leaveobjectS {
+    background-image: url(./Assets/Shadow.jpg);
+}
+
+#keepS {
+    background-image: url(./Assets/DoorBehindFridge.jpg);
+}
+
+#kitchenbeS {
+    background-image: url(./Assets/WomanInKit.jpg);
+}
+
+#findkeyS {
+    background-image: url(./Assets/KeyUnderMat.jpg);
+}
+
+#offsinkS {
+    background-image: url(./Assets/FootstepBath.jpg);
+}
+
+#lockdoorS {
+    background-image: url(./Assets/LockBathDoor.jpg);
+}
+
+#hidecupboardS, #leavecupS {
+    background-image: url(./Assets/CupboardSink.jpg);
+}
+
+#goodending1S {
+    background-image: url(./Assets/UnlockDoor.jpg);
+}
+
+#GoodEndingS {
+    background-image: url(./Assets/YouWin.jpg);
 }
 
 /* Option and narration designs  */
