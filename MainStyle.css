@@ -33,7 +33,7 @@ body {
 }
 
 /* Pages */
-#startS, #houseS, #tripleAS, #rideS, #keepwaitingS, #kitchenS, #hideS, #bathroomS {
+#startS, #houseS, #tripleAS, #rideS, #keepwaitingS, #keepwaitingBES, #kitchenS, #hideS, #bathroomS, #BadEndingS {
     background-image: url(./Assets/oldMansion.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,6 +52,10 @@ body {
     background-image: url(./Assets/hitchRide.png);
 }
 
+#keepwaitingBES {
+    background-image: url(./Assets/WaitHorror.jpg);
+}
+
 #kitchenS {
     background-image: url(./Assets/kitchen.png);
 }
@@ -64,8 +68,12 @@ body {
     background-image: url(./Assets/bathroom.png);
 }
 
+#BadEndingS {
+    background-image: url(./Assets/GameOver.png);
+}
+
 /* Option and narration designs  */
-#paragraphs {
+#paragraphs, #paragraphsHours {
     background-image: url(./Assets/message_box.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -85,7 +93,7 @@ body {
     min-height: 70vh;
 }
 
-.option {
+.option, .BEoption {
     background-image: url(./Assets/option_btn.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -99,4 +107,8 @@ body {
     text-align: center;
     font-size: 23px;
     font-family: 'Do Hyeon', sans-serif;
+}
+
+.BEoption {
+    display: none;
 }
