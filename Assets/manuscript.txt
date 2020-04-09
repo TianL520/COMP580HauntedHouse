@@ -101,7 +101,7 @@ K17_2: "She turns towards you with a smile, staring you in the eye."
 // Bad ending
 K18: "You return to the lobby."
 K19: You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight."
-K19_2: "After some time, the noises stop, you leave the kitchen and go back to the lobby."
+K19_2: "After some time, the noises stop, you leave the kitchen and go Back to the lobby."
 
 // Bathroom
 BR: "You enter the bathroom. The sink is on."

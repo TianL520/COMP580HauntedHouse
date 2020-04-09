@@ -88,7 +88,7 @@ const KWBE = function () {
     return $(` 
         <div id="keepwaitingBES">
             <div id="buttons">
-                <button class="BEoption">Placeholder</button>
+                <button class="hiddenOption">Placeholder</button>
             </div>
             <p id="paragraphsHours">But now he is no longer alone. He looks behind him and sees a ghostly figure with a most terrifying face.</p> 
             <audio controls autoplay class="music"><source src="./Assets/ScreamSE.mp3" type='audio/mp3'></audio>
@@ -111,7 +111,23 @@ const KT = function () {
             <audio controls autoplay loop class="music"><source src="./Assets/ChopSE.mp3" type='audio/mp3'></audio>
         </div>    
     `);
-    play('K1_2')
+}
+
+// Try to leave house scene
+const TTLH = function () {
+    play('LV');
+    play('LV_2');
+    play('LV_3');
+    return $(`
+        <div id="trytoleavehouseS">
+            <div id="buttons">
+                <button class="option" id="back">Back to the lobby</button>
+                <button class="option Replay">Replay narration</button>
+            </div>
+            <p id="paragraphs">You try to leave the house. To your dismay, the door is shut and locked behind you! The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave. What do you do?</p>  
+            <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
+        </div>    
+    `);
 }
 
 //add wait function later and flashlight == true
@@ -122,10 +138,10 @@ const HIK = function () {
     return $(`
         <div id="hideS">
             <div id="buttons">
-                <button class="option" id="back">Back to Lobby</button>
+                <button class="option" id="back">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>
-            <p id="paragraphs">You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight. After some time, the noises stop. You leave the kitchen and go back to the lobby. </p>  
+            <p id="paragraphs">You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight. After some time, the noises stop. You leave the kitchen and go Back to the lobby. </p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorSE.mp3" type='audio/mp3'></audio>
         </div>
     `);
@@ -136,14 +152,14 @@ const IIK = function () {
     play('K2');
     play('K2_2');
     return $(`
-        <div class="investigate">
+        <div id="investigateS">
             <div id="buttons">
                 <button class="option" id="searchFridge">Search Fridge</button>
                 <button class="option" id="searchOven">Search Oven</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You follow the source of the noise but you don’t find anything. There’s a fridge and an oven in the kitchen. What do you do?</p>  
-        <div>
+        </div>
     `);
 }
 
@@ -152,13 +168,13 @@ const SF = function () {
     play('K3');
     play('K3_2');
     return $(`
-        <div class="infridge">
+        <div id="infridgeS">
             <div id="buttons">
-                <button class="option" id="red">Red apple</button>
-                <button class="option" id="green">Green apple</button>
+                <button class="option" id="red">Pick up the red apple</button>
+                <button class="option" id="green">Pick up the green apple</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">There are two apples inside the fridge. A red apple and a green apple. What do you do? </p>
+            <p id="paragraphs">You find two apples inside the fridge. A red apple and a green apple. What do you do? </p>
         </div>  
     `);
 }
@@ -168,7 +184,7 @@ const SO = function () {
     play('K9');
     play('K9_2');
     return $(`
-        <div class="oven">
+        <div id="ovenS">
             <div id="buttons">
                 <button class="option" id="clean">Clean the object</button>
                 <button class="option" id="leave">Leave the object</button>
@@ -184,24 +200,27 @@ const CO = function () {
     play('K10');
     play('K10_2');
     return $(`
-        <div class="oven">
+        <div id="cleanOvenS">
             <div id="buttons">
                 <button class="option" id="turnOffRadio">Turn off the radio</button>
                 <button class="option" id="changeFrequency">Change the frequency</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You clean the object. It’s a radio. The noises you heard seem to have come from the radio. What do you do? </p>
+            <p id="paragraphs">You clean the object. It’s a radio. The noises you heard seem to have come from the radio. What do you do?</p>
+            <audio controls autoplay class="music"><source src="./Assets/RadioSE.mp3" type='audio/mp3'></audio>
         </div>  
     `);
 }
-
 
 // Red apple scene
 const RA = function () {
     play('K4');
     return $(`
-        <div class="redapple">          
-            <p id="paragraphs">You pick up and eat the red apple. You faint </p>
+        <div id="redappleS">          
+            <div id="buttons">
+                <button class="hiddenOption">Placeholder</button>
+            </div>
+            <p id="paragraphs">You pick up and eat the red apple. You faint.</p>
         </div>  
     `);
 }
@@ -211,7 +230,7 @@ const GA = function () {
     play('K5');
     play('K5_2');
     return $(`
-        <div class="greenapple">
+        <div id="greenappleS">
             <div id="buttons">
                 <button class="option" id="pickup">Pick up the apple</button>
                 <button class="option" id="ignore">Ignore the apple</button>
@@ -224,16 +243,29 @@ const GA = function () {
 
 // Pick green apple scene
 const PGA = function () {
-    play('K5');
-    play('K5_2');
+    play('K6');
+    play('K6_2');
     return $(`
-        <div class="pickgreen">
+        <div id="pickgreenS">
             <div id="buttons">
                 <button class="option" id="press">Press the button</button>
                 <button class="option" id="putback">Put the remote back</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You reach for the green apple. When you pull it out from the fridge, your hand slips and the apple falls to the kitchen floor. What do you do? </p>
+            <p id="paragraphs">You reach downwards to pick up the apple. In the gap between the fridge and the floor, you find a remote with a single red button. What do you do?</p>
+        </div>  
+    `);
+}
+
+// Ignore green apple scene
+const IGA = function () {
+    play('K20');
+    return $(`
+        <div id="ignoreGreenS">
+            <div id="buttons">
+                <button class="hiddenOption">Placeholder</button>
+            </div>            
+            <p id="paragraphs">You decided to ignore the green apple and check the oven instead.</p>
         </div>  
     `);
 }
@@ -242,9 +274,9 @@ const PGA = function () {
 const PR = function () {
     play('K7');   
     return $(`
-        <div class="pressbtn">
+        <div id="pressbtn">
             <div id="buttons">
-                <button class="option" id="back">Back to lobby</button>
+                <button class="option" id="back">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">The noise in the kitchen stops. Looks like it was from a remote-controlled speaker. </p>
@@ -257,7 +289,7 @@ const PRB = function () {
     play('K8');
     play('K8_2');
     return $(`
-        <div class="putback">
+        <div id="putback">
             <div id="buttons">
                 <button class="option" id="red">Red apple</button>
                 <button class="option" id="searchOven">Search oven</button>
@@ -271,13 +303,14 @@ const PRB = function () {
 // Turn off radio scene
 const OR = function () {
     play('K11');
+    play('K11_2');
     return $(`
-        <div class="offradio">
+        <div id="offradioS">
             <div id="buttons">
                 <button class="option" id="leave">Leave the object</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You turn off the radio.</p>
+            <p id="paragraphs">You turn off the radio. What do you do?</p>
         </div>  
     `);
 }
@@ -286,7 +319,7 @@ const OR = function () {
 const CF = function () {
     play('K11');
     return $(`
-        <div class="changefreq">
+        <div id="changefreq">
             <div id="buttons">
                 <button class="option" id="lookundermat">Look under mat</button>
                 <button class="option" id="ignoreinstruction">Ignore the instruction</button>    
@@ -301,10 +334,10 @@ const CF = function () {
 const FKIK = function () {
     play('K14');
     return $(`
-        <div class="findkey">
+        <div id="findkey">
             <div id="buttons">
                 <button class="option" id="leavehouse">Leave house</button>
-                <button class="option" id="back">Back to Lobby</button>
+                <button class="option" id="back">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">You look under the mat by the kitchen sink. You find a key.</p>
@@ -315,7 +348,7 @@ const FKIK = function () {
 // Leave house scene - GOOD ENDING
 const LH = function () {
     return $(`
-        <div class="goodending1">
+        <div id="goodending1">
             <p id="paragraphs">You leave the house.</p>
         </div>  
     `);
@@ -326,7 +359,7 @@ const LO = function () {
     play('K15');
     play('K15_2');
     return $(`
-        <div class="leaveobject">
+        <div id="leaveobject">
             <div id="buttons">
                 <button class="option" id="keepsearch">Keep searching</button>
                 <button class="option" id="lookdoor">Investigate the door</button>
@@ -342,10 +375,10 @@ const KS = function () {
     play('K16');
     play('K16_2');
     return $(`
-        <div class="keep">
+        <div id="keep">
             <div id="buttons">
                 <button class="option" id="lookdoor">Investigate the door</button>
-                <button class="option" id="back">Back to Lobby</button>
+                <button class="option" id="back">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">After searching for a while, you notice a door hidden behind the fridge. What do you do?  </p>
@@ -358,7 +391,7 @@ const BEIK = function () {
     play('K17');
     play('K17_2');
     return $(`
-        <div class="kitchenbe">
+        <div id="kitchenbe">
             <p id="paragraphs">You pull on the fridge with all your strength. You turn the knob on the door and push. Behind the door you see a woman clad in white, back facing you. Her right hand is moving, chopping down on something in front of her. Suddenly, she stops and turns to you. She smiles and stares you in the eye.</p>
         </div>  
     `);
@@ -384,7 +417,7 @@ const TOS = function () {
     play('BR2');
     play('BR2_2');
     return $(`
-        <div class="offsink">
+        <div id="offsink">
             <div id="buttons">
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
                 <button class="option" id="LockTheDoor">Lock the door</button>
@@ -400,7 +433,7 @@ const LD = function () {
     play('BR3');
     play('BR3_2');
     return $(`
-        <div class="lockdoor">
+        <div id="lockdoor">
             <div id="buttons">
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
                 <button class="option" id="Hideinvent">Hide in a vent</button>
@@ -417,7 +450,7 @@ const HIC = function () {
     play('BR4_2');
     play('BR4_3');
     return $(`
-        <div class="hidecupboard">
+        <div id="hidecupboard">
             <div id="buttons">
                 <button class="option" id="Leavecupboard">Leave the cupboard</button>
                 <button class="option Replay">Replay narration</button>
@@ -432,7 +465,7 @@ const LC = function () {
     play('BR5');
     play('BR5_2');
     return $(`
-        <div class="leavecup">
+        <div id="leavecup">
             <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do? Bang on the cupboard. It’s useless! You can’t get out! What do you do? Bang even more. Didn’t I tell you it’s useless? You are now stuck in the cupboard of someone’s house. Nobody will find you here for a while. What terrible life decisions you’ve made to make it to this point is unclear, but you have a long, long time to think about it.</p>  
         </div>    
     `);
@@ -442,7 +475,7 @@ const LC = function () {
 const CV = function () {
     play('BR6');
     return $(`
-        <div class="climbvent">
+        <div id="climbvent">
             <p id="paragraphs"> Above the toilet, you find a loose vent shaft. You pop it open and crawl inside, putting back the cover behind you. You crawl through the vents and reach another room. </p>  
         </div>    
     `);
@@ -453,7 +486,7 @@ const EB = function () {
     play('BR7');
     play('BR7_2');
     return $(`
-        <div class="exitbath">
+        <div id="exitbath">
             <div id="buttons">
                 <button class="option" id="searchcup">Search the cupboard</button>
                 <button class="option" id="openseat">Open the toilet seat</button>
@@ -468,7 +501,7 @@ const SCB = function () {
     play('BR8');
     play('BR9');
     return $(`
-        <div class="searchcupboard">
+        <div id="searchcupboard">
             <div id="buttons">
                 <button class="option" id="breakdoor">Break down the door with the hammer</button>
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
@@ -483,9 +516,9 @@ const BD = function () {
     play('BR10');
     play('BR10_2');
     return $(`
-        <div class="breakdowndoor">
+        <div id="breakdowndoor">
             <div id="buttons">
-                <button class="option" id="back">Back to Lobby</button>
+                <button class="option" id="back">Back to the lobby</button>
             </div>
             <p id="paragraphs"> You hold your hammer with both hands, then swing down. After a couple of tries, the door breaks! You enter the lobby with your trusty new hammer</p>  
         </div>    
@@ -497,7 +530,7 @@ const TS = function () {
     play('BR11');
     play('BR11_2');
     return $(`
-        <div class="toiletseat">
+        <div id="toiletseat">
             <div id="buttons">
                 <button class="option" id="Closetoiletseat">Close the toilet seat</button>
                 <button class="option" id="back">Leave the bathroom</button>
@@ -512,7 +545,7 @@ const TS = function () {
 const CTS = function () {
     play('BR12');
     return $(`
-        <div class="closeseat">
+        <div id="closeseat">
             <div id="buttons">
                 <button class="option" id="searchcup">Search the cupboard</button>
                 <button class="option Replay">Replay narration</button>
@@ -557,6 +590,7 @@ document.getElementById("visitHouse").addEventListener("click", function () {
     Replay();
     kit();
     bath();
+    trytoleavehouse();
 })
 
 // Call triple a 
@@ -686,6 +720,18 @@ function kit() {
     })
 }
 
+// Player tries to leave the house in the lobby
+function trytoleavehouse() {
+    $("#leave").click(function () {
+        stop_speech();
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(TTLH);
+        Replay();
+        back();
+    })
+}
+
 // Hide in kitchen
 function hide() {
     $("#hide").click(function () {
@@ -698,7 +744,7 @@ function hide() {
     })
 }
 
-// Back to lobby
+// Back to the lobby
 function back() {
     $("#back").click(function () {
         stop_speech();
@@ -745,7 +791,6 @@ function frired() {
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(RA);
-        Replay();
     })
 }
 
@@ -777,14 +822,15 @@ function pickgreen() {
 
 // Ignore green apple
 function ignoregreenapple() {
-    play('K20');
     $("#ignore").click(function () {
         stop_speech();
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
-        $('#root').append('<p id="paragraphs">You ignore green apple and check the oven instead</p>');
-        $('#root').append(SO);
-        Replay();
+        $('#root').append(IGA);
+        setTimeout(function(){
+            $('#ignoreGreenS').remove(); 
+            $('#root').append(SO);
+            Replay();}, 4500);
         searchOven();
     })
 }
@@ -1038,7 +1084,7 @@ function searchcupboard() {
     })
 }
 
-//add wait function back to lobby with hammer
+//add wait function Back to the lobby with hammer
 // Break door
 function breakdowndoor() {
     $("#breakdoor").click(function () {
@@ -1108,7 +1154,8 @@ manuscript.set('SE_1', "What do you do? Visit the house. Hitch a ride. Replay na
 manuscript.set('L1', "It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen.")
 manuscript.set('L1_2', "What do you do? Enter the kitchen. Enter the bedroom. Enter the bathroom. Leave the house. Replay narration.")
 manuscript.set('LV', "You try to leave the house. To your dismay, the door is shut and locked behind you!")
-manuscript.set('LV_2', "The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave.")
+manuscript.set('LV_2', "The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave. What do you do?")
+manuscript.set('LV_3', "Back to the lobby. Replay narration.")
 manuscript.set('LV2', "With the key in your hand you open the large wooden doors. You push hard and the doors creak to an open. Finally, you've escaped!")
 manuscript.set('B1', "You enter the bedroom.")
 manuscript.set('B1_2', "Suddenly, the television turns on.")
@@ -1154,6 +1201,7 @@ manuscript.set('K9_2', "What do you do? Clean the object. Leave the object. Repl
 manuscript.set('K10', "You clean the object. It's a radio. The noises you heard seem to have come from the radio.")
 manuscript.set('K10_2', "What do you do? Turn off the radio. Change the frequency. Replay narration.")
 manuscript.set('K11', "You turn off the radio.")
+manuscript.set('K11_2', "What do you do? Leave the object. Replay narration.")
 manuscript.set('K12', "Look under the mat.")
 manuscript.set('K13', "What do you do? Look under the mat. Ignore the instruction. Replay narration.")
 manuscript.set('K14', "You look under the mat by the kitchen sink. You find a silver key with a snake pattern.")
@@ -1165,8 +1213,8 @@ manuscript.set('K17', "You pull on the fridge with all your strength. You turn t
 manuscript.set('K17_2', "She turns towards you with a smile, staring you in the eye.")
 manuscript.set('K18', "You return to the lobby.")
 manuscript.set('K19', "You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It's a flashlight.")
-manuscript.set('K19_2', "After some time, the noises stop, you leave the kitchen and go back to the lobby.")
-manuscript.set('K20', "You ignore green apple and check the oven instead.")
+manuscript.set('K19_2', "After some time, the noises stop, you leave the kitchen and go Back to the lobby.")
+manuscript.set('K20', "You decided to ignore the green apple and check the oven instead")
 manuscript.set('BR', "You enter the bathroom. The sink is on.")
 manuscript.set('BR_2', "What do you do? Turn off the sink. Open toilet seat. Replay narration.")
 manuscript.set('BR2 ', "You hear footsteps running towards you.")
@@ -1213,6 +1261,15 @@ var dict = {
     "rideS": HR,
     "keepwaitingS": KW,
     "kitchenS": KT,
+    "investigateS": IIK,
+    "infridgeS": SF,
+    "greenappleS": GA,
+    "pickgreenS": PGA,
+    "ignoreGreenS": IGA,
+    "ovenS": SO,
+    "cleanOvenS": CO, 
+    "offradioS": OR,
+    "trytoleavehouseS": TTLH, 
     "hideS": HIK,
     "bathroomS": BT
 };
