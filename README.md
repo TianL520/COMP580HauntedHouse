@@ -18,5 +18,5 @@ Follow these instructions to enable WebSpeech in Firefox:
 https://support.mozilla.org/en-US/kb/block-autoplay
 
 # How to play?
-Press spacebar on the menu page to start playing. If this doesn't work, right click anywhere on the screen and press play.
+Press spacebar on the menu page to start playing. If this doesn't work, left click anywhere on the screen and press spacebar again.
 To speak, press enter. You will hear a beep, then you can speak to the microphone. Read back your choice as it is read to you by the narration. Speak slowly and clearly for best results. 
