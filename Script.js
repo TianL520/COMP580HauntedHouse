@@ -29,6 +29,38 @@ const VH = function () {
             It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen.</p>
             <audio controls autoplay class="music"><source src="./Assets/FootstepSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Enter the) kitchen': function() {
+                    var button = document.getElementById("kitchen");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Enter the) bedroom': function() {
+                    var button = document.getElementById("bedroom");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Enter the) bathroom': function() {
+                    var button = document.getElementById("bathroom");
+                    annyang.pause();
+                    button.click();
+                },
+                'Leave (the house)': function() {
+                    var button = document.getElementById("leave");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -46,6 +78,33 @@ const CTA = function () {
             <p id="paragraphs">Looks like there is no service.</p>
             <audio controls autoplay loop class="music" id="call"><source src="./Assets/CallSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Visit the) house': function() {
+                    var button = document.getElementById("visitHouse");
+                    annyang.pause();
+                    button.click();
+                },
+                'Hitch a ride': function() {
+                    var button = document.getElementById("HitchRide");
+                    annyang.pause();
+                    button.click();
+                },
+                'Catch a ride': function() {
+                    var button = document.getElementById("HitchRide");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -63,6 +122,38 @@ const HR = function () {
             </div>
             <p id="paragraphs">You waited for an hour but no one passes by. What do you do?</p>
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Visit the) house': function() {
+                    var button = document.getElementById("visitHouse");
+                    annyang.pause();
+                    button.click();
+                },
+                'Call Triple A': function() {
+                    var button = document.getElementById("callTripleA");
+                    annyang.pause();
+                    button.click();
+                },
+                'Call AAA': function() {
+                    var button = document.getElementById("callTripleA");
+                    annyang.pause();
+                    button.click();
+                },
+                'Keep waiting': function() {
+                    var button = document.getElementById("wait");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -79,6 +170,28 @@ const KW = function () {
             </div>
             <p id="paragraphsHours">You waited for 2 hours but no one passes by. What do you do?</p> 
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Visit the) house': function() {
+                    var button = document.getElementById("visitHouse");
+                    annyang.pause();
+                    button.click();
+                },
+                'Keep waiting': function() {
+                    var button = document.getElementById("wait");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -90,7 +203,7 @@ const KWBE = function () {
             <div id="buttons">
                 <button class="hiddenOption">Placeholder</button>
             </div>
-            <p id="paragraphsHours">But now he is no longer alone. He looks behind him and sees a ghostly figure with a most terrifying face.</p> 
+            <p id="paragraphsHours">But now you are no longer alone. You look behind and see a ghostly figure with the most terrifying face.</p> 
             <audio controls autoplay class="music"><source src="./Assets/ScreamSE.mp3" type='audio/mp3'></audio>
         </div>
     `);
@@ -109,7 +222,34 @@ const KT = function () {
             </div>
             <p id="paragraphs">You enter the kitchen. There’s a large fridge to your left, and a kitchen counter next to it. You hear a peculiar sound coming from the counter. What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/ChopSE.mp3" type='audio/mp3'></audio>
-        </div>    
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Investigate (the noise)': function() {
+                    var button = document.getElementById("investigate");
+                    annyang.pause();
+                    button.click();
+                },
+                'Hide': function() {
+                    var button = document.getElementById("hide");
+                    annyang.pause();
+                    button.click();
+                },
+                'Height': function() {
+                    var button = document.getElementById("hide");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>    
     `);
 }
 
@@ -126,7 +266,24 @@ const TTLH = function () {
             </div>
             <p id="paragraphs">You try to leave the house. To your dismay, the door is shut and locked behind you! The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave. What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
-        </div>    
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Back to the) lobby': function() {
+                    var button = document.getElementById("lobby");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>        
     `);
 }
 
@@ -144,6 +301,23 @@ const HIK = function () {
             <p id="paragraphs">You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight. After some time, the noises stop. You leave the kitchen and go Back to the lobby. </p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                '(Back to the) lobby': function() {
+                    var button = document.getElementById("lobby");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>    
     `);
 }
 
@@ -160,6 +334,28 @@ const IIK = function () {
             </div>            
             <p id="paragraphs">You follow the source of the noise but you don’t find anything. There’s a fridge and an oven in the kitchen. What do you do?</p>  
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Search the) fridge': function() {
+                    var button = document.getElementById("searchFridge");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Search the) oven': function() {
+                    var button = document.getElementById("searchOven");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -175,7 +371,29 @@ const SF = function () {
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You find two apples inside the fridge. A red apple and a green apple. What do you do? </p>
-        </div>  
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Pick up the) red apple': function() {
+                    var button = document.getElementById("red");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Pick up the) green apple': function() {
+                    var button = document.getElementById("green");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>  
     `);
 }
 
@@ -191,7 +409,29 @@ const SO = function () {
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You smell something burnt. You peer inside and find a charred object. What do you do?  </p>
-        </div>  
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Clean (the object)': function() {
+                    var button = document.getElementById("clean");
+                    annyang.pause();
+                    button.click();
+                },
+                'Leave (the object)': function() {
+                    var button = document.getElementById("leave");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>  
     `);
 }
 
@@ -209,6 +449,28 @@ const CO = function () {
             <p id="paragraphs">You clean the object. It’s a radio. The noises you heard seem to have come from the radio. What do you do?</p>
             <audio controls autoplay class="music"><source src="./Assets/RadioSE.mp3" type='audio/mp3'></audio>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Turn off (the radio)': function() {
+                    var button = document.getElementById("turnOffRadio");
+                    annyang.pause();
+                    button.click();
+                },
+                'Change (the frequency)': function() {
+                    var button = document.getElementById("changeFrequency");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -238,6 +500,28 @@ const GA = function () {
             </div>            
             <p id="paragraphs">You reach for the green apple. When you pull it out from the fridge, your hand slips and the apple falls to the kitchen floor. What do you do? </p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Pick up (the apple)': function() {
+                    var button = document.getElementById("pickup");
+                    annyang.pause();
+                    button.click();
+                },
+                'Ignore (the apple)': function() {
+                    var button = document.getElementById("ignore");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -253,7 +537,29 @@ const PGA = function () {
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You reach downwards to pick up the apple. In the gap between the fridge and the floor, you find a remote with a single red button. What do you do?</p>
-        </div>  
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Press the) button': function() {
+                    var button = document.getElementById("press");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Put the) remote (back)': function() {
+                    var button = document.getElementById("putback");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>  
     `);
 }
 
@@ -281,6 +587,23 @@ const PR = function () {
             </div>            
             <p id="paragraphs">The noise in the kitchen stops. Looks like it was from a remote-controlled speaker. </p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Back to the) lobby': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -297,6 +620,28 @@ const PRB = function () {
             </div>            
             <p id="paragraphs">You put the remote back where you found it. What do you do next?</p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Check the) oven': function() {
+                    var button = document.getElementById("searchOven");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Pick up the) red apple': function() {
+                    var button = document.getElementById("red");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -312,6 +657,23 @@ const OR = function () {
             </div>            
             <p id="paragraphs">You turn off the radio. What do you do?</p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Leave the) object': function() {
+                    var button = document.getElementById("leave");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -321,12 +683,34 @@ const CF = function () {
     return $(`
         <div id="changefreqS">
             <div id="buttons">
-                <button class="option" id="lookundermat">Look under mat</button>
+                <button class="option" id="lookundermat">Look under the mat</button>
                 <button class="option" id="ignoreinstruction">Ignore the instruction</button>    
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You turn off the radio.</p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Look under the) mat': function() {
+                    var button = document.getElementById("lookundermat");
+                    annyang.pause();
+                    button.click();
+                },
+                'Ignore (the instruction)': function() {
+                    var button = document.getElementById("ignoreinstruction");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -336,12 +720,34 @@ const FKIK = function () {
     return $(`
         <div id="findkeyS">
             <div id="buttons">
-                <button class="option" id="leavehouse">Leave house</button>
+                <button class="option" id="leavehouse">Leave the house</button>
                 <button class="option" id="back">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">You look under the mat by the kitchen sink. You find a key.</p>
-        </div>  
+        </div> 
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Leave (the house)': function() {
+                    var button = document.getElementById("leavehouse");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Back to the) lobby': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script> 
     `);
 }
 
@@ -370,6 +776,28 @@ const LO = function () {
             </div>
             <p id="paragraphs">You close the oven door and look around the kitchen. Suddenly, you feel a shadow flash behind you. What do you do? </p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Keep searching': function() {
+                    var button = document.getElementById("keepsearch");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Investigate the) door': function() {
+                    var button = document.getElementById("lookdoor");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -386,6 +814,28 @@ const KS = function () {
             </div>
             <p id="paragraphs">After searching for a while, you notice a door hidden behind the fridge. What do you do?  </p>
         </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Investigate the) door': function() {
+                    var button = document.getElementById("lookdoor");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Back to the) lobby': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -411,13 +861,36 @@ const BT = function () {
         <div id="bathroomS">
             <div id="buttons">
                 <button class="option" id="turnOffSink">Turn off the sink</button>
-                <button class="option" id="exitbathroom">Exit bathroom</button>
+                <button class="option" id="exitbathroom">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">You enter the bathroom. The sink is on. What do you do?</p>  
         </div>    
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Turn off the) sink': function() {
+                    var button = document.getElementById("turnOffSink");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Back to the) lobby': function() {
+                    var button = document.getElementById("exitbathroom");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
+
 
 // Turn off sink scene
 const TOS = function () {
@@ -433,6 +906,33 @@ const TOS = function () {
             <p id="paragraphs">You hear footsteps running towards you. What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/FootstepSE.mp3" type='audio/mp3'></audio>
         </div>    
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Lock the) door': function() {
+                    var button = document.getElementById("LockTheDoor");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Hide in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Height in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -444,12 +944,44 @@ const LD = function () {
         <div id="lockdoorS">
             <div id="buttons">
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
-                <button class="option" id="Hideinvent">Hide in a vent</button>
+                <button class="option" id="Hideinvent">Hide in the vents</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">The footsteps come closer until it stops. Someone tries to open the door, but it is locked. Suddenly they start banging on the door</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/BangDoorSE.mp3" type='audio/mp3'></audio>
-        </div>    
+        </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Hide in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Height in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Hide in the) vents': function() {
+                    var button = document.getElementById("Hideinvent");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Height in the) vents': function() {
+                    var button = document.getElementById("Hideinvent");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>  
     `);
 }
 
@@ -467,6 +999,23 @@ const HIC = function () {
             <p id="paragraphs">You find a cupboard below the sink, and hide inside. Suddenly, the door is forced open. You hear footsteps nearing the cupboard, then a laugh. After some time, you hear footsteps walking out. What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/LaughBathSE.mp3" type='audio/mp3'></audio>
         </div>    
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Leave the) cupboard': function() {
+                    var button = document.getElementById("Leavecupboard");
+                    annyang.pause();
+                    button.click();
+                }
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -506,7 +1055,29 @@ const EB = function () {
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs"> You try to leave but the door is stuck. What do you do?</p>  
-        </div>    
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Search the) cupboard': function() {
+                    var button = document.getElementById("searchcup");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Open the) toilet seat': function() {
+                    var button = document.getElementById("openseat");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>    
     `);
 }
 
@@ -522,6 +1093,33 @@ const SCB = function () {
             </div>
             <p id="paragraphs"> In the cupboard, you find a hammer. What do you do?</p>  
         </div>    
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Break down the door (with the hammer)': function() {
+                    var button = document.getElementById("breakdoor");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Hide in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Height in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -535,6 +1133,13 @@ const BD = function () {
             </div>
             <p id="paragraphs"> You hold your hammer with both hands, then swing down. After a couple of tries, the door breaks! You enter the lobby with your trusty new hammer</p>  
         </div>    
+        <script>    
+        if (annyang) {
+            var button = document.getElementById("lookdoor");
+            annyang.pause();
+            button.click();
+        }
+        </script>
     `);
 }
 
@@ -550,7 +1155,29 @@ const TS = function () {
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs"> You open the toilet seat. To your surprise, it’s full of bugs! What do you do? </p>  
-        </div>    
+        </div>  
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Close the) toilet seat': function() {
+                    var button = document.getElementById("Closetoiletseat");
+                    annyang.pause();
+                    button.click();
+                },
+                'Leave (the bathroom)': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>  
     `);
 }
 
@@ -565,6 +1192,23 @@ const CTS = function () {
             </div>
             <p id="paragraphs"> There is a cupboard below the sink. You decide to search it</p>  
         </div>    
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Search the) cupboard': function() {
+                    var button = document.getElementById("searchcup");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    replay_narration();
+                    annyang.pause();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1256,7 +1900,7 @@ manuscript.set('K19_2', "After some time, the noises stop, you leave the kitchen
 manuscript.set('K20', "You decided to ignore the green apple and check the oven instead")
 manuscript.set('BR', "You enter the bathroom. The sink is on.")
 manuscript.set('BR_2', "What do you do? Turn off the sink. Open toilet seat. Replay narration.")
-manuscript.set('BR2 ', "You hear footsteps running towards you.")
+manuscript.set('BR2', "You hear footsteps running towards you.")
 manuscript.set('BR2_2', "What do you do? Lock the door. Hide in the cupboard. Replay narration.")
 manuscript.set('BR3', "The footsteps come closer until it stops.")
 manuscript.set('BR3_2', "Someone tries to open the door, but it is locked. Suddenly they start banging on the door.")
@@ -1280,6 +1924,7 @@ manuscript.set('BR11_2', "What do you do? Close the toilet seat. Leave the bathr
 manuscript.set('BR12', "There is a cupboard below the sink. You decide to search it.")
 manuscript.set('BR13', "You leave the bathroom into the lobby.")
 manuscript.set('BR14', "You successfully escaped the old mansion! What do you do?")
+manuscript.set('noresult', "Sorry, I didn't catch that.")
 
 // Play speech
 function play(key) {
