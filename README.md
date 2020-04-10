@@ -7,4 +7,4 @@ We are using Firefox as our default browser because Firefox is a popular browser
 https://support.mozilla.org/en-US/kb/block-autoplay
 
 # How to play?
-In order to start the game, press F11 key to enable fullscreen.
+Press spacebar on the menu page to start playing.

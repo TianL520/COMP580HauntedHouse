@@ -33,35 +33,119 @@ body {
 }
 
 /* Pages */
-#start, .house, .tripleA, .ride, .keepWait, .kitchen, .hide {
+#startS, #houseS, #tripleAS, #rideS, #keepwaitingS, #keepwaitingBES, #kitchenS, #investigateS,
+#infridgeS, #ovenS, #cleanOvenS, #redappleS, #greenappleS, #pickgreenS, #ignoreGreenS, #hideS, 
+#offradioS, #pressbtnS, #bathroomS, #BadEndingS, #trytoleavehouseS, #leaveobjectS, #keepS,
+#putbackS, #kitchenbeS, #changefreqS, #findkeyS, #goodending1S, #GoodEndingS, #GoodEndingS,
+#offsinkS, #lockdoorS, #hidecupboardS, #leavecupS {
     background-image: url(./Assets/oldMansion.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
 }
 
-.house {
+#houseS {
     background-image: url(./Assets/lobby.png);
 }
 
-.tripleA {
+#tripleAS {
     background-image: url(./Assets/call.png);
 }
 
-.ride {
+#rideS, #keepwaitingS {
     background-image: url(./Assets/hitchRide.png);
 }
 
-.kitchen {
+#keepwaitingBES {
+    background-image: url(./Assets/WaitHorror.jpg);
+}
+
+#kitchenS, #pressbtnS {
     background-image: url(./Assets/kitchen.png);
 }
 
-.hide {
+#investigateS {
+    background-image: url(./Assets/fridgeOven.png);
+}
+
+#redappleS {
+    background-image: url(./Assets/RedApple.png);
+}
+
+#greenappleS, #ignoreGreenS {
+    background-image: url(./Assets/GreenApple.png);
+}
+
+#pickgreenS {
+    background-image: url(./Assets/Remote.jpg);
+}
+
+#infridgeS, #putbackS {
+    background-image: url(./Assets/OpenFridge.jpg);
+}
+
+#ovenS {
+    background-image: url(./Assets/OpenOven.jpg);
+}
+
+#cleanOvenS, #offradioS, #changefreqS {
+    background-image: url(./Assets/Radio.jpg);
+}
+
+#trytoleavehouseS {
+    background-image: url(./Assets/FrontDoorLocked.jpg);
+}
+
+#hideS {
     background-image: url(./Assets/closet.png);
 }
 
+#bathroomS {
+    background-image: url(./Assets/bathroom.png);
+}
+
+#BadEndingS {
+    background-image: url(./Assets/GameOver.png);
+}
+
+#leaveobjectS {
+    background-image: url(./Assets/Shadow.jpg);
+}
+
+#keepS {
+    background-image: url(./Assets/DoorBehindFridge.jpg);
+}
+
+#kitchenbeS {
+    background-image: url(./Assets/WomanInKit.jpg);
+}
+
+#findkeyS {
+    background-image: url(./Assets/KeyUnderMat.jpg);
+}
+
+#offsinkS {
+    background-image: url(./Assets/FootstepBath.jpg);
+}
+
+#lockdoorS {
+    background-image: url(./Assets/LockBathDoor.jpg);
+}
+
+#hidecupboardS, #leavecupS {
+    background-image: url(./Assets/CupboardSink.jpg);
+}
+
+#goodending1S {
+    background-image: url(./Assets/UnlockDoor.jpg);
+}
+
+#GoodEndingS {
+    background-image: url(./Assets/YouWin.jpg);
+}
+
 /* Option and narration designs  */
-#paragraphs {
+#paragraphs, #paragraphsHours {
     background-image: url(./Assets/message_box.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -81,7 +165,7 @@ body {
     min-height: 70vh;
 }
 
-.option {
+.option, .hiddenOption {
     background-image: url(./Assets/option_btn.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -89,10 +173,14 @@ body {
     color: white;
     padding: 1%;
     margin: 0.5%; 
-    width: 15%;
+    width: 18%;
     border: 2px solid white;
     border-radius: 12px;
     text-align: center;
     font-size: 23px;
     font-family: 'Do Hyeon', sans-serif;
+}
+
+.hiddenOption {
+    display: none;
 }
