@@ -11,7 +11,7 @@ Follow these instructions to enable WebSpeech in Firefox:
 2. Press 'Accept the Risk and Continue' if prompted
 3. Type 'webspeech' under 'Search preference name'
 4. Set 'media.webspeech.recognition.enable' and 'media.webspeech.recognition.force_enable' to true using the toggle button to the right
-5. When playing our game, make sure you press 'Allow' when prompted for microphone permission
+5. When playing our game, make sure you press 'Allow' and 'Remember this decision' when prompted for microphone permission
 
 
 # How to enable autoplay in Firefox?
