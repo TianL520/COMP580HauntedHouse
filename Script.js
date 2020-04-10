@@ -28,6 +28,7 @@ const VH = function () {
         </div>
     `);
 }
+
 document.getElementById("visitHouse").addEventListener("click", function () {
     stop_speech();
     event.preventDefault();
@@ -35,6 +36,7 @@ document.getElementById("visitHouse").addEventListener("click", function () {
     $('#root').append(VH);
     kit();
     bath();
+    bd1();
 })
 
 //call Triple A
@@ -66,6 +68,8 @@ document.getElementById("callTripleA").addEventListener("click", function () {
         event.target.parentNode.parentNode.remove();
         $('#root').append(VH);
         kit();
+        bath();
+        bd1();
     })
 
     // Hitch a Ride
@@ -80,7 +84,9 @@ document.getElementById("callTripleA").addEventListener("click", function () {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(VH);
-            kit()
+            kit();
+            bath();
+            bd1();
         })
     })
 })
@@ -115,7 +121,9 @@ document.getElementById("HitchRide").addEventListener("click", function () {
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(VH);
-        kit()
+        kit();
+        bath();
+        bd1();
     })
 
     document.getElementById("callTripleA").addEventListener("click", function () {
@@ -130,6 +138,8 @@ document.getElementById("HitchRide").addEventListener("click", function () {
             event.target.parentNode.parentNode.remove();
             $('#root').append(VH);
             kit();
+            bath();
+            bd1();
         })
     })
 })
@@ -172,6 +182,8 @@ function keepwait() {
             event.target.parentNode.parentNode.remove();
             $('#root').append(VH);
             kit();
+            bath();
+            bd1();
         })
     })
 }
@@ -189,6 +201,8 @@ function keepwait2() {
             event.target.parentNode.parentNode.remove();
             $('body').append(VH);
             kit();
+            bath();
+            bd1();
         })
     })
 }
@@ -538,7 +552,8 @@ function ignoreinstruction() {
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(leaveobject);
-
+        keepsearch1();
+        badEndInKit1();
     })
 }
 
@@ -785,11 +800,13 @@ function searchcupboard1() {
     $("#searchcup").click(function () {
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
+        $('#root').append('<div><p id=hammer>you have a hammer</p></div>');
         $('#root').append(searchcupboard);
         hideincupboard1();
         breakdowndoor1();
     })
 }
+
 
 const breakdowndoor = function () {
     return $(`
