@@ -6,6 +6,7 @@
     <title>The Haunted House</title>
     <link rel='stylesheet' href='MainStyle.css' />
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 </head>
 
 <body>
@@ -25,6 +26,55 @@
             <p id="paragraphs">After a long week of work, you decide a weekend camping at the mountains alone would be a
                 good activity. Suddenly, your car stops. Oh great, not again. Your car has broken down for the third
                 time this month. It’s getting late. In the distance, you see an old mansion. What do you do?</p>
+            <script>    
+                if (annyang) {
+                    var commands = {
+                        '(Visit the) house': function() {
+                            var button = document.getElementById("visitHouse");
+                            annyang.pause();
+                            button.click();
+                        },
+                        'Call Triple A': function() {
+                            var button = document.getElementById("callTripleA");
+                            annyang.pause();
+                            button.click();
+                        },
+                        'Call AAA': function() {
+                            var button = document.getElementById("callTripleA");
+                            annyang.pause();
+                            button.click();
+                        },
+                        'Hitch a ride': function() {
+                            var button = document.getElementById("HitchRide");
+                            annyang.pause();
+                            button.click();
+                        },
+                        'Catch a ride': function() {
+                            var button = document.getElementById("HitchRide");
+                            annyang.pause();
+                            button.click();
+                        },
+                        'Replay (Narration)': function() {
+                            replay_narration();
+                            annyang.pause();
+                        }
+                    };
+                    annyang.removeCommands();
+                    annyang.addCommands(commands);
+                    document.addEventListener('keydown', function(event) {
+                        if(event.keyCode == 13) {
+                            var myAudio = new Audio("./Assets/prompt.mp3");
+                            myAudio.play();
+                            stop_speech();
+                            annyang.start({ autoRestart: false });
+                         }});
+                    annyang.addCallback('resultNoMatch', function(phrases) {
+                        annyang.pause();
+                        play('noresult');
+                        console.log(phrases);
+                    });
+                }
+            </script>
         </div>
 
         <audio controls loop class="music">
