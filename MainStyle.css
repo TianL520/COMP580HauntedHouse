@@ -33,11 +33,40 @@ body {
 }
 
 /* Pages */
-#startS, #houseS, #tripleAS, #rideS, #keepwaitingS, #keepwaitingBES, #kitchenS, #investigateS,
-#infridgeS, #ovenS, #cleanOvenS, #redappleS, #greenappleS, #pickgreenS, #ignoreGreenS, #hideS, 
-#offradioS, #pressbtnS, #bathroomS, #BadEndingS, #trytoleavehouseS, #leaveobjectS, #keepS,
-#putbackS, #kitchenbeS, #changefreqS, #findkeyS, #goodending1S, #GoodEndingS, #GoodEndingS,
-#offsinkS, #lockdoorS, #hidecupboardS, #leavecupS {
+#startS,
+#houseS,
+#tripleAS,
+#rideS,
+#keepwaitingS,
+#keepwaitingBES,
+#kitchenS,
+#investigateS,
+#infridgeS,
+#ovenS,
+#cleanOvenS,
+#redappleS,
+#greenappleS,
+#pickgreenS,
+#ignoreGreenS,
+#hideS,
+#offradioS,
+#pressbtnS,
+#bathroomS,
+#BadEndingS,
+#trytoleavehouseS,
+#leaveobjectS,
+#keepS,
+#putbackS,
+#kitchenbeS,
+#changefreqS,
+#findkeyS,
+#goodending1S,
+#GoodEndingS,
+#GoodEndingS,
+#offsinkS,
+#lockdoorS,
+#hidecupboardS,
+#leavecupS {
     background-image: url(./Assets/oldMansion.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,7 +81,8 @@ body {
     background-image: url(./Assets/call.png);
 }
 
-#rideS, #keepwaitingS {
+#rideS,
+#keepwaitingS {
     background-image: url(./Assets/hitchRide.png);
 }
 
@@ -60,7 +90,8 @@ body {
     background-image: url(./Assets/WaitHorror.jpg);
 }
 
-#kitchenS, #pressbtnS {
+#kitchenS,
+#pressbtnS {
     background-image: url(./Assets/kitchen.png);
 }
 
@@ -72,7 +103,8 @@ body {
     background-image: url(./Assets/RedApple.png);
 }
 
-#greenappleS, #ignoreGreenS {
+#greenappleS,
+#ignoreGreenS {
     background-image: url(./Assets/GreenApple.png);
 }
 
@@ -80,7 +112,8 @@ body {
     background-image: url(./Assets/Remote.jpg);
 }
 
-#infridgeS, #putbackS {
+#infridgeS,
+#putbackS {
     background-image: url(./Assets/OpenFridge.jpg);
 }
 
@@ -88,7 +121,9 @@ body {
     background-image: url(./Assets/OpenOven.jpg);
 }
 
-#cleanOvenS, #offradioS, #changefreqS {
+#cleanOvenS,
+#offradioS,
+#changefreqS {
     background-image: url(./Assets/Radio.jpg);
 }
 
@@ -132,7 +167,8 @@ body {
     background-image: url(./Assets/LockBathDoor.jpg);
 }
 
-#hidecupboardS, #leavecupS {
+#hidecupboardS,
+#leavecupS {
     background-image: url(./Assets/CupboardSink.jpg);
 }
 
@@ -145,13 +181,14 @@ body {
 }
 
 /* Option and narration designs  */
-#paragraphs, #paragraphsHours {
+#paragraphs,
+#paragraphsHours {
     background-image: url(./Assets/message_box.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
     margin: 1.5% 3% 0% 3%;
-    padding: 3%; 
+    padding: 3%;
     color: white;
     text-align: center;
 }
@@ -165,14 +202,15 @@ body {
     min-height: 70vh;
 }
 
-.option, .hiddenOption {
+.option,
+.hiddenOption {
     background-image: url(./Assets/option_btn.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: block;
     color: white;
     padding: 1%;
-    margin: 0.5%; 
+    margin: 0.5%;
     width: 18%;
     border: 2px solid white;
     border-radius: 12px;

@@ -12,11 +12,11 @@ const SS = function () {
 
 // Visit house scene
 const VH = function () {
-        play('S2');
-        play('S2_1');
-        play('L1');
-        play('L1_2');
-        return $(`
+    play('S2');
+    play('S2_1');
+    play('L1');
+    play('L1_2');
+    return $(`
         <div id="houseS">
             <div id="buttons">
                 <button class="option" id="kitchen">Enter the kitchen</button>
@@ -30,20 +30,7 @@ const VH = function () {
             <audio controls autoplay class="music"><source src="./Assets/FootstepSE.mp3" type='audio/mp3'></audio>
         </div>
     `);
-    } <<
-    << << < HEAD
-
-document.getElementById("visitHouse").addEventListener("click", function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(VH);
-        kit();
-        bath();
-        bd1();
-    }) ===
-    === = >>>
-    >>> > 76 fea5c49ca22ae74a353d36e9a30a1aaa6017b7
+}
 
 // Call triple a scene
 const CTA = function () {
@@ -199,8 +186,8 @@ const SO = function () {
     return $(`
         <div id="ovenS">
             <div id="buttons">
-                <button class="option" id="clean">Clean the object</button>
                 <button class="option" id="leave">Leave the object</button>
+                <button class="option" id="clean">Clean the object</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You smell something burnt. You peer inside and find a charred object. What do you do?  </p>
@@ -304,8 +291,9 @@ const PRB = function () {
     return $(`
         <div id="putbackS">
             <div id="buttons">
+            <button class="option" id="red">Pick up the red apple</button>
+
                 <button class="option" id="searchOven">Check the oven</button>
-                <button class="option" id="red">Pick up the red apple</button>
                 <button class="option Replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You put the remote back where you found it. What do you do next?</p>
@@ -319,10 +307,9 @@ const OR = function () {
     play('K11_2');
     return $(`
         <div id="offradioS">
-            <div id="buttons">
-                <button class="option" id="leave">Leave the object</button>
-                <button class="option Replay">Replay narration</button>
-            </div>            
+        <div id="buttons">
+
+            </div>     
             <p id="paragraphs">You turn off the radio. What do you do?</p>
         </div>  
     `);
@@ -349,8 +336,8 @@ const FKIK = function () {
     return $(`
         <div id="findkeyS">
             <div id="buttons">
+            <button class="option" id="back">Back to the lobby</button>
                 <button class="option" id="leavehouse">Leave house</button>
-                <button class="option" id="back">Back to the lobby</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">You look under the mat by the kitchen sink. You find a key.</p>
@@ -377,8 +364,8 @@ const LO = function () {
     return $(`
         <div id="leaveobjectS">
             <div id="buttons">
-                <button class="option" id="keepsearch">Keep searching</button>
                 <button class="option" id="lookdoor">Investigate the door</button>
+                <button class="option" id="keepsearch">Keep searching</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">You close the oven door and look around the kitchen. Suddenly, you feel a shadow flash behind you. What do you do? </p>
@@ -609,6 +596,7 @@ const BE = function () {
     `);
 }
 
+
 ///////////////////////////////////////////////////////Choose option functions///////////////////////////////////////////////////////
 // Press spacebar to navigate from menu to the start scene
 document.getElementById("menu").addEventListener("keypress", function () {
@@ -618,52 +606,17 @@ document.getElementById("menu").addEventListener("keypress", function () {
         Replay();
         $('audio')[0].play();
         $('audio').prop("volume", 0.2);
+        getVH();
     }
 });
 
+
 // Visit house
-document.getElementById("visitHouse").addEventListener("click", function () {
-    stop_speech();
-    event.preventDefault();
-    event.target.parentNode.parentNode.remove();
-    $('#root').append(VH);
-    Replay();
-    kit();
-    bath();
-    trytoleavehouse();
-})
-
-// Call triple a 
-document.getElementById("callTripleA").addEventListener("click", function () {
-    stop_speech();
-    event.preventDefault();
-    $('#startS').remove();
-    $('#root').append(CTA);
-    Replay();
-
-    // Visit house 
-    document.getElementById("visitHouse").addEventListener("click", function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(VH);
-        Replay();
-        kit();
-        bath();
-        trytoleavehouse();
-    })
-
-    // Hitch a ride
-    document.getElementById("HitchRide").addEventListener("click", function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(HR);
-        Replay();
-        keepwait();
-
-        // Visit house
-        document.getElementById("visitHouse").addEventListener("click", function () {
+function getVH() {
+    obj = document.getElementById("visitHouse");
+    obj.focus();
+    document.getElementById("visitHouse").addEventListener("keydown", function () {
+        if (event.keyCode == 32) {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -671,55 +624,201 @@ document.getElementById("callTripleA").addEventListener("click", function () {
             Replay();
             kit();
             bath();
+            BED1();
             trytoleavehouse();
-        })
+            // document.getElementById("kitchen").focus();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            getCTA();
+            // getHR();
+        }
     })
-})
+}
 
-// Hitch a ride
-document.getElementById("HitchRide").addEventListener("click", function () {
-    stop_speech();
-    event.preventDefault();
-    $('#startS').remove();
-    $('#root').append(HR);
-    Replay();
-    keepwait();
 
-    // Visit house
-    document.getElementById("visitHouse").addEventListener("click", function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(VH);
-        Replay();
-        kit()
-    })
-
-    // Call triple a 
-    document.getElementById("callTripleA").addEventListener("click", function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(CTA);
-        Replay();
-
-        // Visit house
-        document.getElementById("visitHouse").addEventListener("click", function () {
+// Call triple a
+function getCTA() {
+    obj = document.getElementById("callTripleA");
+    document.getElementById("callTripleA").addEventListener("keydown", function () {
+        if (event.keyCode == 32) {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
-            $('#root').append(VH);
+            $('#root').append(CTA);
             Replay();
-            kit();
-            bath();
-            bd1();
-        })
-    })
-})
+            // getVH();
+            document.getElementById("visitHouse").focus();
+            document.getElementById("visitHouse").addEventListener("keydown", function () {
+                if (event.keyCode == 32) {
+                    stop_speech();
+                    event.preventDefault();
+                    event.target.parentNode.parentNode.remove();
+                    $('#root').append(VH);
+                    Replay();
+                    kit();
+                    bath();
+                    BED1();
+                    trytoleavehouse();
+                    document.getElementById("kitchen").focus();
 
+                } else if (event.keyCode == 40) {
+                    document.getElementById("HitchRide").focus();
+                    getHR();
+                }
+            })
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            getHR();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            getVH();
+        }
+    })
+}
+// function getCTA() {
+//     document.getElementById("callTripleA").addEventListener("keypress", function () {
+//         if (event.keyCode == 32) {
+//             stop_speech();
+//             event.preventDefault();
+//             $('#startS').remove();
+//             $('#root').append(CTA);
+//             Replay();
+
+//             // Visit house 
+//             document.getElementById("visitHouse").addEventListener("click", function () {
+//                 if (event.keyCode == 32) {
+//                     stop_speech();
+//                     event.preventDefault();
+//                     event.target.parentNode.parentNode.remove();
+//                     $('#root').append(VH);
+//                     Replay();
+//                     kit();
+//                     bath();
+//                     trytoleavehouse();
+//                 } else if (event.keyCode == 40) {
+//                     document.getElementById("HitchRide").focus();
+//                 }
+//             })
+
+//             // Hitch a ride
+//             document.getElementById("HitchRide").addEventListener("click", function () {
+//                 // if (event.keyCode == 32) {
+
+//                 stop_speech();
+//                 event.preventDefault();
+//                 event.target.parentNode.parentNode.remove();
+//                 $('#root').append(HR);
+//                 Replay();
+//                 keepwait();
+
+//                 // Visit house
+//                 document.getElementById("visitHouse").addEventListener("click", function () {
+//                     stop_speech();
+//                     event.preventDefault();
+//                     event.target.parentNode.parentNode.remove();
+//                     $('#root').append(VH);
+//                     Replay();
+//                     kit();
+//                     bath();
+//                     trytoleavehouse();
+
+//                 })
+//                 document.getElementById("callTripleA").addEventListener("click", function () {
+//                     stop_speech();
+//                     event.preventDefault();
+//                     event.target.parentNode.parentNode.remove();
+//                     $('#root').append(CTA);
+//                     $("#HitchRide").remove();
+
+//                     Replay();
+
+//                     document.getElementById("visitHouse").addEventListener("click", function () {
+//                         stop_speech();
+//                         event.preventDefault();
+//                         event.target.parentNode.parentNode.remove();
+//                         $('#root').append(VH);
+//                         Replay();
+//                         kit();
+//                         bath();
+//                         trytoleavehouse();
+//                     })
+//                 })
+//                 // }
+//             })
+//         }
+//     })
+
+// }
+// Hitch a ride
+
+function getHR() {
+    obj = document.getElementById("HitchRide");
+    document.getElementById("HitchRide").addEventListener("keydown", function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(HR);
+            Replay();
+            keepwait();
+            getVH();
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            // Replay();
+
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
+    })
+}
+// function getHR() {
+//     obj = document.getElementById("HitchRide");
+//     document.getElementById("HitchRide").addEventListener("keydown", function () {
+//         if (event.keyCode == 32) {
+//             stop_speech();
+//             event.preventDefault();
+//             $('#startS').remove();
+//             $('#root').append(HR);
+//             Replay();
+//             keepwait();
+//         }
+//         // Visit house
+//         document.getElementById("visitHouse").addEventListener("click", function () {
+//             stop_speech();
+//             event.preventDefault();
+//             event.target.parentNode.parentNode.remove();
+//             $('#root').append(VH);
+//             Replay();
+//             kit()
+//         })
+
+//         // Call triple a 
+//         document.getElementById("callTripleA").addEventListener("click", function () {
+//             stop_speech();
+//             event.preventDefault();
+//             event.target.parentNode.parentNode.remove();
+//             $('#root').append(CTA);
+//             $("#HitchRide").remove();
+//             Replay();
+
+//             document.getElementById("visitHouse").addEventListener("click", function () {
+//                 stop_speech();
+//                 event.preventDefault();
+//                 event.target.parentNode.parentNode.remove();
+//                 $('#root').append(VH);
+//                 Replay();
+//                 kit()
+//             })
+
+//         })
+//     })
+// }
 // Keep waiting
 function keepwait() {
-    $("#wait").click(function () {
+    obj = document.getElementById("visitHouse");
+    obj.focus();
+    $("#wait").keypress(function () {
         if (hours == 6) {
             stop_speech();
             event.preventDefault();
@@ -741,13 +840,20 @@ function keepwait() {
             hours++;
 
             // Visit house
-            document.getElementById("visitHouse").addEventListener("click", function () {
-                stop_speech();
-                event.preventDefault();
-                event.target.parentNode.parentNode.remove();
-                $('#root').append(VH);
-                Replay();
-                kit();
+            document.getElementById("visitHouse").addEventListener("keydown", function () {
+                if (event.keyCode == 32) {
+                    stop_speech();
+                    event.preventDefault();
+                    event.target.parentNode.parentNode.remove();
+                    $('#root').append(VH);
+                    Replay();
+                    kit();
+                    bath();
+                    trytoleavehouse();
+                } else if (event.keyCode == 40) {
+                    obj.nextElementSibling.focus();
+
+                }
             })
             keepwait();
         }
@@ -756,14 +862,21 @@ function keepwait() {
 
 // Kitchen
 function kit() {
-    $("#kitchen").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(KT);
-        Replay();
-        hide();
-        investigatekit();
+    obj = document.getElementById("kitchen");
+    obj.focus();
+    $("#kitchen").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(KT);
+            Replay();
+            hide();
+            investigatekit();
+        } else if (event.keyCode == 40) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML);
+        }
     })
 }
 
@@ -779,269 +892,491 @@ function trytoleavehouse() {
     })
 }
 
+const flashlight = function () {
+    return $(` 
+        <div id="light">
+            <p id="weaponflashlight">flashlight </p> 
+        </div>
+    `);
+}
+
+const hammer = function () {
+    return $(` 
+        <div id="gethammer">
+            <p id="weaponhammer">hammer </p> 
+        </div>
+    `);
+}
 // Hide in kitchen
 function hide() {
-    $("#hide").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(HIK);
-        Replay();
-        back();
+    obj = document.getElementById("hide");
+    // obj.focus();
+    $("#hide").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(HIK);
+            $('#root').append(flashlight);
+            Replay();
+            back();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.nextElementSibling.previousElementSibling.focus();
+        }
     })
 }
 
 // Back to the lobby
 function back() {
-    $("#back").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(VH);
-        Replay();
-        kit();
-        bath();
-        trytoleavehouse();
+    obj = document.getElementById("back");
+    obj.focus();
+
+    $("#back").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(VH);
+            Replay();
+            kit();
+            bath();
+            BED1();
+            trytoleavehouse();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML);
+        }
+        // else if (event.keycode == 38){
+        //     obj
+        // }
     })
 
 }
 
 // Investigate the kitchen
 function investigatekit() {
-    $("#investigate").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(IIK);
-        Replay();
-        searchFri();
-        searchOven()
+    obj = document.getElementById("investigate");
+    obj.focus();
+    $("#investigate").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(IIK);
+            Replay();
+            searchFri();
+            searchOven();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        }
     })
 }
 
 // Search fridge
 function searchFri() {
-    $("#searchFridge").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(SF);
-        Replay();
-        frired();
-        frigreen();
+    obj = document.getElementById("searchFridge");
+    obj.focus();
+    $("#searchFridge").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(SF);
+            Replay();
+            frired();
+            frigreen();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+
+        }
     })
 }
+
+//basement
+const BASEMENT = function () {
+
+    return $(` 
+        <div id="basement">
+            <div id="buttons">
+                <button class="option" id="leavedoor">Leave through the door</button>
+                <button class="option" id="crawlfloor">Crawl through the floor</button>
+
+            </div>
+            <p id="paragraphs">You faint.You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you. What do you do? </p> 
+        </div>
+    `);
+}
+
 
 //add wait function later jump to basement
 // Red apple
 function frired() {
-    $("#red").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(RA);
+    obj = document.getElementById("red");
+    obj.focus();
+    $("#red").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(RA);
+            setTimeout(function () {
+                $('#redappleS').remove();
+                $('#root').append(BASEMENT);
+            }, 3000);
+        } else if (event.keyCode == 40) {
+            obj.focus();
+            alert(obj.innerHTML);
+        }
     })
 }
 
 // Green apple
 function frigreen() {
-    $("#green").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(GA);
-        Replay();
-        pickgreen();
-        ignoregreenapple();
+    obj = document.getElementById("green");
+    $("#green").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(GA);
+            Replay();
+            pickgreen();
+            ignoregreenapple();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
     })
 }
 
 // Pick green apple
 function pickgreen() {
-    $("#pickup").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(PGA);
-        Replay();
-        pressbutton();
-        putremote();
+    obj = document.getElementById("pickup");
+    obj.focus();
+    $("#pickup").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(PGA);
+            Replay();
+            pressbutton();
+            putremote();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+            alert(obj.innerHTML);
+        }
     })
 }
 
 // Ignore green apple
 function ignoregreenapple() {
-    $("#ignore").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(IGA);
-        setTimeout(function () {
-            $('#ignoreGreenS').remove();
-            $('#root').append(SO);
-            Replay();
-            clean();
-            leaveobject();
-        }, 4500);
-        searchOven();
+    obj = document.getElementById("ignore");
+    $("#ignore").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(IGA);
+            setTimeout(function () {
+                $('#ignoreGreenS').remove();
+                $('#root').append(SO);
+                Replay();
+                clean();
+                leaveobject();
+            }, 4500);
+            searchOven();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML);
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML);
+        }
     })
 }
 
 // Press button
 function pressbutton() {
-    $("#press").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(PR);
-        Replay();
-        back();
+    obj = document.getElementById("press");
+    obj.focus();
+    $("#press").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(PR);
+            Replay();
+            back();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+            alert(obj.innerHTML);
+        }
     })
 }
 
 // Put remote
 function putremote() {
-    $("#putback").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(PRB);
-        Replay();
-        frired();
-        searchOven();
+    obj = document.getElementById("putback");
+    $("#putback").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(PRB);
+            Replay();
+            frired();
+            searchOven();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML);
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML);
+        }
     })
 }
 
 // Search oven
 function searchOven() {
-    $("#searchOven").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(SO);
-        Replay();
-        clean();
-        leaveobject();
+    obj = document.getElementById("searchOven");
+    $("#searchOven").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(SO);
+            Replay();
+            clean();
+            leaveobject();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML)
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML)
+        }
+
+
     })
 }
 
 // Clean
 function clean() {
-    $("#clean").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(CO);
-        Replay();
-        offradio();
-        change();
+    obj = document.getElementById("clean");
+    $("#clean").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(CO);
+            Replay();
+            offradio();
+            change();
+        } else if (event.keyCode == 38) {
+            obj.focus();
+            alert(obj.innerHTML)
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.nextElementSibling.focus();
+            alert(obj.nextElementSibling.nextElementSibling.innerHTML)
+        }
     })
 }
 
 // Turn off the radio
 function offradio() {
-    $("#turnOffRadio").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(OR);
-        Replay();
-        leaveobject();
+    obj = document.getElementById("turnOffRadio");
+    obj.focus();
+    $("#turnOffRadio").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(OR);
+            setTimeout(function () {
+                $('#offradioS').remove();
+                $('#root').append(LO);
+                Replay();
+                keepsearch();
+                badEndInKit();
+
+            }, 2000);
+        } else if (event.keyCode == 40) {
+            obj.focus();
+            alert(obj.innerHTML);
+        }
     })
 }
 
 // Change the radio frequency
 function change() {
-    $("#changeFrequency").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(CF);
-        Replay();
-        findkey();
-        ignoreinstruction();
+    obj = document.getElementById("changeFrequency");
+    $("#changeFrequency").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(CF);
+            Replay();
+            findkey();
+            ignoreinstruction();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML)
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML)
+        }
     })
 }
 
 // Find key
 function findkey() {
-    $("#lookundermat").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(FKIK);
-        Replay();
-        leavehouse();
-        back();
+    obj = document.getElementById("lookundermat");
+    obj.focus();
+    $("#lookundermat").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(FKIK);
+            Replay();
+            leavehouse();
+            back();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+            alert(obj.innerHTML);
+        }
     })
 }
 
 // Ignore instruction
 function ignoreinstruction() {
-    $("#ignoreinstruction").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(LO);
-        Replay();
+    obj = document.getElementById("ignoreinstruction");
+    $("#ignoreinstruction").keydown(function () {
+        if (event.keyCode == 32) {
 
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(LO);
+            Replay();
+            keepsearch();
+            badEndInKit();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML)
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML)
+        }
     })
 }
 
 // Leave the house
 function leavehouse() {
-    $("#leavehouse").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(LH);
-        setTimeout(function () {
-            $('#goodending1S').remove();
-            $('#root').append(GE);
-            ReplayGame();
-        }, 4000);
+    obj = document.getElementById("leavehouse");
+    $("#leavehouse").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(LH);
+            setTimeout(function () {
+                $('#goodending1S').remove();
+                $('#root').append(GE);
+                ReplayGame();
+            }, 4000);
+        } else if (event.keyCode == 38) {
+            obj.nextElementSibling.nextElementSibling.focus();
+            alert(obj.nextElementSibling.nextElementSibling.innerHTML)
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML)
+        }
     })
 }
 
 // Leave object
 function leaveobject() {
-    $("#leave").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(LO);
-        Replay();
-        keepsearch();
-        badEndInKit();
+    obj = document.getElementById("leave");
+    obj.focus();
+    $("#leave").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(LO);
+            Replay();
+            keepsearch();
+            badEndInKit();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+            alert(obj.previousElementSibling.innerHTML);
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML);
+        }
+
+
     })
 }
 
 // Keep searching
 function keepsearch() {
-    $("#keepsearch").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(KS);
-        Replay();
-        back();
-        badEndInKit();
+    obj = document.getElementById("keepsearch");
+    $("#keepsearch").keydown(function () {
+        if (event.keyCode == 32) {
+
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(KS);
+            Replay();
+            back();
+            badEndInKit();
+        } else if (event.keyCode == 38) {
+            obj.focus();
+            alert(obj.innerHTML);
+
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.nextElementSibling.focus();
+            alert(obj.nextElementSibling.nextElementSibling.innerHTML);
+        }
     })
 }
 
 // Bad ending in kitchen
 function badEndInKit() {
-    $("#lookdoor").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(BEIK);
-        Replay();
+    obj = document.getElementById("lookdoor");
+    obj.focus();
+    $("#lookdoor").keydown(function () {
+        if (event.keyCode == 32) {
+
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(BEIK);
+            Replay();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML);
+        }
     })
 }
 
 // Bathroom
 function bath() {
+    obj = document.getElementById("bathroom");
     $("#bathroom").click(function () {
         stop_speech();
         event.preventDefault();
@@ -1134,6 +1469,7 @@ function searchcupboard() {
         event.preventDefault();
         event.target.parentNode.parentNode.remove();
         $('#root').append(SCB);
+        $('#root').append(hammer);
         Replay();
         hideincupboard();
         breakdowndoor();
@@ -1179,13 +1515,171 @@ function closetoiletseat() {
     })
 }
 
+//bedroom
+const BED = function () {
+    return $(` 
+        <div id="bedroomS">
+            <div id="buttons">
+                <button class="option" id="off">Turn the television off</button>
+                <button class="option" id="watch">Watch the television</button>
+            </div>
+            <p id="paragraphs">You enter the bedroom. Suddenly, the television turns on. What do you do? </p> 
+        </div>
+    `);
+}
+
+const TVO1 = function () {
+    return $(` 
+        <div id="tvo1">
+            <div id="buttons">
+                <button class="option" id="yes">Yes</button>
+            </div>
+            <p id="paragraphs">You grip your hammer in your right hand. Do you smash the TV?</p> 
+        </div>
+    `);
+}
+
+function BED1() {
+    $("#bedroom").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(BED);
+        toff();
+        watchtv1();
+    })
+}
+
+
+function toff() {
+    $("#off").click(function () {
+        ham = document.getElementById('weaponhammer');
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        if (ham) {
+            $('#root').append(TVO1);
+            $('#weaponhammer').remove();
+            smashtv1();
+        } else {
+            $('#root').append(BASEMENT);
+        }
+    })
+}
+
+const smashtv = function () {
+    return $(` 
+        <div id="smashtv">
+            <div id="buttons">
+                <button class="option" id="searchdrawer">Search the drawers</button>
+                <button class="option" id="underbed">Look under the bed</button>
+            </div>
+            <p id="paragraphs">You smash the TV with all your strength. It shatters. What do you do next</p> 
+        </div>
+    `);
+}
+
+function smashtv1() {
+    $("#yes").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(smashtv);
+        drawerinbedroom1();
+        lookunderbed1();
+    })
+}
+
+const drawerinbedroom = function () {
+    return $(` 
+        <div id="drawer">
+            <div id="buttons">
+                <button class="option" id="underbed">Look under the bed</button>
+            </div>
+            <p id="paragraphs">You find a note. It tells you to look under the bed</p> 
+        </div>
+    `);
+}
+
+function drawerinbedroom1() {
+    $("#searchdrawer").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(drawerinbedroom);
+        lookunderbed1();
+    })
+}
+const lookunderbed = function () {
+    return $(` 
+        <div id="lookunderbed">
+            <div id="buttons">
+                <button class="option" id="leftside">Look under left side of bed</button>
+                <button class="option" id="rightside">Look under right side of bed</button>
+            </div>
+            <p id="paragraphs">You find a note. It tells you to look under the bed</p> 
+        </div>
+    `);
+}
+
+function lookunderbed1() {
+    $("#underbed").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(lookunderbed);
+        lookrightside1();
+        lookleftside1();
+    })
+}
+const lookrightside = function () {
+    return $(` 
+        <div id="lookrightside">
+            <div id="buttons">
+            </div>
+            <p id="paragraphs">You find a golden key! it must open a secret room somewhere</p> 
+        </div>
+    `);
+}
+
+function lookleftside1() {
+    $("#leftside").click(function () {
+
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+    })
+}
+
+function lookrightside1() {
+    $("#rightside").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(lookrightside);
+    })
+}
+
+const watchtv = function () {
+    return $(` 
+        <div id="watchtv">
+            <div id="buttons">
+            <button class="option" id="underbed">Look under the bed</button>
+
+            </div>
+            <p id="paragraphs">You choose to watch the television.</p> 
+        </div>
+    `);
+}
+
+function watchtv1() {
+    $("#watch").click(function () {
+        event.preventDefault();
+        event.target.parentNode.parentNode.remove();
+        $('#root').append(watchtv);
+        lookunderbed1();
+
+    })
+}
 // Player chooses to replay the game
 function ReplayGame() {
     $('#replayGame').click(function () {
         location.reload();
     })
 }
-
 ///////////////////////////////////////////////////////Speech script related functions///////////////////////////////////////////////////////
 var manuscript = new Map()
 manuscript.set('S1', "After a long week of work, you decide a weekend camping at the mountains alone would be a good activity.")
@@ -1253,11 +1747,11 @@ manuscript.set('K7', "The noise in the kitchen stops. Looks like it was from a r
 manuscript.set('K8', "You put the remote back where you found it.")
 manuscript.set('K8_2', "What do you do next? Check the oven. Pick up the red apple. Replay narration.")
 manuscript.set('K9', "You smell something burnt. You peer inside and find a charred object.")
-manuscript.set('K9_2', "What do you do? Clean the object. Leave the object. Replay narration.")
+manuscript.set('K9_2', "What do you do? Leave the object. Clean the object. Replay narration.")
 manuscript.set('K10', "You clean the object. It's a radio. The noises you heard seem to have come from the radio.")
 manuscript.set('K10_2', "What do you do? Turn off the radio. Change the frequency. Replay narration.")
 manuscript.set('K11', "You turn off the radio.")
-manuscript.set('K11_2', "What do you do? Leave the object. Replay narration.")
+manuscript.set('K11_2', "What do you do?")
 manuscript.set('K12', "Look under the mat.")
 manuscript.set('K13', "What do you do? Look under the mat. Ignore the instruction. Replay narration.")
 manuscript.set('K14', "You look under the mat by the kitchen sink. You find a silver key with a snake pattern.")
@@ -1343,7 +1837,7 @@ var dict = {
 
 // Replay narration click function
 const Replay = function () {
-    $(".Replay").on('click', function (event) {
+    $(".Replay").on('keypress', function (event) {
         console.log("Clicked" + event.target.parentNode.parentNode.id)
         stop_speech();
         dict[event.target.parentNode.parentNode.id]();
