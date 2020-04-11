@@ -1319,81 +1319,6 @@ function getCTA() {
         }
     })
 }
-// function getCTA() {
-//     document.getElementById("callTripleA").addEventListener("keypress", function () {
-//         if (event.keyCode == 32) {
-//             stop_speech();
-//             event.preventDefault();
-//             $('#startS').remove();
-//             $('#root').append(CTA);
-//             Replay();
-
-//             // Visit house 
-//             document.getElementById("visitHouse").addEventListener("click", function () {
-//                 if (event.keyCode == 32) {
-//                     stop_speech();
-//                     event.preventDefault();
-//                     event.target.parentNode.parentNode.remove();
-//                     $('#root').append(VH);
-//                     Replay();
-//                     kit();
-//                     bath();
-//                     trytoleavehouse();
-//                 } else if (event.keyCode == 40) {
-//                     document.getElementById("HitchRide").focus();
-//                 }
-//             })
-
-//             // Hitch a ride
-//             document.getElementById("HitchRide").addEventListener("click", function () {
-//                 // if (event.keyCode == 32) {
-
-//                 stop_speech();
-//                 event.preventDefault();
-//                 event.target.parentNode.parentNode.remove();
-//                 $('#root').append(HR);
-//                 Replay();
-//                 keepwait();
-
-//                 // Visit house
-//                 document.getElementById("visitHouse").addEventListener("click", function () {
-//                     stop_speech();
-//                     event.preventDefault();
-//                     event.target.parentNode.parentNode.remove();
-//                     $('#root').append(VH);
-//                     Replay();
-//                     kit();
-//                     bath();
-//                     trytoleavehouse();
-
-//                 })
-//                 document.getElementById("callTripleA").addEventListener("click", function () {
-//                     stop_speech();
-//                     event.preventDefault();
-//                     event.target.parentNode.parentNode.remove();
-//                     $('#root').append(CTA);
-//                     $("#HitchRide").remove();
-
-//                     Replay();
-
-//                     document.getElementById("visitHouse").addEventListener("click", function () {
-//                         stop_speech();
-//                         event.preventDefault();
-//                         event.target.parentNode.parentNode.remove();
-//                         $('#root').append(VH);
-//                         Replay();
-//                         kit();
-//                         bath();
-//                         trytoleavehouse();
-//                     })
-//                 })
-//                 // }
-//             })
-//         }
-//     })
-
-// }
-// Hitch a ride
 
 function getHR() {
     obj = document.getElementById("HitchRide");
@@ -1416,48 +1341,7 @@ function getHR() {
         }
     })
 }
-// function getHR() {
-//     obj = document.getElementById("HitchRide");
-//     document.getElementById("HitchRide").addEventListener("keydown", function () {
-//         if (event.keyCode == 32) {
-//             stop_speech();
-//             event.preventDefault();
-//             $('#startS').remove();
-//             $('#root').append(HR);
-//             Replay();
-//             keepwait();
-//         }
-//         // Visit house
-//         document.getElementById("visitHouse").addEventListener("click", function () {
-//             stop_speech();
-//             event.preventDefault();
-//             event.target.parentNode.parentNode.remove();
-//             $('#root').append(VH);
-//             Replay();
-//             kit()
-//         })
 
-//         // Call triple a 
-//         document.getElementById("callTripleA").addEventListener("click", function () {
-//             stop_speech();
-//             event.preventDefault();
-//             event.target.parentNode.parentNode.remove();
-//             $('#root').append(CTA);
-//             $("#HitchRide").remove();
-//             Replay();
-
-//             document.getElementById("visitHouse").addEventListener("click", function () {
-//                 stop_speech();
-//                 event.preventDefault();
-//                 event.target.parentNode.parentNode.remove();
-//                 $('#root').append(VH);
-//                 Replay();
-//                 kit()
-//             })
-
-//         })
-//     })
-// }
 // Keep waiting
 function keepwait() {
     obj = document.getElementById("visitHouse");
@@ -1519,7 +1403,6 @@ function kit() {
             investigatekit();
         } else if (event.keyCode == 40) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML);
         }
     })
 }
@@ -1590,7 +1473,6 @@ function back() {
             trytoleavehouse();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML);
         }
         // else if (event.keycode == 38){
         //     obj
@@ -1671,7 +1553,6 @@ function frired() {
             }, 3000);
         } else if (event.keyCode == 40) {
             obj.focus();
-            alert(obj.innerHTML);
         }
     })
 }
@@ -1711,7 +1592,6 @@ function pickgreen() {
             putremote();
         } else if (event.keyCode == 40) {
             obj.focus();
-            alert(obj.innerHTML);
         }
     })
 }
@@ -1735,10 +1615,8 @@ function ignoregreenapple() {
             searchOven();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML);
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML);
         }
     })
 }
@@ -1757,7 +1635,6 @@ function pressbutton() {
             back();
         } else if (event.keyCode == 40) {
             obj.focus();
-            alert(obj.innerHTML);
         }
     })
 }
@@ -1776,10 +1653,8 @@ function putremote() {
             searchOven();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML);
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML);
         }
     })
 }
@@ -1798,11 +1673,9 @@ function searchOven() {
             leaveobject();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML)
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML)
         }
 
 
@@ -1823,11 +1696,9 @@ function clean() {
             change();
         } else if (event.keyCode == 38) {
             obj.focus();
-            alert(obj.innerHTML)
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.nextElementSibling.focus();
-            alert(obj.nextElementSibling.nextElementSibling.innerHTML)
         }
     })
 }
@@ -1852,7 +1723,6 @@ function offradio() {
             }, 2000);
         } else if (event.keyCode == 40) {
             obj.focus();
-            alert(obj.innerHTML);
         }
     })
 }
@@ -1871,11 +1741,9 @@ function change() {
             ignoreinstruction();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML)
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML)
         }
     })
 }
@@ -1895,7 +1763,6 @@ function findkey() {
             back();
         } else if (event.keyCode == 40) {
             obj.focus();
-            alert(obj.innerHTML);
         }
     })
 }
@@ -1915,11 +1782,9 @@ function ignoreinstruction() {
             badEndInKit();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML)
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML)
         }
     })
 }
@@ -1940,11 +1805,9 @@ function leavehouse() {
             }, 4000);
         } else if (event.keyCode == 38) {
             obj.nextElementSibling.nextElementSibling.focus();
-            alert(obj.nextElementSibling.nextElementSibling.innerHTML)
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML)
         }
     })
 }
@@ -1964,11 +1827,9 @@ function leaveobject() {
             badEndInKit();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-            alert(obj.previousElementSibling.innerHTML);
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML);
         }
 
 
@@ -1990,11 +1851,9 @@ function keepsearch() {
             badEndInKit();
         } else if (event.keyCode == 38) {
             obj.focus();
-            alert(obj.innerHTML);
 
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.nextElementSibling.focus();
-            alert(obj.nextElementSibling.nextElementSibling.innerHTML);
         }
     })
 }
@@ -2013,7 +1872,6 @@ function badEndInKit() {
             Replay();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML);
         }
     })
 }
