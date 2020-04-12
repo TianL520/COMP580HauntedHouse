@@ -1334,6 +1334,63 @@ const watchtv = function () {
         </div>
     `);
 }
+
+// Leave through door
+const leavethroughdoor = function () {
+    return $(` 
+        <div id="leavethroughdoor">
+            <div id="buttons">
+            <button class="option" id="crawlfloor">Crawl through the floor</button>
+            </div>
+            <p id="paragraphs">The door is locked. It seems like you need a key to open it.</p> 
+        </div>
+    `);
+}
+const crawlfloor = function () {
+    return $(` 
+        <div id="crawlfloor1">
+            <div id="buttons">
+            <button class="option" id="openleft">Open the left drawer</button>
+            <button class="option" id="openright">Open the right drawer</button>
+            </div>
+            <p id="paragraphs">You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with 2 drawers. Which do you open? </p> 
+        </div>
+    `);
+}
+
+const openleft = function () {
+    return $(` 
+        <div id="openleft1">
+            <div id="buttons">
+            <button class="option" id="back">back to the lobby</button>
+            </div>
+            <p id="paragraphs">You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby</p> 
+        </div>
+    `);
+}
+
+const openright = function () {
+    return $(` 
+        <div id="openleft1">
+            <div id="buttons">
+            <button class="option" id="openleft">Open the left drawer</button>
+            </div>
+            <p id="paragraphs">You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby</p> 
+        </div>
+    `);
+}
+
+const walkbywall = function () {
+    return $(` 
+        <div id="walkbydoor">
+            <div id="buttons">
+
+            </div>
+            <p id="paragraphs">You decided to use the walls as guidance to walk around the room. </p> 
+        </div>
+    `);
+}
+
 const flashlight = function () {
     return $(` 
         <div id="light">
@@ -2345,14 +2402,11 @@ function watchtv1() {
             lookunderbed1();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
-            alert(obj.nextElementSibling.innerHTML);
         } else if (event.keyCode == 38) {
             if (obj.previousElementSibling == null) {
                 obj.focus();
-                alert(obj.innerHTML);
             } else {
                 obj.previousElementSibling.focus();
-                alert(obj.previousElementSibling.innerHTML);
             }
 
         }
@@ -2360,50 +2414,7 @@ function watchtv1() {
 }
 
 //basement 
-// Leave through door
-const leavethroughdoor = function () {
-    return $(` 
-        <div id="leavethroughdoor">
-            <div id="buttons">
-            <button class="option" id="crawlfloor">Crawl through the floor</button>
-            </div>
-            <p id="paragraphs">The door is locked. It seems like you need a key to open it.</p> 
-        </div>
-    `);
-}
-const crawlfloor = function () {
-    return $(` 
-        <div id="crawlfloor1">
-            <div id="buttons">
-            <button class="option" id="openleft">Open the left drawer</button>
-            <button class="option" id="openright">Open the right drawer</button>
-            </div>
-            <p id="paragraphs">You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with 2 drawers. Which do you open? </p> 
-        </div>
-    `);
-}
 
-const openleft = function () {
-    return $(` 
-        <div id="openleft1">
-            <div id="buttons">
-            <button class="option" id="back">back to the lobby</button>
-            </div>
-            <p id="paragraphs">You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby</p> 
-        </div>
-    `);
-}
-
-const openright = function () {
-    return $(` 
-        <div id="openleft1">
-            <div id="buttons">
-            <button class="option" id="openleft">Open the left drawer</button>
-            </div>
-            <p id="paragraphs">You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby</p> 
-        </div>
-    `);
-}
 
 function openright1() {
     obj = document.getElementById('openright');
@@ -2434,16 +2445,7 @@ function openleft1() {
     })
 }
 
-const walkbywall = function () {
-    return $(` 
-        <div id="walkbydoor">
-            <div id="buttons">
 
-            </div>
-            <p id="paragraphs">You decided to use the walls as guidance to walk around the room. </p> 
-        </div>
-    `);
-}
 
 function leavethroughdoor1() {
     obj = document.getElementById('leavedoor');
@@ -2662,13 +2664,10 @@ const Replay = function () {
         } else if (event.keyCode == 38) {
             if (obj.previousElementSibling == null) {
                 obj.nextElementSibling.focus();
-                alert(obj.nextElementSibling.innerHTML);
             } else if (obj.nextElementSibling == null) {
                 obj.previousElementSibling.focus();
-                alert(obj.previousElementSibling.innerHTML)
             } else {
                 obj.focus();
-                alert(obj.innerHTML);
             }
         }
 
