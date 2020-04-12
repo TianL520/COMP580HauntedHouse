@@ -287,7 +287,7 @@ const TTLH = function () {
     `);
 }
 
-//add wait function later and flashlight == true
+
 // Hide in kitchen scene
 const HIK = function () {
     play('K19');
@@ -720,8 +720,8 @@ const FKIK = function () {
     return $(`
         <div id="findkeyS">
             <div id="buttons">
+            <button class="option" id="leavehouse">Leave house</button>
             <button class="option" id="back">Back to the lobby</button>
-                <button class="option" id="leavehouse">Leave house</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">You look under the mat by the kitchen sink. You find a key.</p>
@@ -943,8 +943,8 @@ const LD = function () {
     return $(`
         <div id="lockdoorS">
             <div id="buttons">
+            <button class="option" id="Hideinvent">Hide in the vents</button>
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
-                <button class="option" id="Hideinvent">Hide in the vents</button>
                 <button class="option Replay">Replay narration</button>
             </div>
             <p id="paragraphs">The footsteps come closer until it stops. Someone tries to open the door, but it is locked. Suddenly they start banging on the door</p>  
@@ -1006,7 +1006,7 @@ const HIC = function () {
                     var button = document.getElementById("Leavecupboard");
                     annyang.pause();
                     button.click();
-                }
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -1028,7 +1028,7 @@ const LC = function () {
             <div id="buttons">
                 <button class="hiddenOption">Placeholder</button>
             </div>
-            <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do? Bang on the cupboard. Replay narration. It’s useless! You can’t get out! What do you do? Bang even more. Didn’t I tell you it’s useless? You are now stuck in the cupboard of someone’s house. Nobody will find you here for a while.</p>  
+            <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do? Bang on the cupboard. It’s useless! You can’t get out! What do you do? Bang even more. Didn’t I tell you it’s useless? You are now stuck in the cupboard of someone’s house. Nobody will find you here for a while.</p>  
         </div>    
     `);
 }
@@ -1135,7 +1135,7 @@ const BD = function () {
         </div>    
         <script>    
         if (annyang) {
-            var button = document.getElementById("lookdoor");
+            var button = document.getElementById("back");
             annyang.pause();
             button.click();
         }
@@ -1241,6 +1241,114 @@ const BE = function () {
 }
 
 
+//basement
+const BASEMENT = function () {
+
+    return $(` 
+        <div id="basement">
+            <div id="buttons">
+                <button class="option" id="leavedoor">Leave through the door</button>
+                <button class="option" id="crawlfloor">Crawl through the floor</button>
+
+            </div>
+            <p id="paragraphs">You faint.You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you. What do you do? </p> 
+        </div>
+    `);
+}
+
+
+//bedroom
+const BED = function () {
+    return $(` 
+        <div id="bedroomS">
+            <div id="buttons">
+                <button class="option" id="off">Turn the television off</button>
+                <button class="option" id="watch">Watch the television</button>
+            </div>
+            <p id="paragraphs">You enter the bedroom. Suddenly, the television turns on. What do you do? </p> 
+        </div>
+    `);
+}
+
+//TV OFF
+const TVO1 = function () {
+    return $(` 
+        <div id="tvo1">
+            <div id="buttons">
+                <button class="option" id="yes">Yes</button>
+            </div>
+            <p id="paragraphs">You grip your hammer in your right hand. Do you smash the TV?</p> 
+        </div>
+    `);
+}
+
+const smashtv = function () {
+    return $(` 
+        <div id="smashtv">
+            <div id="buttons">
+                <button class="option" id="searchdrawer">Search the drawers</button>
+                <button class="option" id="underbed">Look under the bed</button>
+            </div>
+            <p id="paragraphs">You smash the TV with all your strength. It shatters. What do you do next</p> 
+        </div>
+    `);
+}
+const drawerinbedroom = function () {
+    return $(` 
+        <div id="drawer">
+            <div id="buttons">
+                <button class="option" id="underbed">Look under the bed</button>
+            </div>
+            <p id="paragraphs">You find a note. It tells you to look under the bed</p> 
+        </div>
+    `);
+}
+const lookunderbed = function () {
+    return $(` 
+        <div id="lookunderbed">
+            <div id="buttons">
+                <button class="option" id="leftside">Look under left side of bed</button>
+                <button class="option" id="rightside">Look under right side of bed</button>
+            </div>
+            <p id="paragraphs">You find a note. It tells you to look under the bed</p> 
+        </div>
+    `);
+}
+const lookrightside = function () {
+    return $(` 
+        <div id="lookrightside">
+            <div id="buttons">
+            </div>
+            <p id="paragraphs">You find a golden key! it must open a secret room somewhere</p> 
+        </div>
+    `);
+}
+const watchtv = function () {
+    return $(` 
+        <div id="watchtv">
+            <div id="buttons">
+            <button class="option" id="underbed">Look under the bed</button>
+
+            </div>
+            <p id="paragraphs">You choose to watch the television.</p> 
+        </div>
+    `);
+}
+const flashlight = function () {
+    return $(` 
+        <div id="light">
+            <p id="weaponflashlight">flashlight </p> 
+        </div>
+    `);
+}
+
+const hammer = function () {
+    return $(` 
+        <div id="gethammer">
+            <p id="weaponhammer">hammer </p> 
+        </div>
+    `);
+}
 ///////////////////////////////////////////////////////Choose option functions///////////////////////////////////////////////////////
 // Press spacebar to navigate from menu to the start scene
 document.getElementById("menu").addEventListener("keypress", function () {
@@ -1250,79 +1358,73 @@ document.getElementById("menu").addEventListener("keypress", function () {
         Replay();
         $('audio')[0].play();
         $('audio').prop("volume", 0.2);
+        getCTA();
+        getHR();
         getVH();
     }
 });
 
-
-// Visit house
 function getVH() {
     obj = document.getElementById("visitHouse");
     obj.focus();
-    document.getElementById("visitHouse").addEventListener("keydown", function () {
+    $("#visitHouse").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(VH);
             Replay();
+            trytoleavehouse();
             kit();
             bath();
             BED1();
-            trytoleavehouse();
-            // document.getElementById("kitchen").focus();
         } else if (event.keyCode == 40) {
-            obj.nextElementSibling.focus();
-            getCTA();
-            // getHR();
+            var x = document.getElementById('callTripleA');
+            var y = document.getElementById('HitchRide');
+            var z = document.getElementById('wait');
+            if (x == null && y == null) {
+                z.focus();
+            } else if (x == null) {
+                y.focus();
+            } else {
+                x.focus();
+            }
         }
     })
 }
-
-
-// Call triple a
+//call triple A
 function getCTA() {
     obj = document.getElementById("callTripleA");
-    document.getElementById("callTripleA").addEventListener("keydown", function () {
+    // obj.focus();
+    $("#callTripleA").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(CTA);
             Replay();
-            // getVH();
-            document.getElementById("visitHouse").focus();
-            document.getElementById("visitHouse").addEventListener("keydown", function () {
-                if (event.keyCode == 32) {
-                    stop_speech();
-                    event.preventDefault();
-                    event.target.parentNode.parentNode.remove();
-                    $('#root').append(VH);
-                    Replay();
-                    kit();
-                    bath();
-                    BED1();
-                    trytoleavehouse();
-                    document.getElementById("kitchen").focus();
-
-                } else if (event.keyCode == 40) {
-                    document.getElementById("HitchRide").focus();
-                    getHR();
-                }
-            })
-        } else if (event.keyCode == 40) {
-            obj.nextElementSibling.focus();
             getHR();
-        } else if (event.keyCode == 38) {
-            obj.previousElementSibling.focus();
             getVH();
+        } else if (event.keyCode == 40) {
+            var x = document.getElementById('HitchRide');
+            var y = document.getElementById('wait');
+            if (x == null) {
+                y.focus();
+            } else {
+                x.focus();
+            }
+        } else if (event.keyCode == 38) {
+            document.getElementById('visitHouse').focus();
+
         }
     })
 }
 
+
 function getHR() {
     obj = document.getElementById("HitchRide");
-    document.getElementById("HitchRide").addEventListener("keydown", function () {
+    // obj.focus();
+    $("#HitchRide").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
             event.preventDefault();
@@ -1331,59 +1433,80 @@ function getHR() {
             Replay();
             keepwait();
             getVH();
-
+            getCTA();
         } else if (event.keyCode == 40) {
-            obj.nextElementSibling.focus();
-            // Replay();
-
+            document.getElementsByClassName('Replay')[0].focus();
         } else if (event.keyCode == 38) {
-            obj.previousElementSibling.focus();
+            var x = document.getElementById("callTripleA");
+            if (x == null) {
+                document.getElementById('visitHouse').focus();
+            } else {
+                x.focus();
+            }
         }
     })
 }
+// function getHR() {
+//     obj = document.getElementById("HitchRide");
+//     document.getElementById("HitchRide").addEventListener("keydown", function () {
+//         if (event.keyCode == 32) {
+//             stop_speech();
+//             event.preventDefault();
+//             event.target.parentNode.parentNode.remove();
+//             $('#root').append(HR);
+//             Replay();
+//             keepwait();
+//             getVH();
+
+//         } else if (event.keyCode == 40) {
+//             obj.nextElementSibling.focus();
+//             // Replay();
+
+//         } else if (event.keyCode == 38) {
+//             obj.previousElementSibling.focus();
+//         }
+//     })
+// }
 
 // Keep waiting
 function keepwait() {
-    obj = document.getElementById("visitHouse");
+    obj = document.getElementById("wait");
     obj.focus();
-    $("#wait").keypress(function () {
-        if (hours == 6) {
-            stop_speech();
-            event.preventDefault();
-            event.target.parentNode.parentNode.remove();
-            $('#root').append(KWBE);
-            setTimeout(function () {
-                $('#keepwaitingBES').remove();
-                $('#root').append(BE);
-                ReplayGame();
-            }, 8000);
-        } else {
-            stop_speech();
-            event.preventDefault();
-            event.target.parentNode.parentNode.remove();
-            manuscript.set('S5', "You waited for " + hours + " hours but no one passes by.")
-            $('#root').append(KW);
-            Replay();
-            document.getElementById('paragraphsHours').innerHTML = "You waited for " + hours + " hours but no one passes by. What do you do?";
-            hours++;
+    $("#wait").keydown(function () {
+        if (event.keyCode == 32) {
 
-            // Visit house
-            document.getElementById("visitHouse").addEventListener("keydown", function () {
-                if (event.keyCode == 32) {
-                    stop_speech();
-                    event.preventDefault();
-                    event.target.parentNode.parentNode.remove();
-                    $('#root').append(VH);
-                    Replay();
-                    kit();
-                    bath();
-                    trytoleavehouse();
-                } else if (event.keyCode == 40) {
-                    obj.nextElementSibling.focus();
-
-                }
-            })
-            keepwait();
+            if (hours == 6) {
+                stop_speech();
+                event.preventDefault();
+                event.target.parentNode.parentNode.remove();
+                $('#root').append(KWBE);
+                setTimeout(function () {
+                    $('#keepwaitingBES').remove();
+                    $('#root').append(BE);
+                    ReplayGame();
+                }, 8000);
+            } else {
+                stop_speech();
+                event.preventDefault();
+                event.target.parentNode.parentNode.remove();
+                manuscript.set('S5', "You waited for " + hours + " hours but no one passes by.")
+                $('#root').append(KW);
+                Replay();
+                document.getElementById('paragraphsHours').innerHTML = "You waited for " + hours + " hours but no one passes by. What do you do?";
+                hours++;
+                keepwait();
+                getVH();
+            }
+        } else if (event.keyCode == 40) {
+            document.getElementsByClassName('Replay')[0].focus();
+        } else if (event.keyCode == 38) {
+            x = document.getElementById('visitHouse');
+            y = document.getElementById('callTripleA');
+            if (y == null) {
+                x.focus();
+            } else {
+                y.focus();
+            }
         }
     })
 }
@@ -1402,38 +1525,32 @@ function kit() {
             hide();
             investigatekit();
         } else if (event.keyCode == 40) {
-            obj.previousElementSibling.focus();
+            document.getElementById('bedroom').focus();
+
         }
     })
 }
 
 // Player tries to leave the house in the lobby
 function trytoleavehouse() {
-    $("#leave").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(TTLH);
-        Replay();
-        back();
+    obj = document.getElementById("leave");
+    $("#leave").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(TTLH);
+            Replay();
+            back();
+        } else if (event.keyCode == 40) {
+            document.getElementsByClassName('Replay')[0].focus();
+        } else if (event.keyCode == 38) {
+            document.getElementById('bathroom').focus();
+        }
     })
 }
 
-const flashlight = function () {
-    return $(` 
-        <div id="light">
-            <p id="weaponflashlight">flashlight </p> 
-        </div>
-    `);
-}
 
-const hammer = function () {
-    return $(` 
-        <div id="gethammer">
-            <p id="weaponhammer">hammer </p> 
-        </div>
-    `);
-}
 // Hide in kitchen
 function hide() {
     obj = document.getElementById("hide");
@@ -1459,7 +1576,6 @@ function hide() {
 function back() {
     obj = document.getElementById("back");
     obj.focus();
-
     $("#back").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
@@ -1472,11 +1588,11 @@ function back() {
             BED1();
             trytoleavehouse();
         } else if (event.keyCode == 40) {
-            obj.nextElementSibling.focus();
+            document.getElementsByClassName('Replay')[0].focus();
+
+        } else if (event.keyCode == 38) {
+            obj.focus();
         }
-        // else if (event.keycode == 38){
-        //     obj
-        // }
     })
 
 }
@@ -1519,24 +1635,6 @@ function searchFri() {
         }
     })
 }
-
-//basement
-const BASEMENT = function () {
-
-    return $(` 
-        <div id="basement">
-            <div id="buttons">
-                <button class="option" id="leavedoor">Leave through the door</button>
-                <button class="option" id="crawlfloor">Crawl through the floor</button>
-
-            </div>
-            <p id="paragraphs">You faint.You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you. What do you do? </p> 
-        </div>
-    `);
-}
-
-
-//add wait function later jump to basement
 // Red apple
 function frired() {
     obj = document.getElementById("red");
@@ -1550,6 +1648,10 @@ function frired() {
             setTimeout(function () {
                 $('#redappleS').remove();
                 $('#root').append(BASEMENT);
+                crawlfloor1();
+
+                leavethroughdoor1();
+
             }, 3000);
         } else if (event.keyCode == 40) {
             obj.focus();
@@ -1759,8 +1861,8 @@ function findkey() {
             event.target.parentNode.parentNode.remove();
             $('#root').append(FKIK);
             Replay();
-            leavehouse();
             back();
+            leavehouse();
         } else if (event.keyCode == 40) {
             obj.focus();
         }
@@ -1772,7 +1874,6 @@ function ignoreinstruction() {
     obj = document.getElementById("ignoreinstruction");
     $("#ignoreinstruction").keydown(function () {
         if (event.keyCode == 32) {
-
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -1782,7 +1883,6 @@ function ignoreinstruction() {
             badEndInKit();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
-
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
         }
@@ -1792,6 +1892,7 @@ function ignoreinstruction() {
 // Leave the house
 function leavehouse() {
     obj = document.getElementById("leavehouse");
+    obj.focus();
     $("#leavehouse").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
@@ -1841,7 +1942,6 @@ function keepsearch() {
     obj = document.getElementById("keepsearch");
     $("#keepsearch").keydown(function () {
         if (event.keyCode == 32) {
-
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -1864,7 +1964,6 @@ function badEndInKit() {
     obj.focus();
     $("#lookdoor").keydown(function () {
         if (event.keyCode == 32) {
-
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -1879,309 +1978,523 @@ function badEndInKit() {
 // Bathroom
 function bath() {
     obj = document.getElementById("bathroom");
-    $("#bathroom").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(BT);
-        Replay();
-        turnoffsink();
-        exitbath();
+    $("#bathroom").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(BT);
+            Replay();
+            turnoffsink();
+            exitbath();
+        } else if (event.keyCode == 40) {
+            document.getElementById("leave").focus();
+        } else if (event.keyCode == 38) {
+            document.getElementById("bedroom").focus();
+        }
     })
 }
 
 // Turn off the sink
 function turnoffsink() {
-    $("#turnOffSink").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(TOS);
-        Replay();
-        lockdoor();
-        hideincupboard();
-    })
-}
+    obj = document.getElementById("turnOffSink");
+    obj.focus();
+    $("#turnOffSink").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(TOS);
+            Replay();
+            hideincupboard();
+            lockdoor();
 
-// Lock the door
-function lockdoor() {
-    $("#LockTheDoor").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(LD);
-        Replay();
-        hideincupboard();
-        climbvent();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+        }
     })
 }
 
 // Hide in cupboard
 function hideincupboard() {
-    $("#Hideincupboard").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(HIC);
-        Replay();
-        leavecup();
+    obj = document.getElementById("Hideincupboard");
+    obj.focus();
+    $("#Hideincupboard").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(HIC);
+            Replay();
+            leavecup();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            if (obj.previousElementSibling == null) {
+                obj.focus();
+            }
+        }
+    });
+}
+
+// Lock the door
+function lockdoor() {
+    obj = document.getElementById("LockTheDoor");
+    obj.focus();
+    $("#LockTheDoor").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(LD);
+            Replay();
+            hideincupboard();
+            climbvent();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
     })
 }
+
+
 
 // Leave cupboard
+//not working
 function leavecup() {
-    $("#Leavecupboard").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(LC);
-        Replay();
+    obj = document.getElementById("Leavecupboard");
+    obj.focus();
+    $("#Leavecupboard").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(LC);
+            Replay();
+        }
     })
 }
 
-//add wait function later to basement
+
 // Climb the vent
 function climbvent() {
-    $("#Hideinvent").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(CV);
-        Replay();
+    obj = document.getElementById("Hideinvent");
+    obj.focus();
+    $("#Hideinvent").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(CV);
+            Replay();
+            setTimeout(function () {
+                $('#climbvent').remove();
+                $('#root').append(BASEMENT);
+                crawlfloor1();
+
+                leavethroughdoor1();
+            }, 3000);
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
     })
 }
 
 // Exit bathroom
 function exitbath() {
-    $("#exitbathroom").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(EB);
-        Replay();
-        searchcupboard();
-        toiletseat();
+    obj = document.getElementById("exitbathroom");
+    $("#exitbathroom").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(EB);
+            Replay();
+            searchcupboard();
+            toiletseat();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
     })
 }
+
 
 // Search cupboard
 function searchcupboard() {
-    $("#searchcup").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(SCB);
-        $('#root').append(hammer);
-        Replay();
-        hideincupboard();
-        breakdowndoor();
+    obj = document.getElementById("searchcup");
+    obj.focus();
+    $("#searchcup").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(SCB);
+            $('#root').append(hammer);
+            Replay();
+            hideincupboard();
+            breakdowndoor();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+        }
     })
 }
 
-//add wait function Back to the lobby with hammer
 // Break door
 function breakdowndoor() {
-    $("#breakdoor").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(BD);
-        Replay();
-        hideincupboard();
-        back();
+    obj = document.getElementById("breakdoor");
+    obj.focus();
+    $("#breakdoor").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(BD);
+            Replay();
+            // hideincupboard();
+            back();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        }
     })
 }
 
 // Toilet seat
 function toiletseat() {
-    $("#openseat").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(TS);
-        Replay();
-        back();
-        closetoiletseat();
+    obj = document.getElementById("openseat");
+    $("#openseat").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(TS);
+            Replay();
+            back();
+            closetoiletseat();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
     })
 }
 
 // Close toilet seat
 function closetoiletseat() {
-    $("#Closetoiletseat").click(function () {
-        stop_speech();
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(CTS);
-        Replay();
-        searchcupboard();
+    obj = document.getElementById("Closetoiletseat");
+    obj.focus();
+    $("#Closetoiletseat").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(CTS);
+            Replay();
+            searchcupboard();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
+        }
     })
 }
 
+
 //bedroom
-const BED = function () {
-    return $(` 
-        <div id="bedroomS">
-            <div id="buttons">
-                <button class="option" id="off">Turn the television off</button>
-                <button class="option" id="watch">Watch the television</button>
-            </div>
-            <p id="paragraphs">You enter the bedroom. Suddenly, the television turns on. What do you do? </p> 
-        </div>
-    `);
-}
-
-const TVO1 = function () {
-    return $(` 
-        <div id="tvo1">
-            <div id="buttons">
-                <button class="option" id="yes">Yes</button>
-            </div>
-            <p id="paragraphs">You grip your hammer in your right hand. Do you smash the TV?</p> 
-        </div>
-    `);
-}
-
 function BED1() {
-    $("#bedroom").click(function () {
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(BED);
-        toff();
-        watchtv1();
+    obj = document.getElementById("bathroom");
+    $("#bedroom").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(BED);
+            toff();
+            watchtv1();
+        } else if (event.keyCode == 40) {
+            document.getElementById('bathroom').focus();
+        } else if (event.keyCode == 38) {
+            document.getElementById('kitchen').focus();
+        }
+
     })
 }
 
 
 function toff() {
-    $("#off").click(function () {
-        ham = document.getElementById('weaponhammer');
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        if (ham) {
-            $('#root').append(TVO1);
-            $('#weaponhammer').remove();
-            smashtv1();
-        } else {
-            $('#root').append(BASEMENT);
+    obj = document.getElementById("off");
+    obj.focus();
+    $("#off").keydown(function () {
+        if (event.keyCode == 32) {
+            ham = document.getElementById('weaponhammer');
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            if (ham) {
+                $('#root').append(TVO1);
+                $('#weaponhammer').remove();
+                smashtv1();
+            } else {
+                $('#root').append(BASEMENT);
+                crawlfloor1();
+
+                leavethroughdoor1();
+            }
+        } else if (event.keyCode == 40) {
+            obj.focus();
         }
     })
 }
 
-const smashtv = function () {
-    return $(` 
-        <div id="smashtv">
-            <div id="buttons">
-                <button class="option" id="searchdrawer">Search the drawers</button>
-                <button class="option" id="underbed">Look under the bed</button>
-            </div>
-            <p id="paragraphs">You smash the TV with all your strength. It shatters. What do you do next</p> 
-        </div>
-    `);
-}
+
 
 function smashtv1() {
-    $("#yes").click(function () {
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(smashtv);
-        drawerinbedroom1();
-        lookunderbed1();
+    obj = document.getElementById("yes");
+    obj.focus();
+    $("#yes").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(smashtv);
+            lookunderbed1();
+            drawerinbedroom1();
+        }
     })
 }
 
-const drawerinbedroom = function () {
-    return $(` 
-        <div id="drawer">
-            <div id="buttons">
-                <button class="option" id="underbed">Look under the bed</button>
-            </div>
-            <p id="paragraphs">You find a note. It tells you to look under the bed</p> 
-        </div>
-    `);
-}
+
 
 function drawerinbedroom1() {
-    $("#searchdrawer").click(function () {
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(drawerinbedroom);
-        lookunderbed1();
+    obj = document.getElementById("searchdrawer");
+    obj.focus();
+    $("#searchdrawer").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(drawerinbedroom);
+            lookunderbed1();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        }
     })
 }
-const lookunderbed = function () {
-    return $(` 
-        <div id="lookunderbed">
-            <div id="buttons">
-                <button class="option" id="leftside">Look under left side of bed</button>
-                <button class="option" id="rightside">Look under right side of bed</button>
-            </div>
-            <p id="paragraphs">You find a note. It tells you to look under the bed</p> 
-        </div>
-    `);
-}
+
 
 function lookunderbed1() {
-    $("#underbed").click(function () {
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(lookunderbed);
-        lookrightside1();
-        lookleftside1();
+    obj = document.getElementById("underbed");
+    obj.focus();
+    $("#underbed").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(lookunderbed);
+            lookrightside1();
+            lookleftside1();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        } else if (event.keyCode == 38) {
+            obj.focus();
+
+        }
     })
 }
-const lookrightside = function () {
-    return $(` 
-        <div id="lookrightside">
-            <div id="buttons">
-            </div>
-            <p id="paragraphs">You find a golden key! it must open a secret room somewhere</p> 
-        </div>
-    `);
-}
+
 
 function lookleftside1() {
-    $("#leftside").click(function () {
-
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
+    obj = document.getElementById('leftside');
+    obj.focus();
+    $("#leftside").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(BE);
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+        }
     })
 }
 
 function lookrightside1() {
-    $("#rightside").click(function () {
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(lookrightside);
+    obj = document.getElementById('rightside');
+    $("#rightside").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(lookrightside);
+        } else if (event.keyCode == 38) {
+            if (obj.previousElementSibling == null) {
+                obj.focus();
+            } else {
+                obj.previousElementSibling.focus();
+            }
+
+        }
     })
 }
 
-const watchtv = function () {
-    return $(` 
-        <div id="watchtv">
-            <div id="buttons">
-            <button class="option" id="underbed">Look under the bed</button>
 
+function watchtv1() {
+    obj = document.getElementById('watch');
+    $("#watch").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(watchtv);
+            lookunderbed1();
+        } else if (event.keyCode == 40) {
+            obj.nextElementSibling.focus();
+            alert(obj.nextElementSibling.innerHTML);
+        } else if (event.keyCode == 38) {
+            if (obj.previousElementSibling == null) {
+                obj.focus();
+                alert(obj.innerHTML);
+            } else {
+                obj.previousElementSibling.focus();
+                alert(obj.previousElementSibling.innerHTML);
+            }
+
+        }
+    })
+}
+
+//basement 
+// Leave through door
+const leavethroughdoor = function () {
+    return $(` 
+        <div id="leavethroughdoor">
+            <div id="buttons">
+            <button class="option" id="crawlfloor">Crawl through the floor</button>
             </div>
-            <p id="paragraphs">You choose to watch the television.</p> 
+            <p id="paragraphs">The door is locked. It seems like you need a key to open it.</p> 
+        </div>
+    `);
+}
+const crawlfloor = function () {
+    return $(` 
+        <div id="crawlfloor1">
+            <div id="buttons">
+            <button class="option" id="openleft">Open the left drawer</button>
+            <button class="option" id="openright">Open the right drawer</button>
+            </div>
+            <p id="paragraphs">You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with 2 drawers. Which do you open? </p> 
         </div>
     `);
 }
 
-function watchtv1() {
-    $("#watch").click(function () {
-        event.preventDefault();
-        event.target.parentNode.parentNode.remove();
-        $('#root').append(watchtv);
-        lookunderbed1();
+const openleft = function () {
+    return $(` 
+        <div id="openleft1">
+            <div id="buttons">
+            <button class="option" id="back">back to the lobby</button>
+            </div>
+            <p id="paragraphs">You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby</p> 
+        </div>
+    `);
+}
 
+const openright = function () {
+    return $(` 
+        <div id="openleft1">
+            <div id="buttons">
+            <button class="option" id="openleft">Open the left drawer</button>
+            </div>
+            <p id="paragraphs">You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby</p> 
+        </div>
+    `);
+}
+
+function openright1() {
+    obj = document.getElementById('openright');
+    $("#openright").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(openright);
+            openleft1();
+        } else if (event.keyCode == 38) {
+            document.getElementById('openleft').focus();
+        }
     })
 }
+
+function openleft1() {
+    obj = document.getElementById('openleft');
+    obj.focus();
+    $("#openleft").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(openleft);
+            back();
+        } else if (event.keyCode == 40) {
+            document.getElementById('openright').focus();
+        }
+    })
+}
+
+const walkbywall = function () {
+    return $(` 
+        <div id="walkbydoor">
+            <div id="buttons">
+
+            </div>
+            <p id="paragraphs">You decided to use the walls as guidance to walk around the room. </p> 
+        </div>
+    `);
+}
+
+function leavethroughdoor1() {
+    obj = document.getElementById('leavedoor');
+    obj.focus();
+    $("#leavedoor").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(leavethroughdoor);
+            crawlfloor1();
+        } else if (event.keyCode == 40) {
+            document.getElementById('crawlfloor').focus();
+        }
+    })
+}
+
+function crawlfloor1() {
+    obj = document.getElementById('crawlfloor');
+    obj.focus();
+    $("#crawlfloor").keydown(function () {
+        if (event.keyCode == 32) {
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            if (document.getElementById('weaponflashlight') == null) {
+                $('#root').append(walkbywall);
+            } else {
+                $('#root').append(crawlfloor);
+                $('#weaponflashlight').remove();
+                openleft1();
+                openright1();
+            }
+        } else if (event.keyCode == 38) {
+            document.getElementById('leavedoor').focus();
+        }
+    })
+}
+
+
+
 // Player chooses to replay the game
 function ReplayGame() {
-    $('#replayGame').click(function () {
-        location.reload();
+    obj = document.getElementById('replayGame').focus();
+    obj.focus();
+    $('#replayGame').keydown(function () {
+        if (event.keyCode == 32) {
+            location.reload();
+        }
     })
 }
+
+
 ///////////////////////////////////////////////////////Speech script related functions///////////////////////////////////////////////////////
 var manuscript = new Map()
 manuscript.set('S1', "After a long week of work, you decide a weekend camping at the mountains alone would be a good activity.")
@@ -2273,7 +2586,7 @@ manuscript.set('BR2', "You hear footsteps running towards you.")
 manuscript.set('BR2_2', "What do you do? Lock the door. Hide in the cupboard. Replay narration.")
 manuscript.set('BR3', "The footsteps come closer until it stops.")
 manuscript.set('BR3_2', "Someone tries to open the door, but it is locked. Suddenly they start banging on the door.")
-manuscript.set('BR3_3', "What do you do? Hide in the cupboard. Hide in a vent. Replay narration.")
+manuscript.set('BR3_3', "What do you do? Hide in a vent. Hide in the cupboard. Replay narration.")
 manuscript.set('BR4', "You find a cupboard below the sink, and hide inside. Suddenly, the door is forced open.")
 manuscript.set('BR4_2', "You hear footsteps nearing the cupboard, then a laugh.")
 manuscript.set('BR4_3', "After some time, you hear footsteps walking out. What do you do? Leave the cupboard. Replay narration.")
@@ -2340,10 +2653,25 @@ var dict = {
 
 // Replay narration click function
 const Replay = function () {
-    $(".Replay").on('keypress', function (event) {
-        console.log("Clicked" + event.target.parentNode.parentNode.id)
-        stop_speech();
-        dict[event.target.parentNode.parentNode.id]();
+    obj = document.getElementsByClassName('Replay');
+    $(".Replay").on('keydown', function (event) {
+        if (event.keyCode == 32) {
+            console.log("Clicked" + event.target.parentNode.parentNode.id)
+            stop_speech();
+            dict[event.target.parentNode.parentNode.id]();
+        } else if (event.keyCode == 38) {
+            if (obj.previousElementSibling == null) {
+                obj.nextElementSibling.focus();
+                alert(obj.nextElementSibling.innerHTML);
+            } else if (obj.nextElementSibling == null) {
+                obj.previousElementSibling.focus();
+                alert(obj.previousElementSibling.innerHTML)
+            } else {
+                obj.focus();
+                alert(obj.innerHTML);
+            }
+        }
+
     });
 }
 
