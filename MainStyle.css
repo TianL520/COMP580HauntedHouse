@@ -66,11 +66,43 @@ body {
 #offsinkS,
 #lockdoorS,
 #hidecupboardS,
-#leavecupS {
+#leavecupS,
+#basementS,
+#leavethroughdoorS,
+#bedroomS,
+#exitbathS,
+#toiletseatS,
+#searchcupboardS,
+#climbventS,
+#bangCupboardS,
+#stuckCupboardS,
+#breakdowndoorS,
+#closeseatS,
+#hammerTVS,
+#smashtvS,
+#lookunderbedS,
+#lookrightsideS,
+#watchtvS,
+#tableDrawerS,
+#walkbywallS,
+#openleftS,
+#openrightS,
+#trytoturnTVoffS,
+#leftbedS,
+#crawlfloorS,
+#secretroomS{
     background-image: url(./Assets/oldMansion.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+#climbventS {
+    background-image: url(./Assets/Vent.jpg);
+}
+
+#stuckCupboardS {
+    background-image: url(./Assets/CupboardBE.jpg);
 }
 
 #houseS {
@@ -88,6 +120,18 @@ body {
 
 #keepwaitingBES {
     background-image: url(./Assets/WaitHorror.jpg);
+}
+
+#lookunderbedS {
+    background-image: url(./Assets/UnderBed.jpg);
+}
+
+#lookrightsideS {
+    background-image: url(./Assets/KeyUnderBed.jpg);
+}
+
+#leftbedS {
+    background-image: url(./Assets/LeftBed.jpg);
 }
 
 #kitchenS,
@@ -135,6 +179,14 @@ body {
     background-image: url(./Assets/closet.png);
 }
 
+#openleftS {
+    background-image: url(./Assets/DeskDrawerKey.jpg);
+}
+
+#openrightS {
+    background-image: url(./Assets/DrawerJumpscare.jpg);
+}
+
 #bathroomS {
     background-image: url(./Assets/bathroom.png);
 }
@@ -145,6 +197,29 @@ body {
 
 #leaveobjectS {
     background-image: url(./Assets/Shadow.jpg);
+}
+
+#smashtvS {
+    background-image: url(./Assets/BrokenTV.jpg);
+}
+
+#tableDrawerS,
+#crawlfloorS {
+    background-image: url(./Assets/DeskDrawer.jpg);
+}
+
+#secretroomS {
+    background-image: url(./Assets/secretroom.png);
+}
+
+#hammerTVS,
+#watchtvS,
+#trytoturnTVoffS {
+    background-image: url(./Assets/TV.jpg);
+}
+
+#walkbywallS {
+    background-image: url(./Assets/Wall.jpg);
 }
 
 #keepS {
@@ -163,13 +238,40 @@ body {
     background-image: url(./Assets/FootstepBath.jpg);
 }
 
-#lockdoorS {
+#lockdoorS,
+#exitbathS {
     background-image: url(./Assets/LockBathDoor.jpg);
 }
 
 #hidecupboardS,
-#leavecupS {
+#leavecupS,
+#bangCupboardS,
+#closeseatS {
     background-image: url(./Assets/CupboardSink.jpg);
+}
+
+#basementS {
+    background-image: url(./Assets/Basement.jpg);
+}
+
+#leavethroughdoorS {
+    background-image: url(./Assets/BasementDoor.jpg);
+}
+
+#bedroomS {
+    background-image: url(./Assets/Bedroom.jpg);
+}
+
+#searchcupboardS {
+    background-image: url(./Assets/Hammer.jpg);
+}
+
+#toiletseatS {
+    background-image: url(./Assets/Toilet.jpg);
+}
+
+#breakdowndoorS {
+    background-image: url(./Assets/HammerDoor.jpg);
 }
 
 #goodending1S {
@@ -212,11 +314,15 @@ body {
     padding: 1%;
     margin: 0.5%;
     width: 18%;
-    border: 2px solid white;
+    border: 5px solid white;
     border-radius: 12px;
     text-align: center;
     font-size: 23px;
     font-family: 'Do Hyeon', sans-serif;
+}
+
+.option:focus {
+    border-color: yellow;
 }
 
 .hiddenOption {
