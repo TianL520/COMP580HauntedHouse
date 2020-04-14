@@ -1,7 +1,17 @@
 var speech_inst = window.speechSynthesis
 var hours = 2;
-var hammerW, flashlightW, goldKeyW = false;
+var hammerW, flashlightW = false;
 ///////////////////////////////////////////////////////Scene setup functions///////////////////////////////////////////////////////
+const WS = function () {
+    play('WS');
+    return $(`
+        <div id="warningS">
+            <div id="buttons">
+                <button class="hiddenOption">Placeholder</button>
+            </div>
+        </div>
+    `);
+}
 // Start scene 
 const SS = function () {
     play('S1');
@@ -15,21 +25,19 @@ const SS = function () {
 const VH = function () {
     play('S2');
     play('S2_1');
-    if (goldKeyW) {
-        play('L1_3');
-        play('L1_4');
-        return $(`
+    play('L1');
+    play('L1_2');
+    return $(`
         <div id="houseS">
             <div id="buttons">
                 <button class="option" id="kitchen">Enter the kitchen</button>
                 <button class="option" id="bedroom">Enter the bedroom</button>
                 <button class="option" id="bathroom">Enter the bathroom</button>
-                <button class="option" id="secretroom">Enter the secret room</button>
                 <button class="option" id="leave">Leave the house</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You walk towards the house and knock. There is no response. You push the door open and to your surprise, it is unlocked. You enter the lobby of the house.
-            It is darkly lit and dusty, and full of old paintings on the walls. You notice four different rooms. The bedroom, the bathroom, the kitchen, and the secret room. What do you do?</p>
+            It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen. What do you do?</p>
             <audio controls autoplay class="music"><source src="./Assets/FootstepSE.mp3" type='audio/mp3'></audio>
         </div>
         <script>    
@@ -50,11 +58,6 @@ const VH = function () {
                     annyang.pause();
                     button.click();
                 },
-                '(Enter the) secret room': function() {
-                    var button = document.getElementById("secretroom");
-                    annyang.pause();
-                    button.click();
-                },
                 'Leave (the house)': function() {
                     var button = document.getElementById("leave");
                     annyang.pause();
@@ -70,57 +73,6 @@ const VH = function () {
         }
         </script>
     `);
-    }
-    else {
-        play('L1');
-        play('L1_2');
-        return $(`
-            <div id="houseS">
-                <div id="buttons">
-                    <button class="option" id="kitchen">Enter the kitchen</button>
-                    <button class="option" id="bedroom">Enter the bedroom</button>
-                    <button class="option" id="bathroom">Enter the bathroom</button>
-                    <button class="option" id="leave">Leave the house</button>
-                    <button class="option Replay">Replay narration</button>
-                </div>
-                <p id="paragraphs">You walk towards the house and knock. There is no response. You push the door open and to your surprise, it is unlocked. You enter the lobby of the house.
-                It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen. What do you do?</p>
-                <audio controls autoplay class="music"><source src="./Assets/FootstepSE.mp3" type='audio/mp3'></audio>
-            </div>
-            <script>    
-            if (annyang) {
-                var commands = {
-                    '(Enter the) kitchen': function() {
-                        var button = document.getElementById("kitchen");
-                        annyang.pause();
-                        button.click();
-                    },
-                    '(Enter the) bedroom': function() {
-                        var button = document.getElementById("bedroom");
-                        annyang.pause();
-                        button.click();
-                    },
-                    '(Enter the) bathroom': function() {
-                        var button = document.getElementById("bathroom");
-                        annyang.pause();
-                        button.click();
-                    },
-                    'Leave (the house)': function() {
-                        var button = document.getElementById("leave");
-                        annyang.pause();
-                        button.click();
-                    },
-                    'Replay (Narration)': function() {
-                        replay_narration();
-                        annyang.pause();
-                    }
-                };
-                annyang.removeCommands();
-                annyang.addCommands(commands);
-            }
-            </script>
-        `);
-    }
 }
 
 // Call triple a scene
@@ -132,9 +84,9 @@ const CTA = function () {
             <div id="buttons">
                 <button class="option" id="visitHouse">Visit the house</button>
                 <button class="option" id="HitchRide">Hitch a ride</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
-            <p id="paragraphs">Looks like there is no service.</p>
+            <p id="paragraphs">Looks like there is no service. What do you do?</p>
             <audio controls autoplay loop class="music" id="call"><source src="./Assets/CallSE.mp3" type='audio/mp3'></audio>
         </div>
         <script>    
@@ -177,7 +129,7 @@ const HR = function () {
                 <button class="option" id="visitHouse">Visit the house</button>
                 <button class="option" id="callTripleA">Call Triple A</button>
                 <button class="option" id="wait">Keep waiting</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You waited for an hour but no one passes by. What do you do?</p>
         </div>
@@ -225,7 +177,7 @@ const KW = function () {
             <div id="buttons">
                 <button class="option" id="visitHouse">Visit the house</button>
                 <button class="option" id="wait">Keep waiting</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphsHours">You waited for 2 hours but no one passes by. What do you do?</p> 
         </div>
@@ -277,7 +229,7 @@ const KT = function () {
             <div id="buttons">
                 <button class="option" id="investigate">Investigate the noise</button>
                 <button class="option" id="hide">Hide</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You enter the kitchen. There’s a large fridge to your left, and a kitchen counter next to it. You hear a peculiar sound coming from the counter. What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/ChopSE.mp3" type='audio/mp3'></audio>
@@ -321,7 +273,7 @@ const TTLH = function () {
         <div id="trytoleavehouseS">
             <div id="buttons">
                 <button class="option" id="back">Back to the lobby</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You try to leave the house. To your dismay, the door is shut and locked behind you! The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave. What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
@@ -356,7 +308,7 @@ const HIK = function () {
         <div id="hideS">
             <div id="buttons">
                 <button class="option" id="back">Back to the lobby</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You find a cleaning closet to your right and dash inside. You feel something by your feet and pick it up. It’s a flashlight. What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorSE.mp3" type='audio/mp3'></audio>
@@ -390,7 +342,7 @@ const IIK = function () {
             <div id="buttons">
                 <button class="option" id="searchFridge">Search the fridge</button>
                 <button class="option" id="searchOven">Search the oven</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You follow the source of the noise but you don’t find anything. There’s a fridge and an oven in the kitchen. What do you do?</p>  
         </div>
@@ -428,7 +380,7 @@ const SF = function () {
             <div id="buttons">
                 <button class="option" id="red">Pick up the red apple</button>
                 <button class="option" id="green">Pick up the green apple</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You find two apples inside the fridge. A red apple and a green apple. What do you do? </p>
         </div>
@@ -466,7 +418,7 @@ const SO = function () {
             <div id="buttons">
                 <button class="option" id="leave">Leave the object</button>
                 <button class="option" id="clean">Clean the object</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You smell something burnt. You peer inside and find a charred object. What do you do?  </p>
         </div>
@@ -504,7 +456,7 @@ const CO = function () {
             <div id="buttons">
                 <button class="option" id="turnOffRadio">Turn off the radio</button>
                 <button class="option" id="changeFrequency">Change the frequency</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You clean the object. It’s a radio. The noises you heard seem to have come from the radio. What do you do?</p>
             <audio controls autoplay class="music"><source src="./Assets/RadioSE.mp3" type='audio/mp3'></audio>
@@ -556,7 +508,7 @@ const GA = function () {
             <div id="buttons">
                 <button class="option" id="pickup">Pick up the apple</button>
                 <button class="option" id="ignore">Ignore the apple</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You reach for the green apple. When you pull it out from the fridge, your hand slips and the apple falls to the kitchen floor. What do you do? </p>
         </div>  
@@ -594,7 +546,7 @@ const PGA = function () {
             <div id="buttons">
                 <button class="option" id="press">Press the button</button>
                 <button class="option" id="putback">Put the remote back</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You reach downwards to pick up the apple. In the gap between the fridge and the floor, you find a remote with a single red button. What do you do?</p>
         </div>
@@ -644,7 +596,7 @@ const PR = function () {
         <div id="pressbtnS">
             <div id="buttons">
                 <button class="option" id="back">Back to the lobby</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">The noise in the kitchen stops. Looks like it was from a remote-controlled speaker. What do you do?</p>
         </div>  
@@ -677,7 +629,7 @@ const PRB = function () {
             <div id="buttons">
             <button class="option" id="red">Pick up the red apple</button>
                 <button class="option" id="searchOven">Check the oven</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
             <p id="paragraphs">You put the remote back where you found it. What do you do next?</p>
         </div>  
@@ -738,15 +690,17 @@ const OR = function () {
 
 // Change frequency scene
 const CF = function () {
-    play('K11');
+    play('K12');
+    play('K13');
     return $(`
         <div id="changefreqS">
             <div id="buttons">
                 <button class="option" id="lookundermat">Look under the mat</button>
-                <button class="option" id="ignoreinstruction">Ignore the instruction</button>    
-                <button class="option Replay">Replay narration</button>
+                <button class="option" id="ignoreinstruction">Ignore the voice</button>    
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>            
-            <p id="paragraphs">You turn off the radio.</p>
+            <p id="paragraphs">You changed the radio frequency and you heard a voice that tells you to look under the mat. What do you do?</p>
+            <audio controls autoplay class="music"><source src="./Assets/RadioSE.mp3" type='audio/mp3'></audio>
         </div>  
         <script>    
         if (annyang) {
@@ -781,9 +735,9 @@ const FKIK = function () {
             <div id="buttons">
             <button class="option" id="leavehouse">Leave house</button>
             <button class="option" id="back">Back to the lobby</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
-            <p id="paragraphs">You look under the mat by the kitchen sink. You find a key.</p>
+            <p id="paragraphs">You look under the mat by the kitchen sink. You find a silver key with a snake pattern.</p>
         </div> 
         <script>    
         if (annyang) {
@@ -818,7 +772,7 @@ const LH = function () {
             <div id="buttons">
                 <button class="hiddenOption">Placeholder</button>
             </div>
-            <p id="paragraphs">You leave the house.</p>
+            <p id="paragraphs">You found the front door key and you quickly left the house.</p>
         </div>  
     `);
 }
@@ -832,7 +786,7 @@ const LO = function () {
             <div id="buttons">
                 <button class="option" id="lookdoor">Investigate the door</button>
                 <button class="option" id="keepsearch">Keep searching</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You decided to look around the kitchen. Suddenly, you feel a shadow flash behind you. What do you do? </p>
         </div>  
@@ -870,7 +824,7 @@ const KS = function () {
             <div id="buttons">
                 <button class="option" id="lookdoor">Investigate the door</button>
                 <button class="option" id="back">Back to the lobby</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">After searching for a while, you notice a door hidden behind the fridge. What do you do?  </p>
         </div>  
@@ -923,7 +877,7 @@ const BT = function () {
             <div id="buttons">
                 <button class="option" id="turnOffSink">Turn off the sink</button>
                 <button class="option" id="exitbathroom">Back to the lobby</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You enter the bathroom. The sink is on. What do you do?</p> 
             <audio controls autoplay loop class="music"><source src="./Assets/SinkSE.mp3" type='audio/mp3'></audio> 
@@ -963,7 +917,7 @@ const TOS = function () {
             <div id="buttons">
                 <button class="option" id="LockTheDoor">Lock the door</button>
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You hear footsteps running towards you. What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/FootstepSE.mp3" type='audio/mp3'></audio>
@@ -1007,7 +961,7 @@ const LD = function () {
             <div id="buttons">
             <button class="option" id="Hideinvent">Hide in the vents</button>
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">The footsteps come closer until it stops. Someone tries to open the door, but it is locked. Suddenly they start banging on the door</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/BangDoorSE.mp3" type='audio/mp3'></audio>
@@ -1056,7 +1010,7 @@ const HIC = function () {
         <div id="hidecupboardS">
             <div id="buttons">
                 <button class="option" id="Leavecupboard">Leave the cupboard</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You find a cupboard below the sink, and hide inside. Suddenly, the door is forced open. You hear footsteps nearing the cupboard, then a laugh. After some time, you hear footsteps walking out. What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/LaughBathSE.mp3" type='audio/mp3'></audio>
@@ -1089,7 +1043,7 @@ const LC = function () {
         <div id="leavecupS">
             <div id="buttons">
                 <button class="option" id="bangCupboard">Bang on the cupboard</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
@@ -1118,7 +1072,7 @@ const CB = function () {
         <div id="bangCupboardS">
             <div id="buttons">
                 <button class="option" id="bangEvenMore">Bang even more</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">It’s useless! You can’t get out! What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/BangDoorSE.mp3" type='audio/mp3'></audio>
@@ -1148,7 +1102,7 @@ const EB = function () {
             <div id="buttons">
                 <button class="option" id="searchcup">Search the cupboard</button>
                 <button class="option" id="openseat">Open the toilet seat</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs"> You try to leave but the door is stuck. What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
@@ -1181,18 +1135,22 @@ const EB = function () {
 // Turn TV off creepy scene 
 const TTVO = function () {
     play('B2');
-    play ('B2_2');
     if (hammerW) {
+        play('B3');
+        play('B3_2');
         return $(`
             <div id="trytoturnTVoffS">
                 <div id="buttons">
-                    <button class="option" id="useHammer">Use your hammer</button>
+                    <button class="option" id="yes">Smash the TV</button>
+                    <button class="option" id="doNothing">Do nothing</button>
+                    <button class="option Replay" id="replay">Replay narration</button>
                 </div>
-                <p id="paragraphs">You turn the television off. To your surprise, it comes back on! What do you do?</p>  
+                <p id="paragraphs">You turn the television off. To your surprise, it comes back on! You grip your hammer with your right hand. What do you do?</p>  
                 <audio controls autoplay loop class="music"><source src="./Assets/TelevisionSE.mp3" type='audio/mp3'></audio>
             </div>    
         `);
     } else {
+        play ('B2_2');
         return $(`
             <div id="trytoturnTVoffS">
                 <div id="buttons">
@@ -1215,7 +1173,7 @@ const SCB = function () {
             <div id="buttons">
                 <button class="option" id="breakdoor">Break door with hammer</button>
                 <button class="option" id="Hideincupboard">Hide in the cupboard</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">In the cupboard, you find a hammer. What do you do?</p>  
         </div>    
@@ -1264,20 +1222,6 @@ const BD = function () {
     `);
 }
 
-// Secret room scene
-const SR = function () {
-    // play('BR10');
-    // play('BR10_2');
-    return $(`
-        <div id="secretroomS">
-            <div id="buttons">
-                <button class="hiddenOption">Placeholder</button>
-            </div>
-            <p id="paragraphs">You hold your hammer with both hands, then swing down. After a couple of tries, the door breaks! You enter the lobby with your trusty new hammer.</p>  
-        </div>    
-    `);
-}
-
 // Toilet seat scene
 const TS = function () {
     play('BR11');
@@ -1287,7 +1231,7 @@ const TS = function () {
             <div id="buttons">
                 <button class="option" id="Closetoiletseat">Close the toilet seat</button>
                 <button class="option" id="back">Leave the bathroom</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You open the toilet seat. To your surprise, it’s full of bugs! What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/BugCrawlingSE.mp3" type='audio/mp3'></audio>
@@ -1323,8 +1267,7 @@ const CTS = function () {
     return $(`
         <div id="closeseatS">
             <div id="buttons">
-                <button class="option" id="searchcup">Search the cupboard</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="hiddenOption">Placeholder</button>
             </div>
             <p id="paragraphs">There is a cupboard below the sink. You decide to search it.</p>  
         </div>    
@@ -1422,26 +1365,10 @@ const BDR = function () {
             <div id="buttons">
                 <button class="option" id="off">Turn the television off</button>
                 <button class="option" id="watch">Watch the television</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You enter the bedroom. Suddenly, the television turns on. What do you do?</p> 
             <audio controls autoplay loop class="music"><source src="./Assets/TelevisionSE.mp3" type='audio/mp3'></audio>
-        </div>
-    `);
-}
-
-// Use hammer to break the TV scene
-const HTV = function () {
-    play('B3');
-    play('B3_2')
-    return $(` 
-        <div id="hammerTVS">
-            <div id="buttons">
-                <button class="option" id="yes">Smash the TV</button>
-                <button class="option" id="doNothing">Do nothing</button>
-                <button class="option Replay">Replay narration</button>
-            </div>
-            <p id="paragraphs">You grip your hammer with your right hand. What do you do?</p> 
         </div>
     `);
 }
@@ -1455,9 +1382,9 @@ const SMTV = function () {
             <div id="buttons">
                 <button class="option" id="searchdrawer">Search the drawers</button>
                 <button class="option" id="underbed">Look under the bed</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
-            <p id="paragraphs">You smash the TV with all your strength. It shatters. What do you do?</p> 
+            <p id="paragraphs">You smash the TV with all your strength. It shatters and everything becomes quiet. What do you do?</p> 
             <audio controls autoplay class="music"><source src="./Assets/SmashSE.mp3" type='audio/mp3'></audio>
         </div>
     `);
@@ -1468,13 +1395,11 @@ const BBDR = function () {
     play('B5');
     play('B7');
     return $(` 
-        <div id="lookunderbedS">
+        <div id="lookunderbedDrawerS">
             <div id="buttons">
-                <button class="option" id="leftside">Left side of the bed</button>
-                <button class="option" id="rightside">Right side of the bed</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="hiddenOption">Placeholder</button>
             </div>
-            <p id="paragraphs">You find a note. It tells you to look under the right side of the bed. Which side do you look at?</p> 
+            <p id="paragraphs">You find a note. It tells you to look under the right side of the bed.</p> 
         </div>
     `);
 }
@@ -1482,13 +1407,12 @@ const BBDR = function () {
 // Find a gold key under the bed scene
 const LRS = function () {
     play('B9_2');
-    goldKeyW = true;
     return $(` 
         <div id="lookrightsideS">
             <div id="buttons">
                 <button class="hiddenOption">Placeholder</button>
             </div>
-            <p id="paragraphs">You find a golden key! It must open a secret room somewhere. You then returned to the lobby.</p> 
+            <p id="paragraphs">You find a golden key! Apparently it is spare key for the front door. You can leave now.</p> 
         </div>
     `);
 }
@@ -1502,10 +1426,25 @@ const WTV = function () {
             <div id="buttons">
                 <button class="option" id="leftside">Left side of the bed</button>
                 <button class="option" id="rightside">Right side of the bed</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You choose to watch the television and you heard a voice to tell you to look under the bed. Which side do you look at?</p> 
             <audio controls autoplay class="music"><source src="./Assets/TelevisionSE.mp3" type='audio/mp3'></audio>
+        </div>
+    `);
+}
+
+// Look under bed scene
+const LUB = function () {
+    play('B7');
+    return $(` 
+        <div id="lookunderbedS">
+            <div id="buttons">
+                <button class="option" id="leftside">Left side of the bed</button>
+                <button class="option" id="rightside">Right side of the bed</button>
+                <button class="option Replay" id="replay">Replay narration</button>
+            </div>
+            <p id="paragraphs">Which side do you look at?</p> 
         </div>
     `);
 }
@@ -1533,7 +1472,7 @@ const LTD = function () {
             <div id="buttons">
                 <button class="option" id="crawlfloor">Crawl through the floor</button>
                 <button class="option" id="wallguide">Walk by the wall</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">The door is locked. It seems like you need a key to open it. What do you do?</p> 
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
@@ -1550,7 +1489,7 @@ const TDR = function () {
             <div id="buttons">
                 <button class="option" id="openleft">Open the left drawer</button>
                 <button class="option" id="openright">Open the right drawer</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
             <p id="paragraphs">You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with two drawers. Which do you open?</p> 
         </div>
@@ -1604,41 +1543,31 @@ const COF = function () {
         <div id="crawlfloorS">
             <div id="buttons">
                 <button class="option" id="openright">Open the right drawer</button>
-                <button class="option Replay">Replay narration</button>
+                <button class="option Replay" id="replay">Replay narration</button>
             </div>
-            <p id="paragraphs">You crawl around the room until you find a desk with one drawer. Which do you open?</p> 
+            <p id="paragraphs">You crawl around the room until you find a desk with one drawer. What do you do?</p> 
         </div>
     `);
 }
 
-const flashlight = function () {
-    // Just add a flag 
-    // return $(` 
-    //     <div id="light">
-    //         <p id="weaponflashlight">flashlight </p> 
-    //     </div>
-    // `);
-}
-
-const hammer = function () {
-    // return $(` 
-    //     <div id="gethammer">
-    //         <p id="weaponhammer">hammer </p> 
-    //     </div>
-    // `);
-}
 ///////////////////////////////////////////////////////Choose option functions///////////////////////////////////////////////////////
 // Press spacebar to navigate from menu to the start scene
 document.getElementById("menu").addEventListener("keypress", function () {
     if (event.keyCode == 32) {
         $("#menu").remove();
-        $('#root').append(SS);
-        Replay();
-        $('audio')[0].play();
-        $('audio').prop("volume", 0);
-        getCTA();
-        getHR();
-        getVH();
+        $("#startS").hide();
+        $('#root').append(WS);
+        setTimeout(function () {
+            $('#warningS').remove();
+            $('#root').append(SS);
+            $("#startS").show();
+            Replay();
+            $('audio')[0].play();
+            $('audio').prop("volume", 0.1);
+            getCTA();
+            getVH();
+            getHR();
+        }, 7000);
     }
 });
 
@@ -1652,12 +1581,11 @@ function getVH() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(VH);
-            trytoleavehouse();
+            Replay();
             kit();
             bath();
             bed();
-            secretRoom();
-            Replay();
+            trytoleavehouse();
         } else if (event.keyCode == 40) {
             var x = document.getElementById('callTripleA');
             var y = document.getElementById('HitchRide');
@@ -1675,16 +1603,16 @@ function getVH() {
 //call triple A
 function getCTA() {
     obj = document.getElementById("callTripleA");
-    // obj.focus();
     $("#callTripleA").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(CTA);
-            Replay();
-            getHR();
+            Replay();			
             getVH();
+			getCTA();
+			keepwait();
         } else if (event.keyCode == 40) {
             var x = document.getElementById('HitchRide');
             var y = document.getElementById('wait');
@@ -1703,7 +1631,6 @@ function getCTA() {
 
 function getHR() {
     obj = document.getElementById("HitchRide");
-    // obj.focus();
     $("#HitchRide").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
@@ -1711,9 +1638,9 @@ function getHR() {
             event.target.parentNode.parentNode.remove();
             $('#root').append(HR);
             Replay();
-            keepwait();
             getVH();
             getCTA();
+            keepwait();
         } else if (event.keyCode == 40) {
             document.getElementsByClassName('Replay')[0].focus();
         } else if (event.keyCode == 38) {
@@ -1726,32 +1653,10 @@ function getHR() {
         }
     })
 }
-// function getHR() {
-//     obj = document.getElementById("HitchRide");
-//     document.getElementById("HitchRide").addEventListener("keydown", function () {
-//         if (event.keyCode == 32) {
-//             stop_speech();
-//             event.preventDefault();
-//             event.target.parentNode.parentNode.remove();
-//             $('#root').append(HR);
-//             Replay();
-//             keepwait();
-//             getVH();
-
-//         } else if (event.keyCode == 40) {
-//             obj.nextElementSibling.focus();
-//             // Replay();
-
-//         } else if (event.keyCode == 38) {
-//             obj.previousElementSibling.focus();
-//         }
-//     })
-// }
 
 // Keep waiting
 function keepwait() {
     obj = document.getElementById("wait");
-    obj.focus();
     $("#wait").keydown(function () {
         if (event.keyCode == 32) {
 
@@ -1841,7 +1746,6 @@ function hide() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(HIK);
-            $('#root').append(flashlight);
             Replay();
             back();
         } else if (event.keyCode == 40) {
@@ -1867,7 +1771,6 @@ function back() {
             bath();
             bed();
             trytoleavehouse();
-            secretRoom();
         } else if (event.keyCode == 40) {
             document.getElementsByClassName('Replay')[0].focus();
 
@@ -1929,11 +1832,18 @@ function frired() {
             setTimeout(function () {
                 $('#redappleS').remove();
                 $('#root').append(BM);
-                flashBase();
-                leavethroughdoor();
-                crawlfloor();
-                walkbythewall();
-                Replay();
+                if (flashlightW) {
+                    Replay();
+                    leavethroughdoor();
+                    crawlfloor();
+                    flashBase();
+                }  
+                else {
+                    Replay();
+                    leavethroughdoor();
+                    crawlfloor();
+                    walkbythewall();
+                }
             }, 3000);
         } else if (event.keyCode == 40) {
             obj.focus();
@@ -2211,18 +2121,6 @@ function ignoreinstruction() {
     })
 }
 
-// Secret room if found the golden key
-function secretRoom() {
-    $("#secretroom").keydown(function () {
-        if (event.keyCode == 32) {
-            stop_speech();
-            event.preventDefault();
-            event.target.parentNode.parentNode.remove();
-            $('#root').append(SR);  
-        } 
-    })
-}
-
 // Leave the house
 function leavehouse() {
     obj = document.getElementById("leavehouse");
@@ -2327,12 +2225,7 @@ function bath() {
             turnoffsink();
             exitbath();
         } else if (event.keyCode == 40) {
-            if (goldKeyW) {
-                document.getElementById("secretroom").focus();
-            }
-            else {
-                document.getElementById("leave").focus();
-            }
+            document.getElementById("leave").focus();
         } else if (event.keyCode == 38) {
             document.getElementById("bedroom").focus();
         }
@@ -2350,9 +2243,8 @@ function turnoffsink() {
             event.target.parentNode.parentNode.remove();
             $('#root').append(TOS);
             Replay();
-            hideincupboard();
             lockdoor();
-
+            hideincupboard();
         } else if (event.keyCode == 40) {
             obj.focus();
         }
@@ -2362,7 +2254,6 @@ function turnoffsink() {
 // Hide in cupboard
 function hideincupboard() {
     obj = document.getElementById("Hideincupboard");
-    obj.focus();
     $("#Hideincupboard").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
@@ -2372,11 +2263,9 @@ function hideincupboard() {
             Replay();
             leavecup();
         } else if (event.keyCode == 40) {
-            obj.nextElementSibling.nextElementSibling.focus();
+            obj.nextElementSibling.focus();
         } else if (event.keyCode == 38) {
-            if (obj.previousElementSibling == null) {
-                obj.focus();
-            }
+            obj.previousElementSibling.focus();
         }
     });
 }
@@ -2395,14 +2284,15 @@ function lockdoor() {
             hideincupboard();
             climbvent();
         } else if (event.keyCode == 40) {
-            obj.nextElementSibling.focus();
+            if (obj.nextElementSibling.id == "replay")
+                obj.focus();
+            else
+                obj.nextElementSibling.focus();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
         }
     })
 }
-
-
 
 // Leave cupboard
 function leavecup() {
@@ -2485,10 +2375,9 @@ function searchcupboard() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(SCB);
-            $('#root').append(hammer);
             Replay();
-            hideincupboard();
             breakdowndoor();
+            hideincupboard();
         } else if (event.keyCode == 40) {
             obj.focus();
         }
@@ -2508,15 +2397,14 @@ function breakdowndoor() {
             setTimeout(function () {
                 $('#breakdowndoorS').remove();
                 $('#root').append(VH);
-                trytoleavehouse();
+                Replay(); 
                 kit();
                 bath();
                 bed();
-                Replay();
-                secretRoom();
+                trytoleavehouse();
             }, 11000);
         } else if (event.keyCode == 40) {
-            obj.nextElementSibling.focus();
+            obj.focus();
         }
     })
 }
@@ -2551,8 +2439,13 @@ function closetoiletseat() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(CTS);
-            Replay();
-            searchcupboard();
+            setTimeout(function () {
+                $('#closeseatS').remove();
+                $('#root').append(SCB);
+                Replay();
+                breakdowndoor();
+                hideincupboard();
+            }, 4500);
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
         } else if (event.keyCode == 38) {
@@ -2579,7 +2472,6 @@ function bed() {
         } else if (event.keyCode == 38) {
             document.getElementById('kitchen').focus();
         }
-
     })
 }
 
@@ -2590,7 +2482,6 @@ function toff() {
     $("#off").keydown(function () {
         if (event.keyCode == 32) {
             stop_speech();
-            // ham = document.getElementById('weaponhammer');
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(TTVO);
@@ -2598,41 +2489,19 @@ function toff() {
                 setTimeout(function () {
                     $('#trytoturnTVoffS').remove();
                     $('#root').append(BM);
+                    Replay();
                     flashBase();
                     crawlfloor();
                     leavethroughdoor();
                     walkbythewall();
-                    Replay();
                 }, 10000);
+            } else {
+                Replay();
+                smashtv();
+                doNothingtv();
             }
-            
-            // if (hammerW) {
-            //     $('#root').append(HTV);
-            //     $('#weaponhammer').remove();
-            //     smashtv1();
-            // } else {
-
-            //     $('#root').append(BM);
-            //     crawlfloor1();
-            //     leavethroughdoor();
-            // }
         } else if (event.keyCode == 40) {
             obj.focus();
-        }
-    })
-}
-
-// Use the hammer to break the TV
-function hammerTV() {
-    obj = document.getElementById("useHammer");
-    obj.focus();
-    $("#useHammer").keydown(function () {
-        if (event.keyCode == 32) {
-            stop_speech();
-            event.preventDefault();
-            event.target.parentNode.parentNode.remove();
-            $('#root').append(HTV);
-            smashtv();
         }
     })
 }
@@ -2643,11 +2512,15 @@ function smashtv() {
     obj.focus();
     $("#yes").keydown(function () {
         if (event.keyCode == 32) {
+            stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(SMTV);
+            Replay();
+            drawerinbedroom();
             lookunderbed();
-            drawerinbedroom1();
+        } else if (event.keyCode == 40) {
+            document.getElementById('doNothing').focus();
         }
     })
 }
@@ -2655,30 +2528,64 @@ function smashtv() {
 // Player decided to do nothing with the hammer
 function doNothingtv() {
     obj = document.getElementById("doNothing");
-    obj.focus();
     $("#doNothing").keydown(function () {
         if (event.keyCode == 32) {
+            stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(BM);
+            Replay();
             flashBase();
             leavethroughdoor();
             crawlfloor();
             walkbythewall();
-            Replay();
+        } else if (event.keyCode == 40) {
+            document.getElementById('replay').focus();
+        } else if (event.keyCode == 38) {
+            document.getElementById('yes').focus();
         }
     })
 }
 
-function drawerinbedroom1() {
+// Look in the drawers 
+function drawerinbedroom() {
     obj = document.getElementById("searchdrawer");
     obj.focus();
     $("#searchdrawer").keydown(function () {
         if (event.keyCode == 32) {
+            stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(BBDR);
+            setTimeout(function () {
+                $('#lookunderbedDrawerS').remove();
+                $('#root').append(LUB);
+                Replay();
+                lookleftside();
+                lookrightside();
+            }, 5000);
             lookunderbed();
+            Replay();
+        } else if (event.keyCode == 40) {
+            obj.focus();
+        }
+    })
+}
+
+// Look under the bed
+function lookunderbed() {
+    obj = document.getElementById("underbed");
+    $("#underbed").keydown(function () {
+        if (event.keyCode == 32) {
+            stop_speech();
+            event.preventDefault();
+            event.target.parentNode.parentNode.remove();
+            $('#root').append(LUB);
+            Replay();
+            lookleftside();
+            lookrightside();
+        } else if (event.keyCode == 38) {
+            obj.previousElementSibling.focus();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
         }
@@ -2717,20 +2624,17 @@ function lookrightside() {
             $('#root').append(LRS);
             setTimeout(function () {
                 $('#lookrightsideS').remove();
-                $('#root').append(VH);
-                trytoleavehouse();
-                kit();
-                bath();
-                bed();
-                secretRoom();
-                Replay();
-            }, 7500);
+                $('#root').append(GE);
+                ReplayGame();
+            }, 8000);
         } else if (event.keyCode == 38) {
             if (obj.previousElementSibling == null) {
                 obj.focus();
             } else {
                 obj.previousElementSibling.focus();
             }
+        } else if (event.keyCode == 40){
+            obj.nextElementSibling.focus();
         }
     })
 }
@@ -2744,9 +2648,9 @@ function watchtv() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(WTV);
+            Replay();
             lookleftside();
             lookrightside();
-            Replay();
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
         } else if (event.keyCode == 38) {
@@ -2778,12 +2682,11 @@ function openright() {
             setTimeout(function () {
                 $('#openleftS').remove();
                 $('#root').append(VH);
-                trytoleavehouse();
+                Replay();
                 kit();
                 bath();
                 bed();
-                secretRoom();
-                Replay();
+                trytoleavehouse();
             }, 10000);
         } else if (event.keyCode == 38) {
             if(document.getElementById('openleft') != null) {
@@ -2810,12 +2713,11 @@ function openleft() {
             setTimeout(function () {
                 $('#openleftS').remove();
                 $('#root').append(VH);
-                trytoleavehouse();
+                Replay();
                 kit();
                 bath();
                 bed();
-                secretRoom();
-                Replay();
+                trytoleavehouse();
             }, 8500);
         } else if (event.keyCode == 40) {
             document.getElementById('openright').focus();
@@ -2833,9 +2735,9 @@ function leavethroughdoor() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(LTD);
+            Replay();
             crawlfloor();
             walkbythewall();
-            Replay();
         } else if (event.keyCode == 40) {
             document.getElementById('crawlfloor').focus();
         }
@@ -2875,6 +2777,7 @@ function flashBase() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(TDR);
+            Replay();
             openleft();
             openright();
         } else if (event.keyCode == 38) {
@@ -2897,6 +2800,7 @@ function crawlfloor() {
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(COF);
+            Replay();
             openright();
         } else if (event.keyCode == 38) {
             if (document.getElementById('leavedoor') != null) {
@@ -2906,11 +2810,10 @@ function crawlfloor() {
                 obj.focus();
             }
         }  else if (event.keyCode == 40) {
-            if (flashlightW) {
+            if (document.getElementById('useflash') != null)
                 document.getElementById('useflash').focus();
-            } else {
+            else
                 document.getElementById('wallguide').focus();
-            }
         }
     })
 }
@@ -2950,8 +2853,6 @@ manuscript.set('S5_8', "Replay")
 manuscript.set('SE_1', "What do you do? Visit the house. Hitch a ride. Replay narration.")
 manuscript.set('L1', "It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen.")
 manuscript.set('L1_2', "What do you do? Enter the kitchen. Enter the bedroom. Enter the bathroom. Leave the house. Replay narration.")
-manuscript.set('L1_3', "It is darkly lit and dusty, and full of old paintings on the walls. You notice four different rooms. The bedroom, the bathroom, the kitchen, and the secret room.")
-manuscript.set('L1_4', "What do you do? Enter the kitchen. Enter the bedroom. Enter the bathroom. Enter the secret room. Leave the house. Replay narration.")
 manuscript.set('LV', "You try to leave the house. To your dismay, the door is shut and locked behind you!")
 manuscript.set('LV_2', "The keyhole is embossed with a unique snake pattern. It seems like you need a key to leave. What do you do?")
 manuscript.set('LV_3', "Back to the lobby. Replay narration.")
@@ -2959,8 +2860,8 @@ manuscript.set('LV2', "With the key in your hand you open the large wooden doors
 manuscript.set('B1', "You enter the bedroom.")
 manuscript.set('B1_2', "Suddenly, the television turns on.")
 manuscript.set('B1_3', "What do you do? Turn the television off. Watch the television. Replay narration.")
-manuscript.set('B2', "You turn the television off.")
-manuscript.set('B2_2', "To your surprise, it comes back on! The television just continue playing over and over again.")
+manuscript.set('B2', "You turn the television off. To your surprise, it comes back on!")
+manuscript.set('B2_2', "The television just continue playing over and over again.")
 manuscript.set('B3', "You grip your hammer with your right hand.")
 manuscript.set('B3_2', "What do you do? Smash the TV. Do nothing. Replay narration.")
 manuscript.set('B4', "You smash the TV with all your strength. It shatters and everything becomes quiet.")
@@ -2970,7 +2871,7 @@ manuscript.set('B6', "You choose to watch the television and you heard a voice t
 manuscript.set('B7', "Which side do you look at? Left side of the bed. Right side of the bed. Replay narration.")
 manuscript.set('B8', "You check the left side of the bed.")
 manuscript.set('B9', "You check the right side of the bed.")
-manuscript.set('B9_2', "You find a golden key! it must open a secret room somewhere. You then returned to the lobby.")
+manuscript.set('B9_2', "You find a golden key! Apparently it is spare key for the front door. You can leave now.")
 manuscript.set('BS1', "You fainted.")
 manuscript.set('BS1_2', "You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you.")
 manuscript.set('BS1_3', "What do you do? Leave through the door. Crawl through the floor. Walk by the wall. Replay narration.")
@@ -2981,7 +2882,7 @@ manuscript.set('BS3', "You crawl around the room until you find a desk with one 
 manuscript.set('BS4', "You decided to use the walls as the guidance to walk around the room. However, a creature grabbed your shoulder from behind and trapped you in the basement forever.")
 manuscript.set('BS5', "You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with two drawers.")
 manuscript.set('BS5_2', "Which do you open? Open the left drawer. Open the right drawer. Replay narration.")
-manuscript.set('BS5_3', "Which do you open? Open the right drawer. Replay narration.")
+manuscript.set('BS5_3', "What do you do? Open the right drawer. Replay narration.")
 manuscript.set('BS6', "You find a key in the drawer. You quickly rush back to the door and exit using the key. You find yourself back in the lobby.")
 manuscript.set('BS7', "You decide to check the right drawer.")
 manuscript.set('K1', "You enter the kitchen. There's a large fridge to your left, and a kitchen counter next to it. You hear a peculiar sound coming from the counter.")
@@ -3004,8 +2905,8 @@ manuscript.set('K9_2', "What do you do? Leave the object. Clean the object. Repl
 manuscript.set('K10', "You clean the object. It's a radio. The noises you heard seem to have come from the radio.")
 manuscript.set('K10_2', "What do you do? Turn off the radio. Change the frequency. Replay narration.")
 manuscript.set('K11', "You turn off the radio.")
-manuscript.set('K12', "Look under the mat.")
-manuscript.set('K13', "What do you do? Look under the mat. Ignore the instruction. Replay narration.")
+manuscript.set('K12', "You changed the radio frequency and you heard a voice that tells you to look under the mat.")
+manuscript.set('K13', "What do you do? Look under the mat. Ignore the voice. Replay narration.")
 manuscript.set('K14', "You look under the mat by the kitchen sink. You find a silver key with a snake pattern.")
 manuscript.set('K15', "You decided to look around the kitchen. Suddenly, you feel a shadow flash behind you.")
 manuscript.set('K15_2', "What do you do? Investigate the door. Keep searching. Replay narration.")
@@ -3043,9 +2944,10 @@ manuscript.set('BR11_2', "What do you do? Close the toilet seat. Leave the bathr
 manuscript.set('BR12', "There is a cupboard below the sink. You decide to search it.")
 manuscript.set('BR13', "You leave the bathroom into the lobby.")
 manuscript.set('BR14', "You successfully escaped the old mansion! What do you do?")
-manuscript.set('GE1', "You leave the house.")
+manuscript.set('GE1', "You found the front door key and you quickly left the house.")
 manuscript.set('BE1', "Unfortunately you chose the wrong side. There's someone waiting for you...")
 manuscript.set('NF', "You don't have a flashlight.")
+manuscript.set('WS', "This game contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play.")
 manuscript.set('noresult', "Sorry, I didn't catch that.")
 
 // Play speech
@@ -3098,18 +3000,18 @@ var dict = {
     "searchcupboardS": SCB,
     "breakdowndoorS": BD,
     "toiletseatS": TS,
-    "closeseatS": CTS,
     "bedroomS": BDR,
-    "hammerTVS": HTV,
     "smashtvS": SMTV,
-    "lookunderbedS": BBDR,
+    "lookunderbedDrawerS": BBDR,
+    "lookunderbedS": LUB,
     "lookrightsideS": LRS,
     "watchtvS": WTV,
     "leavethroughdoorS": LTD,
     "tableDrawerS": TDR,
     "openleftS": OLS,
     "openrightS": ORS,
-    "walkbywallS": WBW
+    "walkbywallS": WBW,
+    "crawlfloorS": COF
 };
 
 // Replay narration click function
@@ -3121,15 +3023,20 @@ const Replay = function () {
             stop_speech();
             dict[event.target.parentNode.parentNode.id]();
         } else if (event.keyCode == 38) {
-            if (obj.previousElementSibling == null) {
+            // console.log(obj.previousElementSibling)
+            // console.log(obj)
+            // console.log(obj.nextElementSibling)
+            if (obj.previousElementSibling == null && obj.nextElementSibling.id!="replay") {
+                //console.log("1")
                 obj.nextElementSibling.focus();
             } else if (obj.nextElementSibling == null) {
+                //console.log("2")
                 obj.previousElementSibling.focus();
             } else {
+                //console.log("3")
                 obj.focus();
             }
         }
-
     });
 }
 
