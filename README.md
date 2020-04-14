@@ -25,5 +25,5 @@ https://support.mozilla.org/en-US/kb/block-autoplay
 3. Use up and down arrow keys to navigate through your choices (your choice will be highlighted in yellow), and press spacebar to choose the choice.
 
 # Things to be aware of
-1. Night of Terror" contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play. The author takes no responsibility for any trouble that arises from playing this game.
+1. Night of Terror" contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play. The authors take no responsibilities for any trouble that arises from playing this game.
 2. Please avoid clicking anything other than the choices during gameplay or it may result in the focus reposition. However, try using the Tab key and see if it fixes your problem.
