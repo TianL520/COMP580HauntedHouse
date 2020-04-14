@@ -1567,7 +1567,7 @@ document.getElementById("menu").addEventListener("keypress", function () {
             getCTA();
             getVH();
             getHR();
-        }, 1000);
+        }, 7000);
     }
 });
 
