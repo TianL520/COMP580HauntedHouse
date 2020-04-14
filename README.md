@@ -13,10 +13,13 @@ Follow these instructions to enable WebSpeech in Firefox:
 4. Set 'media.webspeech.recognition.enable' and 'media.webspeech.recognition.force_enable' to true using the toggle button to the right
 5. When playing our game, make sure you press 'Allow' and 'Remember this decision' when prompted for microphone permission
 
-
 # How to enable autoplay in Firefox?
 https://support.mozilla.org/en-US/kb/block-autoplay
 
 # How to play?
 Press spacebar on the menu page to start playing. If this doesn't work, left click anywhere on the screen and press spacebar again.
 To speak, press enter. You will hear a beep, then you can speak to the microphone. Read back your choice as it is read to you by the narration. Speak slowly and clearly for best results. 
+
+# Things to be aware of
+1. Night of Terror" contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play. The author takes no responsibility for any trouble that arises from playing this game.
+2. Please avoid clicking anything other than the options during gameplay or it may result in the focus reposition. However, try using the Tab key and see if it fixes your problem.
