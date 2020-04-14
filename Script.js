@@ -70,8 +70,7 @@ const VH = function () {
         }
         </script>
     `);
-    }
-    else {
+    } else {
         play('L1');
         play('L1_2');
         return $(`
@@ -1109,7 +1108,7 @@ const CV = function () {
             <audio controls autoplay loop class="music"><source src="./Assets/VentSE.mp3" type='audio/mp3'></audio>
         </div>    
     `);
-} 
+}
 
 // Banging on the cupboard scene
 const CB = function () {
@@ -1181,7 +1180,7 @@ const EB = function () {
 // Turn TV off creepy scene 
 const TTVO = function () {
     play('B2');
-    play ('B2_2');
+    play('B2_2');
     if (hammerW) {
         return $(`
             <div id="trytoturnTVoffS">
@@ -2218,8 +2217,8 @@ function secretRoom() {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
-            $('#root').append(SR);  
-        } 
+            $('#root').append(SR);
+        }
     })
 }
 
@@ -2266,8 +2265,6 @@ function leaveobject() {
         } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
         }
-
-
     })
 }
 
@@ -2329,8 +2326,7 @@ function bath() {
         } else if (event.keyCode == 40) {
             if (goldKeyW) {
                 document.getElementById("secretroom").focus();
-            }
-            else {
+            } else {
                 document.getElementById("leave").focus();
             }
         } else if (event.keyCode == 38) {
@@ -2416,8 +2412,7 @@ function leavecup() {
             $('#root').append(LC);
             Replay();
             trytoleaveCupboard();
-        }
-        else if (event.keyCode == 40) {
+        } else if (event.keyCode == 40) {
             obj.nextElementSibling.focus();
         } else if (event.keyCode == 38) {
             obj.previousElementSibling.focus();
@@ -2504,7 +2499,7 @@ function breakdowndoor() {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
-            $('#root').append(BD);       
+            $('#root').append(BD);
             setTimeout(function () {
                 $('#breakdowndoorS').remove();
                 $('#root').append(VH);
@@ -2605,7 +2600,7 @@ function toff() {
                     Replay();
                 }, 10000);
             }
-            
+
             // if (hammerW) {
             //     $('#root').append(HTV);
             //     $('#weaponhammer').remove();
@@ -2786,7 +2781,7 @@ function openright() {
                 Replay();
             }, 10000);
         } else if (event.keyCode == 38) {
-            if(document.getElementById('openleft') != null) {
+            if (document.getElementById('openleft') != null) {
                 document.getElementById('openleft').focus();
             } else {
                 document.getElementById('openright').focus();
@@ -2856,12 +2851,12 @@ function walkbythewall() {
                 $('#root').append(BE);
                 ReplayGame();
             }, 10000);
-        }  else if (event.keyCode == 40) {
-            document.getElementById('replay').focus();
-        }  else if (event.keyCode == 38) {
+        } else if (event.keyCode == 40) {
+            document.getElementsByClassName('Replay')[0].focus();
+        } else if (event.keyCode == 38) {
             document.getElementById('crawlfloor').focus();
         }
-    
+
 
     })
 }
@@ -2901,11 +2896,10 @@ function crawlfloor() {
         } else if (event.keyCode == 38) {
             if (document.getElementById('leavedoor') != null) {
                 document.getElementById('leavedoor').focus();
-            }
-            else {
+            } else {
                 obj.focus();
             }
-        }  else if (event.keyCode == 40) {
+        } else if (event.keyCode == 40) {
             if (flashlightW) {
                 document.getElementById('useflash').focus();
             } else {
@@ -3114,7 +3108,7 @@ var dict = {
 
 // Replay narration click function
 const Replay = function () {
-    obj = document.getElementsByClassName('Replay');
+    obj = document.getElementsByClassName('Replay')[0];
     $(".Replay").on('keydown', function (event) {
         if (event.keyCode == 32) {
             console.log("Clicked" + event.target.parentNode.parentNode.id)
