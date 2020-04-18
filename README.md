@@ -1,6 +1,6 @@
 # COMP580HauntedHouse
 
-# Page
+# Project Link
 Visit our game here: https://mcay23.github.io/COMP580HauntedHouse/
 
 # Description
@@ -27,7 +27,7 @@ Follow these instructions to enable WebSpeech in Firefox:
 - At times, you may find that the engine may not recognize what you are saying very accurately. If this is the case for you, you can say "one", "two", or "three" to select the first, second, and third option respectively.
 
 # Enabling Autoplay in Firefox
-https://support.mozilla.org/en-US/kb/block-autoplay
+Refer to this resource to enable autoplay in Firefox: https://support.mozilla.org/en-US/kb/block-autoplay
 
 # Headphones
 The use of headphones is highly recommended in this game. Our game is meant for the visually impaired, and the visual effects are meant to only be supplementary for the auditory experience. 
