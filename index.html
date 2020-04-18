@@ -29,6 +29,24 @@
             <script>
                 if (annyang) {
                     var commands = {
+						'1': function () {
+                            var button = document.getElementById("visitHouse");
+                            console.log(button)
+                            annyang.pause();
+                            button.click();
+                        },
+                        '2': function () {
+                            var button = document.getElementById("callTripleA");
+                            console.log(button)
+                            annyang.pause();
+                            button.click();
+                        },
+                        '3': function () {
+                            var button = document.getElementById("callTripleA");
+                            console.log(button)
+                            annyang.pause();
+                            button.click();
+                        },
                         '(Visit the) house': function () {
                             var button = document.getElementById("visitHouse");
                             console.log(button)

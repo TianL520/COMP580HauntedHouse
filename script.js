@@ -63,6 +63,26 @@ const VH = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("kitchen");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("bedroom");
+                    annyang.pause();
+                    button.click();
+                },
+                '3': function() {
+                    var button = document.getElementById("bathroom");
+                    annyang.pause();
+                    button.click();
+                },
+                '4': function() {
+                    var button = document.getElementById("leave");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -103,6 +123,16 @@ const CTA = function () {
                     button.click();
                 },
                 'Catch a ride': function() {
+                    var button = document.getElementById("HitchRide");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("visitHouse");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("HitchRide");
                     annyang.pause();
                     button.click();
@@ -156,6 +186,21 @@ const HR = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("visitHouse");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("callTripleA");
+                    annyang.pause();
+                    button.click();
+                },
+                '3': function() {
+                    var button = document.getElementById("wait");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -190,6 +235,16 @@ const KW = function () {
                     button.click();
                 },
                 'Keep waiting': function() {
+                    var button = document.getElementById("wait");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("visitHouse");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("wait");
                     annyang.pause();
                     button.click();
@@ -252,6 +307,16 @@ const KT = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("investigate");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("hide");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -282,6 +347,11 @@ const TTLH = function () {
         if (annyang) {
             var commands = {
                 '(Back to the) lobby': function() {
+                    var button = document.getElementById("lobby");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("lobby");
                     annyang.pause();
                     button.click();
@@ -317,6 +387,11 @@ const HIK = function () {
         if (annyang) {
             var commands = {
                 '(Back to the) lobby': function() {
+                    var button = document.getElementById("lobby");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("lobby");
                     annyang.pause();
                     button.click();
@@ -359,6 +434,16 @@ const IIK = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("searchFridge");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("searchOven");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -393,6 +478,16 @@ const SF = function () {
                     button.click();
                 },
                 '(Pick up the) green apple': function() {
+                    var button = document.getElementById("green");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("red");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("green");
                     annyang.pause();
                     button.click();
@@ -435,6 +530,16 @@ const SO = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("clean");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("leave");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -470,6 +575,16 @@ const CO = function () {
                     button.click();
                 },
                 'Change (the frequency)': function() {
+                    var button = document.getElementById("changeFrequency");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("turnOffRadio");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("changeFrequency");
                     annyang.pause();
                     button.click();
@@ -525,6 +640,16 @@ const GA = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("pickup");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("ignore");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -559,6 +684,16 @@ const PGA = function () {
                     button.click();
                 },
                 '(Put the) remote (back)': function() {
+                    var button = document.getElementById("putback");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("press");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("putback");
                     annyang.pause();
                     button.click();
@@ -608,6 +743,11 @@ const PR = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -646,6 +786,16 @@ const PRB = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("searchOven");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("red");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -672,6 +822,11 @@ const OR = function () {
         if (annyang) {
             var commands = {
                 '(Leave the) object': function() {
+                    var button = document.getElementById("leave");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("leave");
                     annyang.pause();
                     button.click();
@@ -715,6 +870,16 @@ const CF = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("lookundermat");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("ignoreinstruction");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -748,6 +913,16 @@ const FKIK = function () {
                     button.click();
                 },
                 '(Back to the) lobby': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("leavehouse");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("back");
                     annyang.pause();
                     button.click();
@@ -803,6 +978,16 @@ const LO = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("keepsearch");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("lookdoor");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -837,6 +1022,16 @@ const KS = function () {
                     button.click();
                 },
                 '(Back to the) lobby': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("lookdoor");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("back");
                     annyang.pause();
                     button.click();
@@ -895,6 +1090,16 @@ const BT = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("turnOffSink");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("exitbathroom");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -936,6 +1141,16 @@ const TOS = function () {
                     button.click();
                 },
                 '(Height in the) cupboard': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("LockTheDoor");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("Hideincupboard");
                     annyang.pause();
                     button.click();
@@ -989,6 +1204,16 @@ const LD = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("Hideinvent");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -1023,6 +1248,11 @@ const HIC = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("Leavecupboard");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -1052,6 +1282,11 @@ const LC = function () {
         if (annyang) {
             var commands = {
                 '(Bang on the) cupboard': function() {
+                    var button = document.getElementById("bangCupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("bangCupboard");
                     annyang.pause();
                     button.click();
@@ -1098,6 +1333,11 @@ const CB = function () {
         if (annyang) {
             var commands = {
                 'Bang (even more)': function() {
+                    var button = document.getElementById("bangEvenMore");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("bangEvenMore");
                     annyang.pause();
                     button.click();
@@ -1154,6 +1394,16 @@ const EB = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("searchcup");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("openseat");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -1190,6 +1440,16 @@ const TTVO = function () {
                         button.click();
                     },
                     'Do nothing': function() {
+                        var button = document.getElementById("doNothing");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '1': function() {
+                        var button = document.getElementById("yes");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '2': function() {
                         var button = document.getElementById("doNothing");
                         annyang.pause();
                         button.click();
@@ -1249,6 +1509,16 @@ const SCB = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("breakdoor");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("Hideincupboard");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -1303,6 +1573,16 @@ const TS = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("Closetoiletseat");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("back");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     replay_narration();
                     annyang.pause();
@@ -1329,6 +1609,11 @@ const CTS = function () {
         if (annyang) {
             var commands = {
                 '(Search the) cupboard': function() {
+                    var button = document.getElementById("searchcup");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("searchcup");
                     annyang.pause();
                     button.click();
@@ -1409,6 +1694,21 @@ const BM = function () {
                         annyang.pause();
                         button.click();
                     },
+                    '1': function() {
+                        var button = document.getElementById("leavedoor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '2': function() {
+                        var button = document.getElementById("crawlfloor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '3': function() {
+                        var button = document.getElementById("useflash");
+                        annyang.pause();
+                        button.click();
+                    },
                     'Replay (Narration)': function() {
                         annyang.pause();
                         replay_narration();
@@ -1446,6 +1746,21 @@ const BM = function () {
                         button.click();
                     },
                     '(Walk by the) wall': function() {
+                        var button = document.getElementById("wallguide");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '1': function() {
+                        var button = document.getElementById("leavedoor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '2': function() {
+                        var button = document.getElementById("crawlfloor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '3': function() {
                         var button = document.getElementById("wallguide");
                         annyang.pause();
                         button.click();
@@ -1491,6 +1806,16 @@ const BDR = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("off");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("watch");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     annyang.pause();
                     replay_narration();
@@ -1526,6 +1851,16 @@ const SMTV = function () {
                     button.click();
                 },
                 'Look under the bed': function() {
+                    var button = document.getElementById("underbed");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("searchdrawer");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("underbed");
                     annyang.pause();
                     button.click();
@@ -1596,6 +1931,16 @@ const WTV = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1' function() {
+                    var button = document.getElementById("leftside");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("rightside");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     annyang.pause();
                     replay_narration();
@@ -1629,6 +1974,16 @@ const LUB = function () {
                     button.click();
                 },
                 'Right (side of the bed)': function() {
+                    var button = document.getElementById("rightside");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("leftside");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
                     var button = document.getElementById("rightside");
                     annyang.pause();
                     button.click();
@@ -1686,6 +2041,16 @@ const LTD = function () {
                     annyang.pause();
                     button.click();
                 },
+                '1': function() {
+                    var button = document.getElementById("crawlfloor");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("wallguide");
+                    annyang.pause();
+                    button.click();
+                },
                 'Replay (Narration)': function() {
                     annyang.pause();
                     replay_narration();
@@ -1721,6 +2086,16 @@ const TDR = function () {
                 },
                 '(Open the) right drawer': function() {
                     var button = document.getElementById("openright");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("crawlfloor");
+                    annyang.pause();
+                    button.click();
+                },
+                '2': function() {
+                    var button = document.getElementById("wallguide");
                     annyang.pause();
                     button.click();
                 },
@@ -1791,6 +2166,11 @@ const COF = function () {
         if (annyang) {
             var commands = {
                 '(Open the) right drawer': function() {
+                    var button = document.getElementById("openright");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
                     var button = document.getElementById("openright");
                     annyang.pause();
                     button.click();
