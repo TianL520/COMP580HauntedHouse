@@ -22,7 +22,7 @@ https://support.mozilla.org/en-US/kb/block-autoplay
 # How to play?
 1. Press spacebar on the menu page to start playing. If this doesn't work, left click anywhere in the game and press spacebar again.
 2. To speak, press the 'b' key. You will hear a beep, then you can speak to the microphone. Read back your choice as it is read to you by the narration. Speak slowly and clearly for best results. 
-3. Use up and down arrow keys to navigate through your choices (your choice will be highlighted in yellow), and press spacebar to choose the choice.
+3. Alternatively, use the mouse or the up and down arrow keys to navigate through your choices (your choice will be highlighted in yellow), and press enter to select the choice.
 
 # Things to be aware of
 1. Night of Terror" contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play. The authors take no responsibilities for any trouble that arises from playing this game.
