@@ -1047,7 +1047,24 @@ const LC = function () {
             </div>
             <p id="paragraphs">You attempt to leave the cupboard. In your despair, you find out it is locked! What do you do?</p>  
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
-        </div>    
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                '(Bang on the) cupboard': function() {
+                    var button = document.getElementById("bangCupboard");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>    
     `);
 }
 
@@ -1076,7 +1093,24 @@ const CB = function () {
             </div>
             <p id="paragraphs">It’s useless! You can’t get out! What do you do?</p>  
             <audio controls autoplay loop class="music"><source src="./Assets/BangDoorSE.mp3" type='audio/mp3'></audio>
-        </div>    
+        </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Bang (even more)': function() {
+                    var button = document.getElementById("bangEvenMore");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>        
     `);
 }
 
@@ -1148,6 +1182,26 @@ const TTVO = function () {
                 <p id="paragraphs">You turn the television off. To your surprise, it comes back on! You grip your hammer with your right hand. What do you do?</p>  
                 <audio controls autoplay loop class="music"><source src="./Assets/TelevisionSE.mp3" type='audio/mp3'></audio>
             </div>    
+            if (annyang) {
+                var commands = {
+                    'Smash the TV': function() {
+                        var button = document.getElementById("yes");
+                        annyang.pause();
+                        button.click();
+                    },
+                    'Do nothing': function() {
+                        var button = document.getElementById("doNothing");
+                        annyang.pause();
+                        button.click();
+                    },
+                    'Replay (Narration)': function() {
+                        annyang.pause();
+                        replay_narration();
+                    }
+                };
+                annyang.removeCommands();
+                annyang.addCommands(commands);
+            }
         `);
     } else {
         play('B2_2');
@@ -1337,6 +1391,33 @@ const BM = function () {
                 <p id="paragraphs">You fainted. You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you. What do you do?</p> 
                 <audio controls autoplay loop class="music"><source src="./Assets/BasementSE.mp3" type='audio/mp3'></audio>
             </div>
+            <script>
+            if (annyang) {
+                var commands = {
+                    'Leave (through the door)': function() {
+                        var button = document.getElementById("leavedoor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    'Crawl through the (floor)': function() {
+                        var button = document.getElementById("crawlfloor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '(Use the) flashlight': function() {
+                        var button = document.getElementById("useflash");
+                        annyang.pause();
+                        button.click();
+                    },
+                    'Replay (Narration)': function() {
+                        annyang.pause();
+                        replay_narration();
+                    }
+                };
+                annyang.removeCommands();
+                annyang.addCommands(commands);
+            }
+            </script>
         `);
     } else {
         play('BS1_3');
@@ -1351,6 +1432,33 @@ const BM = function () {
                 <p id="paragraphs">You fainted. You wake up in a cold room. It is too dark to see. It seems to be the basement. There is a door behind you. What do you do?</p> 
                 <audio controls autoplay loop class="music"><source src="./Assets/BasementSE.mp3" type='audio/mp3'></audio>
             </div>
+            <script>
+            if (annyang) {
+                var commands = {
+                    'Leave (through the door)': function() {
+                        var button = document.getElementById("leavedoor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    'Crawl through the (floor)': function() {
+                        var button = document.getElementById("crawlfloor");
+                        annyang.pause();
+                        button.click();
+                    },
+                    '(Walk by the) wall': function() {
+                        var button = document.getElementById("wallguide");
+                        annyang.pause();
+                        button.click();
+                    },
+                    'Replay (Narration)': function() {
+                        annyang.pause();
+                        replay_narration();
+                    }
+                };
+                annyang.removeCommands();
+                annyang.addCommands(commands);
+            }
+            </script>
         `);
     }
 }
@@ -1370,6 +1478,28 @@ const BDR = function () {
             <p id="paragraphs">You enter the bedroom. Suddenly, the television turns on. What do you do?</p> 
             <audio controls autoplay loop class="music"><source src="./Assets/TelevisionSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                'Turn the television off': function() {
+                    var button = document.getElementById("off");
+                    annyang.pause();
+                    button.click();
+                },
+                'Watch the television': function() {
+                    var button = document.getElementById("watch");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1387,6 +1517,28 @@ const SMTV = function () {
             <p id="paragraphs">You smash the TV with all your strength. It shatters and everything becomes quiet. What do you do?</p> 
             <audio controls autoplay class="music"><source src="./Assets/SmashSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                '(Search the) drawers': function() {
+                    var button = document.getElementById("searchdrawer");
+                    annyang.pause();
+                    button.click();
+                },
+                'Look under the bed': function() {
+                    var button = document.getElementById("underbed");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1431,6 +1583,28 @@ const WTV = function () {
             <p id="paragraphs">You choose to watch the television and you heard a voice to tell you to look under the bed. Which side do you look at?</p> 
             <audio controls autoplay class="music"><source src="./Assets/TelevisionSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                'Left (side of the bed)': function() {
+                    var button = document.getElementById("leftside");
+                    annyang.pause();
+                    button.click();
+                },
+                'Right (side of the bed)': function() {
+                    var button = document.getElementById("rightside");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1446,6 +1620,28 @@ const LUB = function () {
             </div>
             <p id="paragraphs">Which side do you look at?</p> 
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                'Left (side of the bed)': function() {
+                    var button = document.getElementById("leftside");
+                    annyang.pause();
+                    button.click();
+                },
+                'Right (side of the bed)': function() {
+                    var button = document.getElementById("rightside");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1477,6 +1673,28 @@ const LTD = function () {
             <p id="paragraphs">The door is locked. It seems like you need a key to open it. What do you do?</p> 
             <audio controls autoplay class="music"><source src="./Assets/DoorLockedSE.mp3" type='audio/mp3'></audio>
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                'Crawl (through the floor)': function() {
+                    var button = document.getElementById("crawlfloor");
+                    annyang.pause();
+                    button.click();
+                },
+                'Walk (by the wall)': function() {
+                    var button = document.getElementById("wallguide");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1493,6 +1711,28 @@ const TDR = function () {
             </div>
             <p id="paragraphs">You grip your flashlight in your back pocket. You turn it on, and find a drawer. You walk towards the desk with two drawers. Which do you open?</p> 
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                '(Open the) left drawer': function() {
+                    var button = document.getElementById("openleft");
+                    annyang.pause();
+                    button.click();
+                },
+                '(Open the) right drawer': function() {
+                    var button = document.getElementById("openright");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1547,6 +1787,23 @@ const COF = function () {
             </div>
             <p id="paragraphs">You crawl around the room until you find a desk with one drawer. What do you do?</p> 
         </div>
+        <script>
+        if (annyang) {
+            var commands = {
+                '(Open the) right drawer': function() {
+                    var button = document.getElementById("openright");
+                    annyang.pause();
+                    button.click();
+                },
+                'Replay (Narration)': function() {
+                    annyang.pause();
+                    replay_narration();
+                }
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -2955,6 +3212,11 @@ function play(key) {
 // Stop speech
 function stop_speech() {
     speech_inst.cancel()
+}
+
+function replay_narration() {
+    var button = document.getElementById("replay");
+    button.click();
 }
 
 // Narration dictionary
