@@ -1637,10 +1637,28 @@ const GE = function () {
     return $(` 
         <div id="GoodEndingS">
             <div id="buttons">
-                <button class="option" id="replayGame">Replay</button>
+                <button class="option" id="replayGame">Replay game</button>
             </div>
             <p id="paragraphs">You successfully escaped the old mansion! What do you do?</p> 
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Replay game': function() {
+                    var button = document.getElementById("replayGame");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("replayGame");
+                    annyang.pause();
+                    button.click();
+                },
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -1651,10 +1669,28 @@ const BE = function () {
     return $(` 
         <div id="BadEndingS">
             <div id="buttons">
-                <button class="option" id="replayGame">Replay</button>
+                <button class="option" id="replayGame">Replay game</button>
             </div>
             <p id="paragraphs">Game over. What do you do?</p> 
         </div>
+        <script>    
+        if (annyang) {
+            var commands = {
+                'Replay game': function() {
+                    var button = document.getElementById("replayGame");
+                    annyang.pause();
+                    button.click();
+                },
+                '1': function() {
+                    var button = document.getElementById("replayGame");
+                    annyang.pause();
+                    button.click();
+                },
+            };
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+        }
+        </script>
     `);
 }
 
@@ -2198,9 +2234,9 @@ document.getElementById("menu").addEventListener("keypress", function () {
             $('#warningS').remove();
             $('#root').append(SS);
             $("#startS").show();
-            Replay();
             $('audio')[0].play();
             $('audio').prop("volume", 0.1);
+            Replay();
             getCTA();
             getVH();
             getHR();
@@ -3481,7 +3517,7 @@ manuscript.set('S5_4', "Game over. What do you do?")
 manuscript.set('S5_5', "Finally, you see a car in the distance.")
 manuscript.set('S5_6', "You wave at it but it doesn't stop.")
 manuscript.set('S5_7', "But now he is no longer alone. He looks behind him and sees a ghostly figure with a most terrifying face.")
-manuscript.set('S5_8', "Replay")
+manuscript.set('S5_8', "Replay game")
 manuscript.set('SE_1', "What do you do? Visit the house. Hitch a ride. Replay narration.")
 manuscript.set('L1', "It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen.")
 manuscript.set('L1_2', "What do you do? Enter the kitchen. Enter the bedroom. Enter the bathroom. Leave the house. Replay narration.")
@@ -3596,7 +3632,9 @@ function stop_speech() {
 
 function replay_narration() {
     var button = document.getElementById("replay");
-    button.click();
+    console.log(button.parentNode.parentNode.id)
+    stop_speech();
+    dict[button.parentNode.parentNode.id]();
 }
 
 // Narration dictionary
