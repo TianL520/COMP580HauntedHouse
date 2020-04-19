@@ -3,7 +3,7 @@ var hours = 2;
 var hammerW, flashlightW = false;
 ///////////////////////////////////////////////////////Scene setup functions///////////////////////////////////////////////////////
 const WS = function () {
-    play('WS');
+    // play('WS');
     return $(`
         <div id="warningS">
             <div id="buttons">
@@ -1967,7 +1967,7 @@ const WTV = function () {
                     annyang.pause();
                     button.click();
                 },
-                '1' function() {
+                '1': function() {
                     var button = document.getElementById("leftside");
                     annyang.pause();
                     button.click();
@@ -2240,7 +2240,7 @@ document.getElementById("menu").addEventListener("keypress", function () {
             getCTA();
             getVH();
             getHR();
-        }, 7000);
+        }, 1000);
     }
 });
 
@@ -2249,7 +2249,7 @@ function getVH() {
     obj = document.getElementById("visitHouse");
     obj.focus();
     $("#visitHouse").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2277,15 +2277,14 @@ function getVH() {
 function getCTA() {
     obj = document.getElementById("callTripleA");
     $("#callTripleA").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
             $('#root').append(CTA);
             Replay();
             getVH();
-            getCTA();
-            keepwait();
+            getHR();
         } else if (event.keyCode == 40) {
             var x = document.getElementById('HitchRide');
             var y = document.getElementById('wait');
@@ -2296,7 +2295,6 @@ function getCTA() {
             }
         } else if (event.keyCode == 38) {
             document.getElementById('visitHouse').focus();
-
         }
     })
 }
@@ -2305,7 +2303,7 @@ function getCTA() {
 function getHR() {
     obj = document.getElementById("HitchRide");
     $("#HitchRide").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2331,7 +2329,7 @@ function getHR() {
 function keepwait() {
     obj = document.getElementById("wait");
     $("#wait").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
 
             if (hours == 6) {
                 stop_speech();
@@ -2374,7 +2372,7 @@ function kit() {
     obj = document.getElementById("kitchen");
     obj.focus();
     $("#kitchen").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2393,7 +2391,7 @@ function kit() {
 function trytoleavehouse() {
     obj = document.getElementById("leave");
     $("#leave").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2414,7 +2412,7 @@ function hide() {
     obj = document.getElementById("hide");
     // obj.focus();
     $("#hide").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2434,7 +2432,7 @@ function back() {
     obj = document.getElementById("back");
     obj.focus();
     $("#back").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2459,7 +2457,7 @@ function investigatekit() {
     obj = document.getElementById("investigate");
     obj.focus();
     $("#investigate").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2478,7 +2476,7 @@ function searchFri() {
     obj = document.getElementById("searchFridge");
     obj.focus();
     $("#searchFridge").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2497,7 +2495,7 @@ function frired() {
     obj = document.getElementById("red");
     obj.focus();
     $("#red").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2527,7 +2525,7 @@ function frired() {
 function frigreen() {
     obj = document.getElementById("green");
     $("#green").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2548,7 +2546,7 @@ function pickgreen() {
     obj = document.getElementById("pickup");
     obj.focus();
     $("#pickup").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2566,7 +2564,7 @@ function pickgreen() {
 function ignoregreenapple() {
     obj = document.getElementById("ignore");
     $("#ignore").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2592,7 +2590,7 @@ function pressbutton() {
     obj = document.getElementById("press");
     obj.focus();
     $("#press").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2609,7 +2607,7 @@ function pressbutton() {
 function putremote() {
     obj = document.getElementById("putback");
     $("#putback").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2629,7 +2627,7 @@ function putremote() {
 function searchOven() {
     obj = document.getElementById("searchOven");
     $("#searchOven").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2652,7 +2650,7 @@ function searchOven() {
 function clean() {
     obj = document.getElementById("clean");
     $("#clean").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2674,7 +2672,7 @@ function offradio() {
     obj = document.getElementById("turnOffRadio");
     obj.focus();
     $("#turnOffRadio").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2696,7 +2694,7 @@ function offradio() {
 function change() {
     obj = document.getElementById("changeFrequency");
     $("#changeFrequency").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2717,7 +2715,7 @@ function trytoleaveCupboard() {
     obj = document.getElementById("bangCupboard");
     obj.focus();
     $("#bangCupboard").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2736,7 +2734,7 @@ function bangCupboardAgain() {
     obj = document.getElementById("bangEvenMore");
     obj.focus();
     $("#bangEvenMore").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2759,7 +2757,7 @@ function findkey() {
     obj = document.getElementById("lookundermat");
     obj.focus();
     $("#lookundermat").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2777,7 +2775,7 @@ function findkey() {
 function ignoreinstruction() {
     obj = document.getElementById("ignoreinstruction");
     $("#ignoreinstruction").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2798,7 +2796,7 @@ function leavehouse() {
     obj = document.getElementById("leavehouse");
     obj.focus();
     $("#leavehouse").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2822,7 +2820,7 @@ function leaveobject() {
     obj = document.getElementById("leave");
     obj.focus();
     $("#leave").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2843,7 +2841,7 @@ function leaveobject() {
 function keepsearch() {
     obj = document.getElementById("keepsearch");
     $("#keepsearch").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2865,7 +2863,7 @@ function badEndInKit() {
     obj = document.getElementById("lookdoor");
     obj.focus();
     $("#lookdoor").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2886,7 +2884,7 @@ function badEndInKit() {
 function bath() {
     obj = document.getElementById("bathroom");
     $("#bathroom").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2907,7 +2905,7 @@ function turnoffsink() {
     obj = document.getElementById("turnOffSink");
     obj.focus();
     $("#turnOffSink").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2925,7 +2923,7 @@ function turnoffsink() {
 function hideincupboard() {
     obj = document.getElementById("Hideincupboard");
     $("#Hideincupboard").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2945,7 +2943,7 @@ function lockdoor() {
     obj = document.getElementById("LockTheDoor");
     obj.focus();
     $("#LockTheDoor").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2969,7 +2967,7 @@ function leavecup() {
     obj = document.getElementById("Leavecupboard");
     obj.focus();
     $("#Leavecupboard").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -2990,7 +2988,7 @@ function climbvent() {
     obj = document.getElementById("Hideinvent");
     obj.focus();
     $("#Hideinvent").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3017,7 +3015,7 @@ function climbvent() {
 function exitbath() {
     obj = document.getElementById("exitbathroom");
     $("#exitbathroom").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3039,7 +3037,7 @@ function searchcupboard() {
     obj = document.getElementById("searchcup");
     obj.focus();
     $("#searchcup").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3058,7 +3056,7 @@ function breakdowndoor() {
     obj = document.getElementById("breakdoor");
     obj.focus();
     $("#breakdoor").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3082,7 +3080,7 @@ function breakdowndoor() {
 function toiletseat() {
     obj = document.getElementById("openseat");
     $("#openseat").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3103,7 +3101,7 @@ function closetoiletseat() {
     obj = document.getElementById("Closetoiletseat");
     obj.focus();
     $("#Closetoiletseat").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3128,7 +3126,7 @@ function closetoiletseat() {
 function bed() {
     obj = document.getElementById("bathroom");
     $("#bedroom").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3149,7 +3147,7 @@ function toff() {
     obj = document.getElementById("off");
     obj.focus();
     $("#off").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3180,7 +3178,7 @@ function smashtv() {
     obj = document.getElementById("yes");
     obj.focus();
     $("#yes").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3198,7 +3196,7 @@ function smashtv() {
 function doNothingtv() {
     obj = document.getElementById("doNothing");
     $("#doNothing").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3221,7 +3219,7 @@ function drawerinbedroom() {
     obj = document.getElementById("searchdrawer");
     obj.focus();
     $("#searchdrawer").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3245,7 +3243,7 @@ function drawerinbedroom() {
 function lookunderbed() {
     obj = document.getElementById("underbed");
     $("#underbed").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3266,7 +3264,7 @@ function lookleftside() {
     obj = document.getElementById('leftside');
     obj.focus();
     $("#leftside").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3286,7 +3284,7 @@ function lookleftside() {
 function lookrightside() {
     obj = document.getElementById('rightside');
     $("#rightside").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3312,7 +3310,7 @@ function lookrightside() {
 function watchtv() {
     obj = document.getElementById('watch');
     $("#watch").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3339,7 +3337,7 @@ function openright() {
         obj.focus();
     }
     $("#openright").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3374,7 +3372,7 @@ function openleft() {
     obj = document.getElementById('openleft');
     obj.focus();
     $("#openleft").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3399,7 +3397,7 @@ function leavethroughdoor() {
     obj = document.getElementById('leavedoor');
     obj.focus();
     $("#leavedoor").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3417,7 +3415,7 @@ function leavethroughdoor() {
 function walkbythewall() {
     obj = document.getElementById('wallguide');
     $("#wallguide").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3441,7 +3439,7 @@ function walkbythewall() {
 function flashBase() {
     obj = document.getElementById('useflash');
     $("#useflash").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3464,7 +3462,7 @@ function crawlfloor() {
         obj.focus();
     }
     $("#crawlfloor").on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             stop_speech();
             event.preventDefault();
             event.target.parentNode.parentNode.remove();
@@ -3491,7 +3489,7 @@ function ReplayGame() {
     obj = document.getElementById('replayGame');
     obj.focus();
     $('#replayGame').on('keydown click', function () {
-        if (event.keyCode == 32 || event.type == 'click') {
+        if (event.type == 'click') {
             location.reload();
         }
     })
@@ -3516,7 +3514,7 @@ manuscript.set('S5_3', "Still no one, it's getting late.")
 manuscript.set('S5_4', "Game over. What do you do?")
 manuscript.set('S5_5', "Finally, you see a car in the distance.")
 manuscript.set('S5_6', "You wave at it but it doesn't stop.")
-manuscript.set('S5_7', "But now he is no longer alone. He looks behind him and sees a ghostly figure with a most terrifying face.")
+manuscript.set('S5_7', "But now you are no longer alone. You look behind yourself and sees a ghostly figure with a most terrifying face.")
 manuscript.set('S5_8', "Replay game")
 manuscript.set('SE_1', "What do you do? Visit the house. Hitch a ride. Replay narration.")
 manuscript.set('L1', "It is darkly lit and dusty, and full of old paintings on the walls. You notice three different rooms. The bedroom, the bathroom and the kitchen.")
