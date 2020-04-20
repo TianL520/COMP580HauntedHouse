@@ -3690,8 +3690,8 @@ var dict = {
 // Replay narration click function
 const Replay = function () {
     obj = document.getElementsByClassName('Replay')[0];
-    $(".Replay").on('keydown', function (event) {
-        if (event.keyCode == 32) {
+    $(".Replay").on('keydown click', function () {
+        if (event.type == 'click') {
             console.log("Clicked" + event.target.parentNode.parentNode.id)
             stop_speech();
             dict[event.target.parentNode.parentNode.id]();
