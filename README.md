@@ -40,5 +40,5 @@ You may also need headphones/earphones so ambient noise from the game does not i
 3. Alternatively, use the mouse to click, or the up and down arrow keys to navigate through your choices. Then, press enter to select the highlighted choice.
 
 # Things To Be Aware Of
-1. Night of Terror" contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play. The authors take no responsibilities for any trouble that arises from playing this game.
+1. "Night of Terror" contains sudden surprises and harsh images. The weak of heart and those poor with horror should not play. The authors take no responsibilities for any trouble that arises from playing this game.
 2. Please avoid clicking anything other than the choices during gameplay or it may result in the focus reposition. However, try using the Tab key and see if it fixes your problem.
