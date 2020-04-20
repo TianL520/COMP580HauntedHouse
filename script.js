@@ -3,7 +3,7 @@ var hours = 2;
 var hammerW, flashlightW = false;
 ///////////////////////////////////////////////////////Scene setup functions///////////////////////////////////////////////////////
 const WS = function () {
-    // play('WS');
+    play('WS');
     return $(`
         <div id="warningS">
             <div id="buttons">
@@ -2240,7 +2240,7 @@ document.getElementById("menu").addEventListener("keypress", function () {
             getCTA();
             getVH();
             getHR();
-        }, 1000);
+        }, 7000);
     }
 });
 
