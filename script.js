@@ -269,7 +269,7 @@ const KWBE = function () {
             <div id="buttons">
                 <button class="hiddenOption">Placeholder</button>
             </div>
-            <p id="paragraphsHours">But now you are no longer alone. You look behind and see a ghostly figure with the most terrifying face.</p> 
+            <p id="paragraphsHours">But now you are no longer alone. You look behind yourself and see a ghostly figure with the most terrifying face.</p> 
             <audio controls autoplay class="music"><source src="./Assets/ScreamSE.mp3" type='audio/mp3'></audio>
         </div>
     `);
@@ -2341,7 +2341,19 @@ function keepwait() {
                     $('#root').append(BE);
                     ReplayGame();
                 }, 8000);
-            } else {
+            } else if (hours == 5) {
+                stop_speech();
+                event.preventDefault();
+                event.target.parentNode.parentNode.remove();
+                manuscript.set('S5', "You waited for " + hours + " hours but no one passes by. You start to have a bad feeling of someone is staring at you in the dark.")
+                $('#root').append(KW);
+                Replay();
+                document.getElementById('paragraphsHours').innerHTML = "You waited for " + hours + " hours but no one passes by. You start to have a bad feeling of someone is staring at you in the dark. What do you do?";
+                hours++;
+                keepwait();
+                getVH();
+            } 
+            else {
                 stop_speech();
                 event.preventDefault();
                 event.target.parentNode.parentNode.remove();
