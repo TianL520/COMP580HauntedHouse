@@ -1,7 +1,7 @@
 # COMP580HauntedHouse
 
 # Project Link
-https://mcay23.github.io/COMP580HauntedHouse/
+https://mcay23.github.io/COMP580HauntedHouse/ (Please use Firefox!)
 
 # Description
 "Night of Terror" is a voice-recognition and keyboard based “choose your own adventure” style web game aimed for the visually impaired. Our audience is visually impaired kids of elementary school age to high school age. The game is fully controllable using voice commands or the keyboard. The narrator reads out the choices for the player, who then responds through the microphone. The story branches into several different endings (2 good endings and 4 bad endings), and each branch should take about 5 minutes to traverse from start to finish. The game is meant to be replayable, and players are expected to restart the game to try and discover the different endings. The story is based in a haunted house. This theme allows us to focus on crafting an auditory experience that the visually impaired will enjoy. There are also a few easter eggs in the game awaiting for you to find out!
