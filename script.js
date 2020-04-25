@@ -1,6 +1,9 @@
+// Focus on the menu video by default
+document.getElementById("menu").focus();
 var speech_inst = window.speechSynthesis
 var hours = 2;
 var hammerW, flashlightW = false;
+
 ///////////////////////////////////////////////////////Scene setup functions///////////////////////////////////////////////////////
 const WS = function () {
     play('WS');
