@@ -1,3 +1,16 @@
-4 May noon: Projects are due. Each repo should include a Report.md which will constitute your final report. 
-Your report should include a description of your project, its intended audience, the technologies, frameworks, libraries used, 
-how to build and deploy it, problems encountered and future work.
+# Night of Terror
+By: Marcel Yuwono, Tian Liu, Tingting Wu
+# Description
+"Night of Terror" is a voice-recognition and keyboard based “choose your own adventure” style web game aimed for the visually impaired. Our audience is visually impaired kids of elementary school age to high school age. The game is fully controllable using voice commands or the keyboard. The narrator reads out the choices for the player, who then responds through the microphone. The story branches into several different endings (2 good endings and 4 bad endings), and each branch should take about 5 minutes to traverse from start to finish. The game is meant to be replayable, and players are expected to restart the game to try and discover the different endings. The story is based in a haunted house. This theme allows us to focus on crafting an auditory experience that the visually impaired will enjoy. 
+
+# Technologies
+The game is written with HTML, CSS, and JavaScript for Mozilla Firefox. We use [annyang!](https://github.com/TalAter/annyang), a wrapper for Google's Web Speech API to handle voice commands. Voice synthesis is also done using Web Speech. Images are obtained from the internet and edited using Photoshop/SAI. Sound and music are royalty-free and some are digitally altered using different tools for our purposes. The story is self-written. The website is hosted through Github Pages. 
+
+# Building the Game Locally
+Playing the game locally is easy. Just clone the repo, and open "index.html" using Firefox.
+
+# Challenges
+The greatest challenge we faced was getting speech recognition to work on our game. Firefox support for the Web Speech API is more restricted than with Chrome, and some permissions need to be enabled manually for the microphone to work. Web Speech API's voice recognition does not work as well as today's voice assistants (Siri, Google, etc.) and is more prone to errors. This became a problem for people whom English is not their first language/have an accent. We routinely had a problem with the engine detecting similar sounding words incorrectly, eg. "hide" is often detected as "height". These errors would prevent the commands from being triggered. To mitigate this, we added the option to speak 'first', 'second', 'third', etc. to select the first, second and third choice. Ideally, this would notn have to be used, but given the current limitations of the API, this was the best option for us.
+
+# Future Work 
+The [annyang!](https://github.com/TalAter/annyang) works well for voice commands, but is not completely suited for our game setting. It lacks the ability to detect and compare similar strings and requires each command to be activated using a precise string of words. For example, a command like "visit the house" can only be activated by saying those exact words in the exact order, and not by anything else. We have to manually edit in additional phrases to have different phrases activate the same command. Ideally, we want the game to be able to detect proximal commands, such that simply saying "house", "go to the house", or "visit house" can activate the same command without having to hard code each option manually. Additionally, Web Speech API's voice recognition has difficulty recognizing single letters such as 'A' or 'B' which was why we coded 'first', 'second', 'third' as the alternate choice for the options. Considering this, and the dated capabilities of the Web Speech Voice Recognition API compared to stronger voice engines today, using a completely different voice engine may be a good idea for future development.
